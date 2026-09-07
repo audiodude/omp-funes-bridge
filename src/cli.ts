@@ -2,11 +2,11 @@
 import { getAgentDir, getSessionsDir } from '@oh-my-pi/pi-utils/dirs';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { CONFIG_NAME, readConfig, readReceipts } from './config.ts';
+import { CONFIG_NAME, OMP_VERSION, readConfig, readReceipts } from './config.ts';
 import { install, uninstall } from './install.ts';
 import { Scheduler } from './scheduler.ts';
 
-const HELP = `OMP–Funes local memory bridge (pinned OMP 18.1.12)
+const HELP = `OMP–Funes local memory bridge (pinned OMP ${OMP_VERSION})
 
   bun run bridge paths
   bun run bridge install --funes-bin /absolute/patched/funes [--omp-bin omp]

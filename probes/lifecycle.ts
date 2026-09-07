@@ -40,6 +40,7 @@ export default function probe(pi: ExtensionAPI): void {
       });
       stopWatching = () => watcher.close();
     });
+    console.error('LIFECYCLE_PROBE_READY');
   });
   pi.on('message_update',(_,ctx) => { if (aborted && !abortedOnce) {abortedOnce=true;ctx.abort();} });
   pi.on('message_end',async (event,ctx) => {

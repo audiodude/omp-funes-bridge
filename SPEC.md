@@ -106,12 +106,16 @@ stock Funes' Pi parser does not satisfy the message-only OMP provenance contract
 
 ### Pinned build
 
-- OMP `18.1.12`, upstream commit `4f429faef639d182633d1cb3f6a15254adcf25c1`.
+- OMP `18.1.13`, upstream commit `a1b254047d12e143b7c6011536e918c6c35c5906`.
 - Funes `1.3.0+dev`, upstream commit `90507de6bf4a8bedd32aa8acfc0502483d82fbdf`,
   plus the complete recorded patch. The installer records the executable SHA-256;
   replacement of that executable stops indexing until an explicit reinstall.
 - Bun `1.4.0`; tested Rust/Cargo `1.98.1`, LLD `18.1.3`, Linux x86-64.
   These are the verified versions, not a claim of broad compatibility.
+
+The upstream Funes code modified by `patches/funes.patch` is Apache-2.0 licensed;
+its license is retained in `patches/FUNES-LICENSE`. This is a third-party notice,
+not a license designation for the entire bridge.
 
 From this repository:
 
@@ -265,12 +269,57 @@ No claim of guaranteed model tool selection or citation discipline is made.
 
 ## Verification record
 
-Machine-specific results and synthetic citations are recorded in
-`verification/results.json`; reproducible scenario code is under `probes/`.
+Current patch-release compatibility evidence is recorded in
+`verification/omp-18.1.13.json`. The original OMP 18.1.12 measurements and synthetic
+citations remain unchanged in `verification/results.json`; reproducible scenario
+code is under `probes/`.
 Initial probes used the stock release and established native MCP recall and
 live-reader behavior before the OMP-specific patch and onboarding implementation.
 Subsequent probes used the recorded patched build. Raw thinking/provider payloads
 and credentials are not part of the verification record.
+
+### OMP 18.1.13 compatibility
+
+The upstream comparison from 18.1.12 to 18.1.13 changes child-environment handling
+and terminal notification routing, but not session persistence, lifecycle APIs,
+directory resolution, or native MCP implementation. The installed Linux x64
+executable matched the official release asset's SHA-256. The exact patched Funes
+executable and patch are unchanged; no Funes rebuild was needed.
+
+Fresh, isolated 18.1.13 runs verified:
+
+- Eight directory-resolution cases against native OMP.
+- Completed and aborted assistant persistence: `message_end` and `turn_end`
+  precede the durable file record; filesystem observation sees the final record.
+- Native MCP recall/get, graph context, text exclusions, and live-reader refresh.
+  Explicit MCP memory configuration also won over a conflicting project `.env`;
+  the decoy memory directory was never created.
+- Repeatable installation/removal and preservation of unrelated configuration,
+  transcripts, and derived memory.
+- Partial tails, idempotence, writer contention, killed-writer recovery, final
+  arrivals, scanner failure, and three recursion cycles.
+- Existing-index startup (`checking` → `current`), rendered TUI footer and
+  `/funes-status` under an SSH xterm PTY, and the two Bun regressions. Herdr-specific
+  terminal integration was not exercised.
+
+The fresh small workload committed 12 chunks from three sources in 4.00 seconds;
+warm coverage took 8.61 seconds and reopening took 0.88 seconds. Background-indexer
+peak RSS was 293,444 KiB and scheduler p99 was 2.13 ms. The 131-session benchmark
+below was not repeated for this patch release.
+
+An initial fault run overlapped other retrieval readers and suffered a
+kernel-confirmed OOM kill in the 8 GiB VM. The same scenarios passed in a fresh
+fixture without competing readers. The native retrieval memory cost remains
+material; this upgrade does not reduce it.
+
+Two fresh Opus 4.6/high sessions spontaneously recalled, cited full provenance,
+and distinguished accepted choices from unverified reports. One answer still
+overstated that no test output was preserved: excluded index content cannot prove
+absence in original transcripts. Both complete answers are retained, including
+that limitation; provenance guidance is not a factual-correctness guarantee.
+No real history was enrolled and no live OMP configuration was changed.
+
+### OMP 18.1.12 baseline measurements
 
 The normal-load performance harness uses the local Ubuntu 24.04 VM on this host,
 8 vCPUs and approximately 8 GiB RAM, warmed inference-model downloads, no artificial
@@ -319,6 +368,8 @@ indexing policy are unchanged; startup status now reports unknown coverage as
 `checking` rather than incorrectly claiming no index exists. Benchmark and final
 source/executable hashes are retained separately in the JSON record.
 
+### Reproduction
+
 The retained probes require explicit isolated paths. They create/append synthetic
 sessions and, for fault scenarios, interrupt writers or truncate synthetic files.
 **Never point probes at real history, a real agent directory, or existing memory.**
@@ -357,6 +408,26 @@ visible through the existing reader. It uses the installed memory configuration,
 asserts identical reader/writer builds, and runs outside the 30-second lifecycle
 hook deadline.
 
+For lifecycle timing, use an explicit session and keep RPC stdin open. An
+extension-defined model must use the qualified selector below, not a separate
+`--provider` option:
+
+```sh
+export PROBE_ROOT=/absolute/empty/lifecycle-probe
+PI_CODING_AGENT_DIR="$PROBE_ROOT/agent" PROBE_ABORT=0 \
+  "$OMP_BIN" --model funes-probe/synthetic --mode rpc \
+  --session "$PROBE_ROOT/session.jsonl" \
+  --no-extensions --no-skills --no-rules --no-title --no-lsp \
+  --extension "$PWD/probes/lifecycle.ts"
+```
+
+After `LIFECYCLE_PROBE_READY`, send this line on stdin:
+`{"type":"prompt","message":"synthetic","id":"lifecycle"}`.
+Wait for `LIFECYCLE_COMPLETE_PASS` and the proof JSON before terminating.
+Repeat in another empty root with `PROBE_ABORT=1` for `LIFECYCLE_ABORT_PASS`.
+A one-shot JSON invocation can exit before the asynchronous proof is written;
+absence of a proof in that mode does not establish a persistence regression.
+
 Fixture generation exits inside its startup hook; the synthetic OpenAI value
 selects the configured model without making a provider request. Real spontaneous
 recall verification is different: use a trusted configured provider, a fresh
@@ -367,7 +438,7 @@ without requesting a memory lookup. Assess full citations, abandoned decisions,
 unknown supersession, and the distinction between reports and verification.
 Tool selection alone is not the acceptance test.
 
-The final two fresh `anthropic/claude-opus-4-6` sessions, with high reasoning,
+The original 18.1.12 verification's final two fresh `anthropic/claude-opus-4-6` sessions, with high reasoning,
 spontaneously used native recall, cited complete session and entry IDs,
 distinguished rejected/superseded choices, treated reviewer claims as reports
 rather than independent verification, and disclosed unknown current applicability.
