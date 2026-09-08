@@ -106,7 +106,7 @@ stock Funes' Pi parser does not satisfy the message-only OMP provenance contract
 
 ### Pinned build
 
-- OMP `18.1.13`, upstream commit `a1b254047d12e143b7c6011536e918c6c35c5906`.
+- OMP `18.1.14`, upstream commit `daf07999c2fee9b22edc7bf8fea1fb6272e0df5e`.
 - Funes `1.3.0+dev`, upstream commit `90507de6bf4a8bedd32aa8acfc0502483d82fbdf`,
   plus the complete recorded patch. The installer records the executable SHA-256;
   replacement of that executable stops indexing until an explicit reinstall.
@@ -270,6 +270,7 @@ No claim of guaranteed model tool selection or citation discipline is made.
 ## Verification record
 
 Current patch-release compatibility evidence is recorded in
+`verification/omp-18.1.14.json`; the previous patch-release record remains in
 `verification/omp-18.1.13.json`. The original OMP 18.1.12 measurements and synthetic
 citations remain unchanged in `verification/results.json`; reproducible scenario
 code is under `probes/`.
@@ -277,6 +278,31 @@ Initial probes used the stock release and established native MCP recall and
 live-reader behavior before the OMP-specific patch and onboarding implementation.
 Subsequent probes used the recorded patched build. Raw thinking/provider payloads
 and credentials are not part of the verification record.
+
+### OMP 18.1.14 compatibility
+
+The 18.1.13 → 18.1.14 comparison leaves SessionManager, lifecycle APIs, directory
+resolution, and native MCP implementation unchanged. AgentSession now defers idle
+compaction while async wakes are pending; CLI subprocess workers gained parent
+liveness checks. The installed CLI reports `omp/18.1.14`. Funes and its recorded
+executable hash are unchanged; no rebuild was needed.
+
+Fresh isolated synthetic probes on the Linux x86-64 host passed eight directory
+cases, completed and aborted persistence, native MCP recall/get and live-reader
+refresh, repeatable installation/removal with unrelated-state preservation,
+existing-index startup, and both Bun regressions.
+
+The three-source workload committed 12 chunks in 12.67 seconds. Coverage for an
+arrival during import took 5.68 seconds, warm coverage 11.40 seconds, and reopening
+2.55 seconds. Indexer peak RSS was 289,288 KiB; scheduler p99 was 0.67 ms.
+These host measurements are not directly comparable with the earlier VM runs.
+The large benchmark, fault scenarios, spontaneous recall evaluation, and rendered
+TUI were not repeated.
+
+The existing live installation was refreshed without changing its enrolled roots,
+memory location, Funes binary, or MCP configuration. No additional history roots
+were enrolled. Already-running OMP sessions must restart to load the refreshed
+extension; this record does not assert live indexing coverage.
 
 ### OMP 18.1.13 compatibility
 

@@ -2,7 +2,7 @@ import { lstat, mkdir, realpath, rename, stat, unlink } from 'node:fs/promises';
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
 
 export const OWNER = 'omp-funes-bridge';
-export const OMP_VERSION = '18.1.13';
+export const OMP_VERSION = '18.1.14';
 export const FUNES_REVISION = '90507de6bf4a8bedd32aa8acfc0502483d82fbdf';
 export const CONFIG_NAME = 'funes-bridge.json';
 export const SERVER_NAME = 'funes_bridge';
