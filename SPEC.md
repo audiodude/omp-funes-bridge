@@ -106,7 +106,7 @@ stock Funes' Pi parser does not satisfy the message-only OMP provenance contract
 
 ### Pinned build
 
-- OMP `18.1.14`, upstream commit `daf07999c2fee9b22edc7bf8fea1fb6272e0df5e`.
+- OMP `18.1.15`, upstream commit `a33cc26824e3c91edd9fa42d681f10dceb4ac2f0`.
 - Funes `1.3.0+dev`, upstream commit `90507de6bf4a8bedd32aa8acfc0502483d82fbdf`,
   plus the complete recorded patch. The installer records the executable SHA-256;
   replacement of that executable stops indexing until an explicit reinstall.
@@ -270,14 +270,43 @@ No claim of guaranteed model tool selection or citation discipline is made.
 ## Verification record
 
 Current patch-release compatibility evidence is recorded in
-`verification/omp-18.1.14.json`; the previous patch-release record remains in
-`verification/omp-18.1.13.json`. The original OMP 18.1.12 measurements and synthetic
+`verification/omp-18.1.15.json`; previous patch-release records remain in
+`verification/omp-18.1.14.json` and `verification/omp-18.1.13.json`. The original OMP 18.1.12 measurements and synthetic
 citations remain unchanged in `verification/results.json`; reproducible scenario
 code is under `probes/`.
 Initial probes used the stock release and established native MCP recall and
 live-reader behavior before the OMP-specific patch and onboarding implementation.
 Subsequent probes used the recorded patched build. Raw thinking/provider payloads
 and credentials are not part of the verification record.
+
+### OMP 18.1.15 compatibility
+
+The upstream comparison changes synchronous session replacement after rename
+denial, advisor delivery/budgets, pooled-worker wake handling, and browser
+turn-settle behavior. SessionManager, extension API definitions, native MCP,
+and directory resolvers have no source changes in the release comparison.
+No bridge API adaptation or Funes rebuild was required.
+
+Fresh Linux x86-64 synthetic probes passed all eight directory-resolution cases,
+completed and aborted persistence, native MCP recall/get and live-reader refresh,
+repeatable installation/removal with unrelated-state preservation, existing-index
+startup, and both Bun regressions. The upgraded extension also ran inside OMP
+18.1.15 and made a fresh persisted append searchable through ranked recall in
+8.83 seconds.
+
+The three-source workload committed 12 chunks in 10.06 seconds. Coverage for an
+arrival during import took 3.80 seconds, warm coverage 11.21 seconds, and reopening
+2.44 seconds. Indexer peak RSS was 278,516 KiB; scheduler p99 was 0.54 ms.
+These host measurements are not directly comparable with earlier VM runs.
+
+The large benchmark, fault matrix (including forced rename denial), spontaneous
+model recall, and rendered TUI were not repeated. Synthetic fixtures retain
+child/advisor provenance but do not exercise the new live advisor-budget or pooled
+worker behavior. Historical verification records remain unchanged.
+
+The existing live installation was refreshed with identical enrollment, memory,
+Funes binary, and MCP configuration. Restart existing OMP sessions to load the
+updated version guard; live real-history coverage was not measured.
 
 ### OMP 18.1.14 compatibility
 

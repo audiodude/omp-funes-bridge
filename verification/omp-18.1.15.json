@@ -1,0 +1,394 @@
+{
+  "date": "2026-09-09T02:09:51.492Z",
+  "ompVersion": "18.1.15",
+  "upstreamCommit": "a33cc26824e3c91edd9fa42d681f10dceb4ac2f0",
+  "upstreamChangedFiles": [
+    "Cargo.lock",
+    "Cargo.toml",
+    "bun.lock",
+    "crates/pi-ast/src/language/mod.rs",
+    "crates/pi-natives/src/lib.rs",
+    "docs/notebook-tool-runtime.md",
+    "docs/tui-runtime-internals.md",
+    "flake.nix",
+    "nix/bun.nix",
+    "nix/dev-shell.nix",
+    "package.json",
+    "packages/agent/package.json",
+    "packages/ai/CHANGELOG.md",
+    "packages/ai/package.json",
+    "packages/ai/src/error/flags.ts",
+    "packages/ai/src/registry/oauth/github-copilot.ts",
+    "packages/ai/test/github-copilot-error.test.ts",
+    "packages/ai/test/github-copilot-login.test.ts",
+    "packages/ai/test/google-gemini3-unsigned-tool-call.test.ts",
+    "packages/catalog/package.json",
+    "packages/catalog/scripts/compat-compiler/compile-cascade.ts",
+    "packages/catalog/src/compat/cascade.ts",
+    "packages/catalog/src/compat/delegation.ts",
+    "packages/catalog/src/compat/resolve.ts",
+    "packages/catalog/src/compat/rules.json",
+    "packages/catalog/src/compat/rules/README.md",
+    "packages/catalog/src/compat/rules/classes/gemini.kdl",
+    "packages/catalog/src/compat/types.ts",
+    "packages/catalog/test/compat-cascade.test.ts",
+    "packages/coding-agent/CHANGELOG.md",
+    "packages/coding-agent/package.json",
+    "packages/coding-agent/src/advisor/advise-tool.ts",
+    "packages/coding-agent/src/advisor/config.ts",
+    "packages/coding-agent/src/advisor/emission-guard.ts",
+    "packages/coding-agent/src/cli.ts",
+    "packages/coding-agent/src/config/settings-schema.ts",
+    "packages/coding-agent/src/eval/executor-base.ts",
+    "packages/coding-agent/src/eval/kernel-session-registry.ts",
+    "packages/coding-agent/src/exec/bash-executor.ts",
+    "packages/coding-agent/src/lsp/defaults.json",
+    "packages/coding-agent/src/main.ts",
+    "packages/coding-agent/src/modes/components/advisor-config.ts",
+    "packages/coding-agent/src/modes/components/model-browser.ts",
+    "packages/coding-agent/src/modes/components/model-hub.ts",
+    "packages/coding-agent/src/modes/components/usage-dashboard.ts",
+    "packages/coding-agent/src/modes/controllers/selector-controller.ts",
+    "packages/coding-agent/src/modes/interactive-mode.ts",
+    "packages/coding-agent/src/prompts/advisor/system.md",
+    "packages/coding-agent/src/prompts/tools/ast-grep.md",
+    "packages/coding-agent/src/prompts/tools/browser.md",
+    "packages/coding-agent/src/sdk.ts",
+    "packages/coding-agent/src/session/agent-session-types.ts",
+    "packages/coding-agent/src/session/agent-session.ts",
+    "packages/coding-agent/src/session/irc-bridge.ts",
+    "packages/coding-agent/src/session/retry-fallback-chains.ts",
+    "packages/coding-agent/src/session/session-advisors.ts",
+    "packages/coding-agent/src/session/session-storage.ts",
+    "packages/coding-agent/src/session/ttsr-coordinator.ts",
+    "packages/coding-agent/src/session/turn-recovery.ts",
+    "packages/coding-agent/src/task/executor.ts",
+    "packages/coding-agent/src/task/index.ts",
+    "packages/coding-agent/src/task/render.ts",
+    "packages/coding-agent/src/task/types.ts",
+    "packages/coding-agent/src/task/workpool.ts",
+    "packages/coding-agent/src/tools/ast-grep.ts",
+    "packages/coding-agent/src/tools/browser.ts",
+    "packages/coding-agent/src/tools/browser/declarations.d.ts",
+    "packages/coding-agent/src/tools/browser/prelude.py",
+    "packages/coding-agent/src/tools/browser/tab-supervisor.ts",
+    "packages/coding-agent/src/tools/eval-render.ts",
+    "packages/coding-agent/src/tools/hub/jobs.ts",
+    "packages/coding-agent/src/tools/hub/types.ts",
+    "packages/coding-agent/src/tools/index.ts",
+    "packages/coding-agent/src/tools/render-utils.ts",
+    "packages/coding-agent/src/tui/tree-list.ts",
+    "packages/coding-agent/src/tui/types.ts",
+    "packages/coding-agent/src/utils/lang-from-path.ts",
+    "packages/coding-agent/test/advisor-toggle.test.ts",
+    "packages/coding-agent/test/advisor/advisor.test.ts",
+    "packages/coding-agent/test/advisor/config.test.ts",
+    "packages/coding-agent/test/advisor/emission-guard.test.ts",
+    "packages/coding-agent/test/agent-session-aside-delivery.test.ts",
+    "packages/coding-agent/test/agent-session-concurrent.test.ts",
+    "packages/coding-agent/test/agent-session-retry-fallback.test.ts",
+    "packages/coding-agent/test/bash-failure-result.test.ts",
+    "packages/coding-agent/test/core/python-executor-lifecycle.test.ts",
+    "packages/coding-agent/test/core/python-runner.integration.test.ts",
+    "packages/coding-agent/test/eval/browser-prelude-facade.test.ts",
+    "packages/coding-agent/test/eval/kernel-session-registry.test.ts",
+    "packages/coding-agent/test/helpers/session-defaults.ts",
+    "packages/coding-agent/test/issue-2750-subagent-runtime-fallback.test.ts",
+    "packages/coding-agent/test/job-model-badge-renderer.test.ts",
+    "packages/coding-agent/test/sdk-workpool-yield-schema.test.ts",
+    "packages/coding-agent/test/selector-settings-side-effects.test.ts",
+    "packages/coding-agent/test/session-storage.test.ts",
+    "packages/coding-agent/test/subagent-hud-render.test.ts",
+    "packages/coding-agent/test/task/autoload-skills.test.ts",
+    "packages/coding-agent/test/task/executor-async-quiescence.test.ts",
+    "packages/coding-agent/test/task/executor-deferred-cleanup.test.ts",
+    "packages/coding-agent/test/task/executor-launch-startup.test.ts",
+    "packages/coding-agent/test/task/executor-pass-through.test.ts",
+    "packages/coding-agent/test/task/executor-prewalk.test.ts",
+    "packages/coding-agent/test/task/executor-recent-output.test.ts",
+    "packages/coding-agent/test/task/executor-soft-budget.test.ts",
+    "packages/coding-agent/test/task/executor-structured-sidecar.test.ts",
+    "packages/coding-agent/test/task/executor-subagent-reminders.test.ts",
+    "packages/coding-agent/test/task/executor-wall-clock.test.ts",
+    "packages/coding-agent/test/task/persisted-revive.test.ts",
+    "packages/coding-agent/test/task/subagent-lsp.test.ts",
+    "packages/coding-agent/test/task/task-guards.test.ts",
+    "packages/coding-agent/test/task/task-progress-render.test.ts",
+    "packages/coding-agent/test/task/task-spawn.test.ts",
+    "packages/coding-agent/test/task/workpool.test.ts",
+    "packages/coding-agent/test/tools/ast-grep.test.ts",
+    "packages/coding-agent/test/tools/browser-freeze-settle.test.ts",
+    "packages/coding-agent/test/tools/eval-agent-progress.test.ts",
+    "packages/coding-agent/test/tools/irc.test.ts",
+    "packages/coding-agent/test/tools/lsp-regressions.test.ts",
+    "packages/coding-agent/test/tools/render-utils.test.ts",
+    "packages/coding-agent/test/tui-tree-list-collapsed-lines.test.ts",
+    "packages/coding-agent/test/usage-dashboard.test.ts",
+    "packages/coding-agent/test/utils/lang-from-path.test.ts",
+    "packages/coding-agent/test/worker-selector.test.ts",
+    "packages/mnemopi/package.json",
+    "packages/natives/CHANGELOG.md",
+    "packages/natives/native/index.d.ts",
+    "packages/natives/native/index.js",
+    "packages/natives/package.json",
+    "packages/omptype/package.json",
+    "packages/snapcompact/package.json",
+    "packages/stats/package.json",
+    "packages/tui/CHANGELOG.md",
+    "packages/tui/package.json",
+    "packages/tui/src/tui.ts",
+    "packages/tui/test/helpers/terminal-multiplexer.ts",
+    "packages/tui/test/resize-alt-toggle-echo.test.ts",
+    "packages/tui/test/resize-multiplexer-anchor.test.ts",
+    "packages/tui/test/resize-preserved-clear.test.ts",
+    "packages/utils/package.json",
+    "packages/wire/package.json"
+  ],
+  "sourceReview": "Synchronous session replacement after rename denial, advisor delivery/budgets, pooled-worker wake handling and browser turn-settle behavior changed. No source changes to SessionManager, extension API definitions, native MCP or directory resolvers. No bridge API adaptation required.",
+  "funesSha256": "77d6741c114cb4dc629efe191cde732aa167f5455ee65bec0ced942dcad51dd9",
+  "funesRebuilt": false,
+  "environment": "Linux x86-64 host; isolated synthetic archives/agent directories/memory; existing model cache",
+  "benchmark": {
+    "fixtureSessions": 3,
+    "sessions": 3,
+    "sources": 3,
+    "completedMessages": 12,
+    "chunks": 12,
+    "backfillMs": 10064.26339,
+    "duringBackfillMs": 3795.760663,
+    "pendingAtArrivalCoverage": 3,
+    "warmUpdateMs": 11210.913922000002,
+    "reopenMs": 2438.548587000001,
+    "maxIndexerRssKiB": 278516,
+    "maxFunesRssKiB": 2328608,
+    "maxBridgeRssBytes": 78598144,
+    "eventLoopP95Ms": 0.188927,
+    "eventLoopP99Ms": 0.540159,
+    "events": [
+      {
+        "at": 0.15100399999994352,
+        "phase": "checking",
+        "operation": "discover",
+        "pending": 0
+      },
+      {
+        "at": 169.44900400000006,
+        "phase": "never-indexed",
+        "operation": "idle",
+        "pending": 3
+      },
+      {
+        "at": 172.9540239999999,
+        "phase": "never-indexed",
+        "operation": "index",
+        "pending": 3
+      },
+      {
+        "at": 3211.1121639999997,
+        "phase": "stale",
+        "operation": "idle",
+        "pending": 3
+      },
+      {
+        "at": 3211.304707,
+        "phase": "stale",
+        "operation": "index",
+        "pending": 3
+      },
+      {
+        "at": 5465.902701000001,
+        "phase": "catching-up",
+        "operation": "idle",
+        "pending": 2
+      },
+      {
+        "at": 5466.071849,
+        "phase": "catching-up",
+        "operation": "index",
+        "pending": 2
+      },
+      {
+        "at": 7742.709865999999,
+        "phase": "catching-up",
+        "operation": "idle",
+        "pending": 1
+      },
+      {
+        "at": 7742.862513,
+        "phase": "catching-up",
+        "operation": "index",
+        "pending": 1
+      },
+      {
+        "at": 10053.274506,
+        "phase": "current",
+        "operation": "idle",
+        "pending": 0
+      },
+      {
+        "at": 20054.496615,
+        "phase": "catching-up",
+        "operation": "idle",
+        "pending": 2
+      },
+      {
+        "at": 20054.675331000002,
+        "phase": "catching-up",
+        "operation": "index",
+        "pending": 2
+      }
+    ]
+  },
+  "roots": [
+    {
+      "case": "default",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "custom-agent",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/custom",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/custom/sessions"
+    },
+    {
+      "case": "named-profile",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "empty-canonical-profile",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-not-migrated",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-default",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/xdg/omp/sessions"
+    },
+    {
+      "case": "xdg-profile-not-migrated",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "xdg-profile",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/roots/xdg/omp/profiles/work/sessions",
+      "profile": "work"
+    }
+  ],
+  "installation": {
+    "repeatableInstall": true,
+    "repeatableRemoval": true,
+    "unrelatedMcpAndBackendPreserved": true,
+    "transcriptsAndDerivedMemoryPreserved": true,
+    "symlinkAgentWorks": true,
+    "externalSourceSymlinkNotEnrolled": true,
+    "customRootsRequireEnrollment": true,
+    "conflictingOwnershipRejected": true
+  },
+  "startup": {
+    "previousIndexPreserved": true,
+    "phases": [
+      "checking",
+      "catching-up",
+      "catching-up",
+      "current"
+    ],
+    "final": {
+      "phase": "current",
+      "operation": "idle",
+      "roots": [
+        "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive"
+      ],
+      "pending": 0,
+      "scanner": "scanned",
+      "lastSuccess": "2026-09-09T02:07:48.143858455+00:00"
+    }
+  },
+  "nativeMcp": {
+    "tools": [
+      "mcp__funes_bridge_get",
+      "mcp__funes_bridge_recall",
+      "mcp__funes_bridge_scan",
+      "mcp__funes_bridge_sessions",
+      "mcp__funes_bridge_sketch",
+      "mcp__funes_bridge_status"
+    ],
+    "recalled": "OMP historical archive 01a083eb-3b94-7220-8304-065f6eba4ea1: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl (snapshot 5595:1788919658992718378:1788919658992718378:40899141; parse complete: true).\nArchive control 1832dc31 type=branch_summary parent=a09c57e0 links={\"fromId\":\"a09c57e0\"}.\nArchive control 8a6377b1 type=compaction parent=fa3b97d2 links={\"firstKeptEntryId\":\"a09c57e0\"}.\nArchive control c4ae32e3 type=reset_boundary parent=8a6377b1 links={}.\nEntry a09c57e0 parent=root metadata={\"role\":\"user\"}.\nEntry d2d65dc4 parent=a09c57e0 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\nEntry bf3a5d52 parent=1832dc31 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 50fcd15d parent=9ec53298 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry e84309bc parent=50fcd15d metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry aa5675e3 parent=e84309bc metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nOMP historical archive 01a083eb-3ba4-73f8-9c9a-cc9063debaad: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview.jsonl (snapshot 1492:1735689600000000000:1788919626668852448:40899143; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl (session 01a083eb-3b94-7220-8304-065f6eba4ea1). Structural ownership does not establish the immediate spawning agent.\nEntry ee9d370b parent=f6b4750f metadata={\"role\":\"user\"}.\n  Graph ancestor f6b4750f type=session_init metadata={}.\nOMP historical archive 01a083eb-3bac-7186-88cf-e49a99d21b4d: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview/__advisor.jsonl (snapshot 1210:1735689600000000000:1788919626668852448:40899145; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview.jsonl (session 01a083eb-3ba4-73f8-9c9a-cc9063debaad). Structural ownership does not establish the immediate spawning agent.\nEntry 7cf862cf parent=243a8156 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n[2026-09-09T02:07:06.645Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.997\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 0 --to 5 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 2, turn bf3a5d52]. Current applicability and supersession are unknown.]\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n  ~ [assistant text seq1] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n  ~ [user text seq3] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 3] [Archived statement, not independent verification] The durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-09T02:07:06.644Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.696\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 0, turn a09c57e0]. Current applicability and supersession are unknown.]\nCerulean is an offline kiosk. What persistence approach should we use?\n  ~ [assistant text seq1] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-09T02:07:06.668Z] omp -synthetic-cerulean/01a083eb-3ba4-73f8-9c9a-cc9063debaad text  score=0.231\n  → get 01a083eb-3ba4-73f8-9c9a-cc9063debaad --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3ba4-73f8-9c9a-cc9063debaad, seq 0, turn ee9d370b]. Current applicability and supersession are unknown.]\nAssess the Cerulean checksum footer.\n  ~ [assistant text seq1] [session 01a083eb-3ba4-73f8-9c9a-cc9063debaad, seq 1] [Archived statement, not independent verification] Child reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n---\n[2026-09-09T02:07:26.881Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.019\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 3 --to 9 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 6, turn aa5675e3]. Current applicability and supersession are unknown.]\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n  ~ [assistant text seq5] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 5] [Archived statement, not independent verification] Fresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n  ~ [assistant text seq7] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 7] [Archived statement, not independent verification] Closed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-09T02:07:06.645Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.001\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 1 --to 7 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 4, turn 50fcd15d]. Current applicability and supersession are unknown.]\nCerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n  ~ [user text seq3] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 3] [Archived statement, not independent verification] The durable format is JSONL. Screenshots are not evidence of command output.\n  ~ [assistant text seq5] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 5] [Archived statement, not independent verification] Fresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n---\n[2026-09-09T02:07:17.511Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.001\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 2 --to 8 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 5, turn e84309bc]. Current applicability and supersession are unknown.]\nFresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n  ~ [assistant text seq4] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 4] [Archived statement, not independent verification] Cerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n  ~ [assistant text seq6] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 6] [Archived statement, not independent verification] Warm decision: violet-wren-773 preserves the offline checksum footer.\n---\n[2026-09-09T02:07:06.668Z] omp -synthetic-cerulean/01a083eb-3bac-7186-88cf-e49a99d21b4d text  score=0.000\n  → get 01a083eb-3bac-7186-88cf-e49a99d21b4d --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3bac-7186-88cf-e49a99d21b4d, seq 1, turn 7cf862cf]. Current applicability and supersession are unknown.]\nAdvisor note: historical claims about the Cerulean outage test are not independent verification.\n  ~ [user text seq0] [session 01a083eb-3bac-7186-88cf-e49a99d21b4d, seq 0] [Archived statement, not independent verification] Synthetic advisor review delta\n---\n[2026-09-09T02:07:06.644Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.000\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 1, turn d2d65dc4]. Current applicability and supersession are unknown.]\nInvestigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n  ~ [user text seq0] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 0] [Archived statement, not independent verification] Cerulean is an offline kiosk. What persistence approach should we use?\n  ~ [assistant text seq2] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 2] [Archived statement, not independent verification] Accepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n---\n",
+    "detail": "Indexed OMP source paths: {\"/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl\"}.\nIndexed entry a09c57e0 parent=root/unknown.\nIndexed entry d2d65dc4 parent=a09c57e0.\nIndexed entry bf3a5d52 parent=1832dc31.\nIndexed entry 9ec53298 parent=c4ae32e3.\nIndexed entry 50fcd15d parent=9ec53298.\nIndexed entry e84309bc parent=50fcd15d.\nIndexed entry aa5675e3 parent=e84309bc.\nIndexed entry 04f7db16 parent=aa5675e3.\nOMP historical archive 01a083eb-3b94-7220-8304-065f6eba4ea1: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl (snapshot 5595:1788919658992718378:1788919658992718378:40899141; parse complete: true).\nArchive control 1832dc31 type=branch_summary parent=a09c57e0 links={\"fromId\":\"a09c57e0\"}.\nArchive control 8a6377b1 type=compaction parent=fa3b97d2 links={\"firstKeptEntryId\":\"a09c57e0\"}.\nArchive control c4ae32e3 type=reset_boundary parent=8a6377b1 links={}.\nEntry a09c57e0 parent=root metadata={\"role\":\"user\"}.\nEntry d2d65dc4 parent=a09c57e0 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\nEntry bf3a5d52 parent=1832dc31 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 9ec53298 parent=c4ae32e3 metadata={\"role\":\"user\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 50fcd15d parent=9ec53298 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry e84309bc parent=50fcd15d metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry aa5675e3 parent=e84309bc metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 04f7db16 parent=aa5675e3 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\n[2026-09-09T02:07:06.644Z] user seq0 turn=a09c57e0\nCerulean is an offline kiosk. What persistence approach should we use?\n---\n[2026-09-09T02:07:06.644Z] assistant seq1 turn=d2d65dc4\nInvestigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-09T02:07:06.645Z] assistant seq2 turn=bf3a5d52\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n---\n[2026-09-09T02:07:06.645Z] user seq3 turn=9ec53298\nThe durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-09T02:07:06.645Z] assistant seq4 turn=50fcd15d\nCerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n---\n[2026-09-09T02:07:17.511Z] assistant seq5 turn=e84309bc\nFresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n---\n[2026-09-09T02:07:26.881Z] assistant seq6 turn=aa5675e3\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n---\n[2026-09-09T02:07:38.993Z] assistant seq7 turn=04f7db16\nClosed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\nturns 0-7 of 8\n",
+    "childText": "Indexed OMP source paths: {\"/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview.jsonl\"}.\nIndexed entry ee9d370b parent=f6b4750f.\nIndexed entry b21e744b parent=ee9d370b.\nOMP historical archive 01a083eb-3ba4-73f8-9c9a-cc9063debaad: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview.jsonl (snapshot 1492:1735689600000000000:1788919626668852448:40899143; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl (session 01a083eb-3b94-7220-8304-065f6eba4ea1). Structural ownership does not establish the immediate spawning agent.\nEntry ee9d370b parent=f6b4750f metadata={\"role\":\"user\"}.\n  Graph ancestor f6b4750f type=session_init metadata={}.\nEntry b21e744b parent=ee9d370b metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor f6b4750f type=session_init metadata={}.\n[2026-09-09T02:07:06.668Z] user seq0 turn=ee9d370b\nAssess the Cerulean checksum footer.\n---\n[2026-09-09T02:07:06.668Z] assistant seq1 turn=b21e744b\nChild reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n---\nturns 0-1 of 2\n",
+    "updated": "Indexed OMP source paths: {\"/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl\"}.\nIndexed entry a09c57e0 parent=root/unknown.\nIndexed entry d2d65dc4 parent=a09c57e0.\nIndexed entry bf3a5d52 parent=1832dc31.\nIndexed entry 9ec53298 parent=c4ae32e3.\nIndexed entry 50fcd15d parent=9ec53298.\nIndexed entry e84309bc parent=50fcd15d.\nIndexed entry aa5675e3 parent=e84309bc.\nIndexed entry 04f7db16 parent=aa5675e3.\nIndexed entry 86cc06fb parent=04f7db16.\nOMP historical archive 01a083eb-3b94-7220-8304-065f6eba4ea1: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl (snapshot 5874:1788919687003864175:1788919687003864175:40899141; parse complete: true).\nArchive control 1832dc31 type=branch_summary parent=a09c57e0 links={\"fromId\":\"a09c57e0\"}.\nArchive control 8a6377b1 type=compaction parent=fa3b97d2 links={\"firstKeptEntryId\":\"a09c57e0\"}.\nArchive control c4ae32e3 type=reset_boundary parent=8a6377b1 links={}.\nEntry a09c57e0 parent=root metadata={\"role\":\"user\"}.\nEntry d2d65dc4 parent=a09c57e0 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\nEntry bf3a5d52 parent=1832dc31 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 9ec53298 parent=c4ae32e3 metadata={\"role\":\"user\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 50fcd15d parent=9ec53298 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry e84309bc parent=50fcd15d metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry aa5675e3 parent=e84309bc metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 04f7db16 parent=aa5675e3 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 86cc06fb parent=04f7db16 metadata={\"role\":\"user\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\n[2026-09-09T02:07:06.644Z] user seq0 turn=a09c57e0\nCerulean is an offline kiosk. What persistence approach should we use?\n---\n[2026-09-09T02:07:06.644Z] assistant seq1 turn=d2d65dc4\nInvestigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-09T02:07:06.645Z] assistant seq2 turn=bf3a5d52\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n---\n[2026-09-09T02:07:06.645Z] user seq3 turn=9ec53298\nThe durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-09T02:07:06.645Z] assistant seq4 turn=50fcd15d\nCerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n---\n[2026-09-09T02:07:17.511Z] assistant seq5 turn=e84309bc\nFresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n---\n[2026-09-09T02:07:26.881Z] assistant seq6 turn=aa5675e3\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n---\n[2026-09-09T02:07:38.993Z] assistant seq7 turn=04f7db16\nClosed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-09T02:08:07.004Z] user seq8 turn=86cc06fb\nNew Cerulean decision LIVE_READER_e759582e-ea37-4793-bc8d-11d6ce11788a: retain the checksum footer for offline export.\n---\nturns 0-8 of 9\n",
+    "liveRecall": "OMP historical archive 01a083eb-3b94-7220-8304-065f6eba4ea1: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl (snapshot 5874:1788919687003864175:1788919687003864175:40899141; parse complete: true).\nArchive control 1832dc31 type=branch_summary parent=a09c57e0 links={\"fromId\":\"a09c57e0\"}.\nArchive control 8a6377b1 type=compaction parent=fa3b97d2 links={\"firstKeptEntryId\":\"a09c57e0\"}.\nArchive control c4ae32e3 type=reset_boundary parent=8a6377b1 links={}.\nEntry a09c57e0 parent=root metadata={\"role\":\"user\"}.\nEntry bf3a5d52 parent=1832dc31 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 50fcd15d parent=9ec53298 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry aa5675e3 parent=e84309bc metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nEntry 86cc06fb parent=04f7db16 metadata={\"role\":\"user\"}.\n  Graph ancestor c4ae32e3 type=reset_boundary metadata={}.\n  Graph ancestor 8a6377b1 type=compaction metadata={\"firstKeptEntryId\":\"a09c57e0\"}.\n  Graph ancestor fa3b97d2 type=custom metadata={}.\n  Graph ancestor 1832dc31 type=branch_summary metadata={\"fromId\":\"a09c57e0\"}.\nOMP historical archive 01a083eb-3ba4-73f8-9c9a-cc9063debaad: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview.jsonl (snapshot 1492:1735689600000000000:1788919626668852448:40899143; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1.jsonl (session 01a083eb-3b94-7220-8304-065f6eba4ea1). Structural ownership does not establish the immediate spawning agent.\nEntry ee9d370b parent=f6b4750f metadata={\"role\":\"user\"}.\n  Graph ancestor f6b4750f type=session_init metadata={}.\nEntry b21e744b parent=ee9d370b metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor f6b4750f type=session_init metadata={}.\nOMP historical archive 01a083eb-3bac-7186-88cf-e49a99d21b4d: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview/__advisor.jsonl (snapshot 1210:1735689600000000000:1788919626668852448:40899145; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/archive/cerulean/2026-09-09T02-07-06-644Z_01a083eb-3b94-7220-8304-065f6eba4ea1/ChildReview.jsonl (session 01a083eb-3ba4-73f8-9c9a-cc9063debaad). Structural ownership does not establish the immediate spawning agent.\nEntry 7cf862cf parent=243a8156 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n[2026-09-09T02:07:06.645Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.980\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 1 --to 7 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 4, turn 50fcd15d]. Current applicability and supersession are unknown.]\nCerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n  ~ [user text seq3] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 3] [Archived statement, not independent verification] The durable format is JSONL. Screenshots are not evidence of command output.\n  ~ [assistant text seq5] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 5] [Archived statement, not independent verification] Fresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n---\n[2026-09-09T02:07:06.668Z] omp -synthetic-cerulean/01a083eb-3ba4-73f8-9c9a-cc9063debaad text  score=0.916\n  → get 01a083eb-3ba4-73f8-9c9a-cc9063debaad --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3ba4-73f8-9c9a-cc9063debaad, seq 0, turn ee9d370b]. Current applicability and supersession are unknown.]\nAssess the Cerulean checksum footer.\n  ~ [assistant text seq1] [session 01a083eb-3ba4-73f8-9c9a-cc9063debaad, seq 1] [Archived statement, not independent verification] Child reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n---\n[2026-09-09T02:08:07.004Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.674\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 5 --to 11 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 8, turn 86cc06fb]. Current applicability and supersession are unknown.]\nNew Cerulean decision LIVE_READER_e759582e-ea37-4793-bc8d-11d6ce11788a: retain the checksum footer for offline export.\n  ~ [assistant text seq7] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 7] [Archived statement, not independent verification] Closed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-09T02:07:26.881Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.096\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 3 --to 9 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 6, turn aa5675e3]. Current applicability and supersession are unknown.]\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n  ~ [assistant text seq5] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 5] [Archived statement, not independent verification] Fresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n  ~ [assistant text seq7] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 7] [Archived statement, not independent verification] Closed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-09T02:07:06.644Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.087\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 0, turn a09c57e0]. Current applicability and supersession are unknown.]\nCerulean is an offline kiosk. What persistence approach should we use?\n  ~ [assistant text seq1] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-09T02:07:06.645Z] omp -synthetic-cerulean/01a083eb-3b94-7220-8304-065f6eba4ea1 text  score=0.066\n  → get 01a083eb-3b94-7220-8304-065f6eba4ea1 --from 0 --to 5 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 2, turn bf3a5d52]. Current applicability and supersession are unknown.]\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n  ~ [assistant text seq1] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n  ~ [user text seq3] [session 01a083eb-3b94-7220-8304-065f6eba4ea1, seq 3] [Archived statement, not independent verification] The durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-09T02:07:06.668Z] omp -synthetic-cerulean/01a083eb-3bac-7186-88cf-e49a99d21b4d text  score=0.027\n  → get 01a083eb-3bac-7186-88cf-e49a99d21b4d --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3bac-7186-88cf-e49a99d21b4d, seq 1, turn 7cf862cf]. Current applicability and supersession are unknown.]\nAdvisor note: historical claims about the Cerulean outage test are not independent verification.\n  ~ [user text seq0] [session 01a083eb-3bac-7186-88cf-e49a99d21b4d, seq 0] [Archived statement, not independent verification] Synthetic advisor review delta\n---\n[2026-09-09T02:07:06.668Z] omp -synthetic-cerulean/01a083eb-3ba4-73f8-9c9a-cc9063debaad text  score=0.015\n  → get 01a083eb-3ba4-73f8-9c9a-cc9063debaad --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a083eb-3ba4-73f8-9c9a-cc9063debaad, seq 1, turn b21e744b]. Current applicability and supersession are unknown.]\nChild reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n  ~ [user text seq0] [session 01a083eb-3ba4-73f8-9c9a-cc9063debaad, seq 0] [Archived statement, not independent verification] Assess the Cerulean checksum footer.\n---\n",
+    "index": "indexed sessions=1 skipped=0 chunks=1\n"
+  },
+  "lifecycleComplete": {
+    "file": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/complete/session.jsonl",
+    "observations": [
+      {
+        "event": "message_end",
+        "persisted": false
+      },
+      {
+        "event": "turn_end",
+        "persisted": false
+      },
+      {
+        "event": "filesystem",
+        "persisted": true,
+        "aborted": false
+      }
+    ]
+  },
+  "lifecycleAbort": {
+    "file": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/compat-omp-18.1.15/.build/compat-18.1.15/abort/session.jsonl",
+    "observations": [
+      {
+        "event": "message_end",
+        "persisted": false
+      },
+      {
+        "event": "turn_end",
+        "persisted": false
+      },
+      {
+        "event": "filesystem",
+        "persisted": true,
+        "aborted": true
+      }
+    ]
+  },
+  "installedExtensionSearchability": {
+    "mode": "running",
+    "marker": "search-proof-1fbf5f70-2580-46a5-9acc-d112307c8ed4",
+    "searchableMs": 8833.836115,
+    "attempts": 3,
+    "pendingArchiveSources": 1,
+    "measurement": "Includes native OMP append/startup and a real Funes ranked recall, not just a receipt or index exit"
+  },
+  "bunTests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "frozenLockfile": true,
+  "liveInstallation": {
+    "existingEnrollmentPreserved": true,
+    "memoryAndBinaryPreserved": true,
+    "mcpConfigurationPreserved": true,
+    "installedConfigMatchesSource": true
+  },
+  "limits": [
+    "Large benchmark and fault matrix, including forced rename denial, not repeated.",
+    "Spontaneous model recall and rendered TUI not repeated.",
+    "Synthetic child/advisor provenance is exercised; new live advisor budgets and pooled workers are not.",
+    "Existing live sessions require restart; no claim of current real-history indexing coverage.",
+    "maxFunesRssKiB includes unrelated Funes processes; maxIndexerRssKiB is scoped to the benchmark child."
+  ]
+}
