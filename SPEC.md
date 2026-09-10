@@ -1,7 +1,7 @@
 # OMP–Funes Bridge Specification
 
-Status: implemented; recorded compatibility and acceptance scenarios passed. Live enrollment remains unapproved.
-Date: 2026-09-06; implementation verification: 2026-09-07.
+Status: maintained-fork/source cutover verified in an isolated synthetic sandbox; current evidence is separate from the historical OMP acceptance below.
+Date: 2026-09-09; historical implementation verification: 2026-09-07.
 
 This specification records decisions from the design interview and the subsequently requested implementation. `DESIGN.md` remains unchanged as the original research proposal and evidence baseline; its prior probe results are not renewed verification. Implementation and synthetic verification do not authorize indexing real history, modifying the running OMP installation, remote binding, or uploading data. Live enrollment still requires separate approval.
 
@@ -23,7 +23,7 @@ Install narrowly scoped, bridge-owned guidance directing OMP to consult Funes wh
 
 Index user and assistant message text only. Exclude tool calls/results, private thinking records, and binary payloads. Include persisted child-session messages belonging to enrolled sources, even when children do not load lifecycle extensions. Establish the supported representation of message text and any externalized message content through probes.
 
-Preserve archived branches, including abandoned investigations, rather than restricting memory to an active lineage. Retain source provenance and branch/parent-child context where supported. Required historical context must not be silently discarded: if stock Funes cannot represent it faithfully, narrowly scoped parser/provenance changes in Funes are permitted. Keep transcript parsing out of the bridge. Prefer upstreamable changes, but a recorded patched Funes build is acceptable.
+Preserve archived branches, including abandoned investigations, rather than restricting memory to an active lineage. Retain source provenance and branch/parent-child context where supported. Required historical context must not be silently discarded. Transcript parsing lives in the maintained `audiodude/funes` fork, not the bridge; the consumer checks out a pinned committed revision without applying patches.
 
 Recall must distinguish historical decisions from current recommendations and disclose when supersession cannot be established. Do not treat speculative, rejected, or superseded statements as current advice merely because they are retrievable.
 
@@ -100,22 +100,35 @@ The original specification was AI-assisted and prepared from the user's design-i
 ## Implementation and operation
 
 The implementation is in `src/`. It uses an indexing-only OMP extension and native
-stdio MCP, not a daemon or a second memory engine. `patches/funes.patch` is required:
-stock Funes' Pi parser does not satisfy the message-only OMP provenance contract.
+stdio MCP, not a daemon or a second memory engine. The maintained
+[`audiodude/funes`](https://github.com/audiodude/funes) fork owns the OMP parser,
+provenance support, and independent local source protocol.
 `DESIGN.md` remains the original proposal, not an installation guide.
+
+AI disclosure: the maintained-fork consumer integration and operational
+documentation were implemented with OpenAI Codex assistance. Historical
+verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
 - OMP `18.1.15`, upstream commit `a33cc26824e3c91edd9fa42d681f10dceb4ac2f0`.
-- Funes `1.3.0+dev`, upstream commit `90507de6bf4a8bedd32aa8acfc0502483d82fbdf`,
-  plus the complete recorded patch. The installer records the executable SHA-256;
-  replacement of that executable stops indexing until an explicit reinstall.
+- Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`),
+  fetched only from `https://github.com/audiodude/funes.git`. The transitional
+  fork baseline `5fb623a` contains the former OMP patch but does **not** implement
+  source protocol 1; it is not a compatible installation target. The final
+  source-enabled fork SHA must replace that pin before release or verification.
+  Build and installer require machine capabilities reporting that exact SHA,
+  protocol 1, `actomasto-v1` identity, all three harness schemas, and all
+  local-only/metadata-only/revision/snapshot guarantees. Stock or stale builds fail.
+  The installer records the executable SHA-256; replacement of that executable
+  stops indexing until an explicit reinstall.
 - Bun `1.4.0`; tested Rust/Cargo `1.98.1`, LLD `18.1.3`, Linux x86-64.
   These are the verified versions, not a claim of broad compatibility.
 
-The upstream Funes code modified by `patches/funes.patch` is Apache-2.0 licensed;
-its license is retained in `patches/FUNES-LICENSE`. This is a third-party notice,
-not a license designation for the entire bridge.
+The fork retains Funes' Apache-2.0 license; a copy is retained in `FUNES-LICENSE`.
+This is a third-party notice, not a license designation for the entire bridge.
+The former consumer patch is committed in the fork and is no longer distributed
+or applied by this repository.
 
 From this repository:
 
@@ -127,15 +140,22 @@ bun run bridge paths
 
 Building requires Git, Cargo/Rust, a C/C++ toolchain, `pkg-config`, OpenSSL
 development headers, `protoc`, and Clang/LLD. The build script checks out the exact
-revision, applies the patch, and rejects cached source with additional changes.
-Use a fresh build directory when changing the patch; the guard does not overwrite
-stale or locally modified checkouts.
+fork revision, rejects a wrong origin/HEAD, tracked changes, and all extra files
+(including ignored files), then builds with Cargo's locked dependency graph.
+Use a fresh `FUNES_BUILD_DIR` for a new pin; stale or locally modified checkouts
+are not reset or overwritten. The resulting binary must pass the same machine
+capability check as installation before it is copied to `bin/funes`.
 It uses two Cargo jobs by default, optimization level 1, no debug information or
-incremental compilation, and the LLD linker. This is the measured build profile,
-not a stock release executable. `FUNES_BUILD_DIR` changes the default
-`.build/funes` build directory; `CARGO_TARGET_DIR` can reuse a compatible Cargo
-target cache. `CARGO_BUILD_JOBS` overrides build concurrency, not runtime policy.
-No system Python packages are needed.
+incremental compilation, and the LLD linker. This is the historical measured
+profile, not a stock release executable or renewed performance evidence.
+`FUNES_BUILD_DIR` changes the default `.build/funes` directory.
+`CARGO_TARGET_DIR` defaults to `.build/funes/target` and must remain outside the
+source checkout; it can reuse a compatible Cargo target cache.
+`CARGO_BUILD_JOBS` overrides build concurrency, not runtime policy.
+No system Python packages are needed. Compatibility probing uses a disposable
+private empty enrollment and a nonexistent corpus, never installed roots or
+environment defaults. It requires no source reads, inventory creation, semantic
+index, model download, or provider request, and rejects creation of corpus state.
 
 ### Explicit enrollment
 
@@ -163,12 +183,12 @@ bun run bridge install \
   --source /absolute/custom/sessions \
   --source /absolute/another/enrolled/archive \
   --memory /absolute/personal-funes-home \
-  --funes-bin /absolute/patched/funes \
+  --funes-bin /absolute/fork/funes \
   --omp-bin /absolute/omp
 ```
 
-Repeat `--source` for multiple roots. Source lists are explicit per installation;
-installations sharing a personal memory should enroll the sources they must keep
+Repeat `--source` for multiple **OMP** roots. Source lists are explicit per installation;
+installations sharing a personal memory should enroll the OMP sources they must keep
 fresh. Project facets never act as access-control boundaries. New descendants of
 an enrolled root are discovered automatically, including children with no hook.
 Canonical roots are pinned; traversal skips symlinks and rechecks the source
@@ -230,9 +250,81 @@ transcripts, derived memory, scanner receipts, or other memory integrations.
 Close/restart an already-running OMP session to unload an extension removed from
 disk. Forgetting memory is a separate operation, not implemented by uninstall.
 
+### Standalone multi-harness source inventory
+
+This is a separate opt-in lifecycle, usable without OMP running and without
+semantic indexing. The bridge's `--source`, footer, receipts, and scheduler
+remain OMP-specific; they do not enroll Claude/Codex or refresh this inventory.
+MCP continues to expose `recall`, `get`, `scan`, `sessions`, `sketch`, and `status`.
+The source protocol is a local stdin/stdout command, not a replacement MCP tool.
+
+Choose a private absolute local corpus directory and an independently maintained
+scope file, separate from the bridge's semantic memory. Create the scope's parent
+directory with mode 0700 and the file with mode 0600; all ancestors must be local,
+not symlink escapes. Scope schema (replace paths with your explicitly approved
+roots; empty arrays enroll nothing):
+
+```json
+{"version":1,"roots":{"claude":["/absolute/claude/projects"],"codex":["/absolute/codex/sessions"],"omp":["/absolute/omp/sessions"]}}
+```
+
+Use the pinned fork binary and explicit paths for every request:
+
+```sh
+printf '%s\n' '{"protocol":1,"op":"capabilities","corpus":"/absolute/private/source-corpus","scope":"/absolute/private/source-scope.json"}' | /absolute/fork/funes source
+printf '%s\n' '{"protocol":1,"op":"refresh","corpus":"/absolute/private/source-corpus","scope":"/absolute/private/source-scope.json"}' | /absolute/fork/funes source
+```
+
+`capabilities` is read-only and does not create the corpus or open originals.
+`refresh` is the explicit independent indexer action: it fingerprints enrolled
+originals and stores a metadata-only immutable inventory. It does not persist raw
+turn text, compute embeddings, call a provider, or require searchable chunks.
+Consumers such as Actomasto only enumerate/read this inventory; they never refresh
+it or manage enrollment. No refresh yet means unavailable coverage, not no history.
+
+For continued discovery, save the **refresh** command above in a private executable
+`/absolute/bin/refresh-funes-source` shell script (`#!/bin/sh`, mode 0700). A
+standalone user timer can run it even when no OMP session is open. Example units:
+
+```ini
+# ~/.config/systemd/user/funes-source-refresh.service
+[Unit]
+Description=Refresh explicitly enrolled local Funes source inventory
+[Service]
+Type=oneshot
+ExecStart=/absolute/bin/refresh-funes-source
+```
+
+```ini
+# ~/.config/systemd/user/funes-source-refresh.timer
+[Unit]
+Description=Periodic local Funes source inventory refresh
+[Timer]
+OnStartupSec=30s
+OnUnitInactiveSec=60s
+[Install]
+WantedBy=timers.target
+```
+
+After deliberate enrollment, `systemctl --user daemon-reload` then
+`systemctl --user enable --now funes-source-refresh.timer` activates this separate
+lifecycle. Inspect `journalctl --user -u funes-source-refresh.service` for typed
+errors and successful snapshot metadata. A user timer requires a running user
+manager; this does not silently enable lingering or system services.
+Stop/disable the timer separately from uninstalling the bridge. Scope edits change
+the inventory identity; consumers must replay expired cursors with durable unit
+deduplication. Periodic refresh observes append/rewrite/rotation/disappearance,
+including sources too new, malformed, or unsupported for semantic search.
+
+Semantic indexing remains a separate explicit operation and may download local
+models. Actomasto consent, budget, revoke, and purge govern its own use, not this
+independent inventory or originals. Nothing in these instructions authorizes a
+live install, real-history enrollment, remote binding, upload, or provider use.
+The full wire contract is in the pinned fork's `docs/local-source.md`.
+
 ### Supported archive representation
 
-The Funes patch reads native OMP session versions 2 and 3, including a version-1
+The maintained fork reads native OMP session versions 2 and 3, including a version-1
 title preamble. It indexes user/assistant string content and typed text parts.
 Session/entry IDs remain native identities. It retains the whole persisted graph,
 not just the current branch, and keeps graph metadata in Funes-owned provenance
@@ -269,7 +361,25 @@ No claim of guaranteed model tool selection or citation discipline is made.
 
 ## Verification record
 
-Current patch-release compatibility evidence is recorded in
+Current fork/source evidence is in [`verification/fork-source.json`](verification/fork-source.json). The pinned runtime is `audiodude/funes@69387f12dca29c2c8e939b0d9890e5768cc2067c`, including the upstream main changes rather than reverting them. A fresh checkout built through `bun run build:funes` without patch application; its SHA256 is recorded in the evidence. Three bridge regressions passed, including private metadata permissions under an unrestricted caller umask.
+
+The five-session synthetic workload completed backfill in 5.03 seconds, warm updates in 8.64 seconds, and reopening catch-up in 0.68 seconds. Native MCP retrieved parent/child history and saw a persisted append through the existing reader. These measurements do not renew historical large-load or spontaneous-model-recall claims. Installation/removal remained repeatable, stale builds were rejected before writes, and unrelated configuration and originals were preserved.
+
+Re-run `bun run build:funes` with a fresh `FUNES_BUILD_DIR`, then `bun test`. For the installation/ownership/scheduler scenario, supply only synthetic inputs and a fresh installation probe root:
+
+```sh
+PROBE_ROOT=/absolute/empty/install-probe \
+OMP_BIN=/absolute/omp \
+FUNES_BIN=/absolute/fork/funes \
+PROBE_FIXTURE=/absolute/synthetic/session.jsonl \
+bun probes/install.ts
+```
+
+This probe also rejects a stale build before installation writes any config or
+ownership marker. It runs local semantic indexing; model acquisition may occur.
+The current run passed these checks using authored synthetic originals. Retain the historical records below rather than relabeling them as maintained-fork verification.
+
+Historical OMP patch-release compatibility evidence is recorded in
 `verification/omp-18.1.15.json`; previous patch-release records remain in
 `verification/omp-18.1.14.json` and `verification/omp-18.1.13.json`. The original OMP 18.1.12 measurements and synthetic
 citations remain unchanged in `verification/results.json`; reproducible scenario
@@ -434,7 +544,7 @@ Typical reproduction, after building:
 ```sh
 export PROBE_ROOT=/absolute/empty/synthetic-probe
 export OMP_BIN=/absolute/omp
-export FUNES_BIN=/absolute/patched/funes
+export FUNES_BIN=/absolute/fork/funes
 export PI_CODING_AGENT_DIR="$PROBE_ROOT/fixture-agent"
 export HF_HOME=/absolute/isolated/model-cache
 export OPENAI_API_KEY=synthetic-not-a-key
@@ -503,7 +613,7 @@ factual correctness: models can still add unsupported generalizations beyond the
 quoted evidence. The bridge supplies provenance and guidance, not a response
 validator.
 
-Funes regression commands, in the patched source checkout:
+Funes regression commands, in the pinned maintained-fork source checkout:
 
 ```sh
 cargo test --locked --lib omp -- --test-threads=1

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "assistance": "OpenAI Codex",
+  "fork_revision": "69387f12dca29c2c8e939b0d9890e5768cc2067c",
+  "omp_version": "18.1.15",
+  "bun_version": "1.4.2",
+  "tests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "installation": {
+    "staleBuildRejectedBeforeWrites": true,
+    "repeatableInstall": true,
+    "repeatableRemoval": true,
+    "unrelatedMcpAndBackendPreserved": true,
+    "transcriptsAndDerivedMemoryPreserved": true,
+    "symlinkAgentWorks": true,
+    "externalSourceSymlinkNotEnrolled": true,
+    "customRootsRequireEnrollment": true,
+    "conflictingOwnershipRejected": true
+  },
+  "native_mcp": {
+    "passed": true,
+    "tools": [
+      "mcp__funes_bridge_get",
+      "mcp__funes_bridge_recall",
+      "mcp__funes_bridge_scan",
+      "mcp__funes_bridge_sessions",
+      "mcp__funes_bridge_sketch",
+      "mcp__funes_bridge_status"
+    ],
+    "live_reader_observed_persisted_append": true
+  },
+  "benchmark": {
+    "fixtureSessions": 5,
+    "sessions": 5,
+    "sources": 5,
+    "completedMessages": 16,
+    "chunks": 16,
+    "backfillMs": 5034.4118339999995,
+    "duringBackfillMs": 773.0380220000006,
+    "pendingAtArrivalCoverage": 3,
+    "warmUpdateMs": 8636.898433999999,
+    "reopenMs": 684.3457300000009,
+    "maxIndexerRssKiB": 295816,
+    "maxFunesRssKiB": 295816,
+    "maxBridgeRssBytes": 74891264,
+    "eventLoopP95Ms": 0.322303,
+    "eventLoopP99Ms": 0.687103
+  },
+  "limits": [
+    "Synthetic five-session workload; this does not renew the historical large-load or spontaneous-model-recall claims.",
+    "Local indexing reported the secret scanner unavailable; the index is not described as sanitized.",
+    "No live OMP installation or real source enrollment."
+  ],
+  "pinned_build": {
+    "command": "FUNES_BUILD_DIR=/fresh/source-build CARGO_TARGET_DIR=/outside/source/target bun run build:funes",
+    "fresh_checkout": true,
+    "locked_dependencies": true,
+    "no_patch_application": true,
+    "revision": "69387f12dca29c2c8e939b0d9890e5768cc2067c",
+    "binary_sha256": "22b2068b969ac49ad5613955db97dc92f40807260070f62f8e5f366919ff7355",
+    "initial_deadline_note": "The first 600-second run timed out while compiling dependencies. Resuming the same pinned clean checkout completed successfully."
+  },
+  "fork_tests": {
+    "command": "cargo test --locked --lib --bin funes --test local_source_normalize",
+    "revision": "69387f12dca29c2c8e939b0d9890e5768cc2067c",
+    "library_passed": 272,
+    "cli_passed": 1,
+    "normalization_passed": 15,
+    "failed": 0
+  }
+}

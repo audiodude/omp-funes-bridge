@@ -3,7 +3,7 @@ import { access, mkdir, readFile, readdir, rmdir, unlink } from 'node:fs/promise
 import { constants } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
-import { atomicJson, canonical, CONFIG_NAME, FUNES_REVISION, hashFile, isMissing, object, OMP_VERSION, OWNER, parseConfig, SERVER_NAME, type Config } from './config.ts';
+import { atomicJson, canonical, CONFIG_NAME, FUNES_REVISION, hashFile, isMissing, object, OMP_VERSION, OWNER, parseConfig, SERVER_NAME, verifyFunesBinary, type Config } from './config.ts';
 
 export interface InstallOptions { agentDir?: string; roots: string[]; memoryHome?: string; funesBin: string; ompBin: string }
 const OWNED_FILES = ['index.ts','config.ts','scheduler.ts'];
@@ -50,9 +50,8 @@ export async function install(options: InstallOptions): Promise<Config> {
   const funesBin = await canonical(options.funesBin);
   await access(funesBin, constants.X_OK);
   if (await command(options.ompBin,['--version']) !== `omp/${OMP_VERSION}`) throw new Error(`Requires OMP ${OMP_VERSION}`);
-  const help = await command(funesBin,['index','--help']);
-  if (!help.includes('--omp-max-chunks')) throw new Error('Requires the recorded patched Funes build, not stock Funes');
-  const config: Config = {version:1,agentDir,roots:[...new Set(roots)],memoryHome,funesBin,binarySha256:await hashFile(funesBin),pollMs:10000,maxChunks:128};
+  const binarySha256 = await verifyFunesBinary(funesBin);
+  const config: Config = {version:1,agentDir,roots:[...new Set(roots)],memoryHome,funesBin,binarySha256,pollMs:10000,maxChunks:128};
   const configPath = join(agentDir, CONFIG_NAME);
   const oldDocument = await document(configPath);
   const previous = oldDocument ? parseConfig(oldDocument) : undefined;

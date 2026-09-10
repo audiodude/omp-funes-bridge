@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test';
-import { mkdtemp, mkdir, rm, symlink } from 'node:fs/promises';
+import { mkdtemp, mkdir, rm, stat, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { canonical, inside } from '../src/config.ts';
@@ -18,5 +18,18 @@ test('canonical enrollment resolves existing symlink ancestors without accepting
     expect(enrolled).toBe(join(root,'real','sessions'));
     expect(inside(join(enrolled,'child','session.jsonl'),enrolled)).toBe(true);
     expect(inside(`${enrolled}-other/session.jsonl`,enrolled)).toBe(false);
+  } finally { await rm(root,{recursive:true,force:true}); }
+});
+
+test('atomic metadata stays private even with an unrestricted caller umask',async () => {
+  const root = await mkdtemp(join(tmpdir(),'funes-permissions-'));
+  try {
+    const path = join(root,'metadata.json');
+    const module = new URL('../src/config.ts',import.meta.url).href;
+    const child = Bun.spawn([process.execPath,'--eval',
+      `import {atomicJson} from ${JSON.stringify(module)}; process.umask(0); await atomicJson(${JSON.stringify(path)},{});`
+    ],{stdout:'ignore',stderr:'inherit'});
+    expect(await child.exited).toBe(0);
+    expect((await stat(path)).mode & 0o777).toBe(0o600);
   } finally { await rm(root,{recursive:true,force:true}); }
 });

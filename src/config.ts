@@ -1,9 +1,11 @@
-import { lstat, mkdir, realpath, rename, stat, unlink } from 'node:fs/promises';
+import { lstat, mkdir, mkdtemp, readdir, realpath, rename, rm, stat, unlink, writeFile } from 'node:fs/promises';
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { tmpdir } from 'node:os';
 
 export const OWNER = 'omp-funes-bridge';
 export const OMP_VERSION = '18.1.15';
-export const FUNES_REVISION = '90507de6bf4a8bedd32aa8acfc0502483d82fbdf';
+export const FUNES_REPOSITORY = 'https://github.com/audiodude/funes.git';
+export const FUNES_REVISION = '69387f12dca29c2c8e939b0d9890e5768cc2067c';
 export const CONFIG_NAME = 'funes-bridge.json';
 export const SERVER_NAME = 'funes_bridge';
 export interface Config {
@@ -112,7 +114,7 @@ export async function atomicJson(path: string, value: unknown): Promise<void> {
   await assertNoSymlink(path);
   const temporary = `${path}.${process.pid}.${crypto.randomUUID()}.tmp`;
   try {
-    await Bun.write(temporary, `${JSON.stringify(value, null, 2)}\n`, {mode:0o600});
+    await writeFile(temporary, `${JSON.stringify(value, null, 2)}\n`, {mode:0o600});
     await rename(temporary, path);
   } finally { await unlink(temporary).catch(error => { if (!isMissing(error)) throw error; }); }
 }
@@ -120,4 +122,52 @@ export async function hashFile(path: string): Promise<string> {
   const hasher = new Bun.CryptoHasher('sha256');
   for await (const bytes of Bun.file(path).stream()) hasher.update(bytes);
   return hasher.digest('hex');
+}
+
+/** Probe only an empty, isolated enrollment; never use environment-default history. */
+export async function verifyFunesBinary(binary: string): Promise<string> {
+  const directory = await realpath(await mkdtemp(join(tmpdir(),'funes-capabilities-')));
+  try {
+    const scope = join(directory,'scope.json');
+    const corpus = join(directory,'corpus');
+    const enrollment = JSON.stringify({version:1,roots:{claude:[],codex:[],omp:[]}});
+    await writeFile(scope,enrollment,{mode:0o600});
+    const before = await hashFile(binary);
+    const child = Bun.spawn([binary,'source'],{
+      stdin:new Blob([JSON.stringify({protocol:1,op:'capabilities',scope,corpus})]),
+      stdout:'pipe',stderr:'ignore',
+    });
+    const timeout = setTimeout(() => child.kill('SIGKILL'),10000);
+    try {
+      const output = new Uint8Array(65536);
+      let size = 0;
+      for await (const chunk of child.stdout) {
+        if (size + chunk.length > output.length) {
+          child.kill('SIGKILL');
+          await child.exited;
+          throw new Error('Oversized source capabilities');
+        }
+        output.set(chunk,size);
+        size += chunk.length;
+      }
+      const text = new TextDecoder('utf-8',{fatal:true}).decode(output.subarray(0,size));
+      if (await child.exited !== 0) throw new Error('Source capabilities failed');
+      const response = object(JSON.parse(text));
+      const result = object(response.result);
+      const harnesses = object(result.harnesses);
+      if (response.protocol !== 1 || response.ok !== true || result.protocol !== 1 ||
+          result.build_revision !== FUNES_REVISION || result.identity !== 'actomasto-v1' ||
+          result.local_only !== true || result.metadata_only !== true ||
+          result.revision_bound !== true || result.snapshot_enumeration !== true || result.coverage_freshness !== true ||
+          harnesses.claude !== 'claude-schema2' || harnesses.codex !== 'codex-0.144.1-schema1' ||
+          harnesses.omp !== 'omp-session3-schema1') throw new Error('Unsupported source capabilities');
+      const files = await readdir(directory);
+      if (files.length !== 1 || files[0] !== 'scope.json' ||
+          await Bun.file(scope).text() !== enrollment ||
+          await hashFile(binary) !== before) throw new Error('Capability probe changed its inputs');
+      return before;
+    } finally { clearTimeout(timeout); }
+  } catch {
+    throw new Error('Requires the pinned audiodude/funes build with read-only local source protocol 1 capabilities');
+  } finally { await rm(directory,{recursive:true,force:true}); }
 }
