@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdir, readFile, symlink, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, symlink, unlink, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { install, uninstall } from '../src/install.ts';
 import { hashFile, readReceipts } from '../src/config.ts';
@@ -21,6 +21,29 @@ await symlink(join(outside,'outside.jsonl'),join(archive,'external.jsonl'));
 const alias=join(root,'agent-alias');await symlink(agent,alias);
 const options={agentDir:alias,roots:[archive],memoryHome:join(root,'memory'),funesBin:process.env.FUNES_BIN,ompBin:process.env.OMP_BIN};
 const before=await hashFile(transcript);
+// A formerly accepted CLI surface is insufficient: installation must reject a
+// binary reporting a different committed build before writing any bridge state.
+const staleBinary=join(root,'stale-funes');
+const staleAgent=join(root,'stale-agent');
+const staleMemory=join(root,'stale-memory');
+await writeFile(staleBinary,`#!${process.execPath}
+const args=process.argv.slice(2);
+if(args[0]==='source') {
+  const child=Bun.spawn([${JSON.stringify(process.env.FUNES_BIN)},...args],{stdin:new Blob([await Bun.stdin.text()]),stdout:'pipe',stderr:'ignore'});
+  const response=await new Response(child.stdout).json();
+  if(await child.exited!==0) process.exit(1);
+  response.result.build_revision='0'.repeat(40);
+  console.log(JSON.stringify(response));
+} else {
+  const child=Bun.spawn([${JSON.stringify(process.env.FUNES_BIN)},...args],{stdin:'inherit',stdout:'inherit',stderr:'inherit'});
+  process.exit(await child.exited);
+}
+`,{mode:0o700});
+try {
+  await assert.rejects(install({...options,agentDir:staleAgent,memoryHome:staleMemory,funesBin:staleBinary}));
+  assert.equal(await Bun.file(join(staleAgent,'funes-bridge.json')).exists(),false);
+  assert.equal(await Bun.file(join(staleMemory,'bridge-owner.json')).exists(),false);
+} finally { await unlink(staleBinary); }
 const config=await install(options);
 await install(options);
 assert.equal(config.agentDir,agent);
@@ -50,6 +73,6 @@ await assert.rejects(install({...options,agentDir:join(root,'custom-no-enrollmen
 const conflict=join(root,'conflict-agent');await mkdir(conflict);
 await writeFile(join(conflict,'mcp.json'),JSON.stringify({mcpServers:{funes_bridge:{command:'/bin/true'}}}));
 await assert.rejects(install({...options,agentDir:conflict}),/belongs to another/);
-const result={repeatableInstall:true,repeatableRemoval:true,unrelatedMcpAndBackendPreserved:true,transcriptsAndDerivedMemoryPreserved:true,symlinkAgentWorks:true,externalSourceSymlinkNotEnrolled:true,customRootsRequireEnrollment:true,conflictingOwnershipRejected:true};
+const result={staleBuildRejectedBeforeWrites:true,repeatableInstall:true,repeatableRemoval:true,unrelatedMcpAndBackendPreserved:true,transcriptsAndDerivedMemoryPreserved:true,symlinkAgentWorks:true,externalSourceSymlinkNotEnrolled:true,customRootsRequireEnrollment:true,conflictingOwnershipRejected:true};
 await writeFile(join(root,'install-proof.json'),JSON.stringify(result,null,2));
 console.log(JSON.stringify(result,null,2));

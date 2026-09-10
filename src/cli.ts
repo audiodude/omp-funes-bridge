@@ -9,7 +9,7 @@ import { Scheduler } from './scheduler.ts';
 const HELP = `OMP–Funes local memory bridge (pinned OMP ${OMP_VERSION})
 
   bun run bridge paths
-  bun run bridge install --funes-bin /absolute/patched/funes [--omp-bin omp]
+  bun run bridge install --funes-bin /absolute/fork/funes [--omp-bin omp]
       [--agent-dir /absolute/agent] [--source /absolute/sessions ...]
       [--memory /absolute/funes-home]
   bun run bridge status [--agent-dir /absolute/agent]
@@ -18,11 +18,14 @@ const HELP = `OMP–Funes local memory bridge (pinned OMP ${OMP_VERSION})
 
 install is explicit approval to enroll the resolved default root and backfill when
 OMP next runs. Custom profiles, agent directories and roots need --source.
-Repeat --source to enroll multiple roots in one personal memory. Installation
+Repeat --source to enroll multiple OMP roots in one personal memory. Installation
 preserves other MCP entries/backends. run exercises the same bounded scheduler;
 --once catches up then exits (nonzero on failure/incomplete coverage).
 Uninstall removes only bridge wiring, not sessions or derived memory.
 Local indexing downloads inference models when needed; it never publishes.
+The pinned audiodude/funes source protocol also supports standalone Claude/Codex/OMP
+enrollment and periodic source refresh; this OMP scheduler does not manage that
+inventory. See SPEC.md for the independent scope/corpus setup.
 `;
 
 try {
