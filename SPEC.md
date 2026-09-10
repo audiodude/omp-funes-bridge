@@ -111,7 +111,7 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.1.15`, upstream commit `a33cc26824e3c91edd9fa42d681f10dceb4ac2f0`.
+- OMP `18.1.16`, upstream commit `61b1b8aef634334eaf1412afd003a763e1d1b9c1`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`),
   fetched only from `https://github.com/audiodude/funes.git`. The transitional
   fork baseline `5fb623a` contains the former OMP patch but does **not** implement
@@ -388,6 +388,39 @@ Initial probes used the stock release and established native MCP recall and
 live-reader behavior before the OMP-specific patch and onboarding implementation.
 Subsequent probes used the recorded patched build. Raw thinking/provider payloads
 and credentials are not part of the verification record.
+
+### OMP 18.1.16 compatibility
+
+Current OMP compatibility evidence is in
+[`verification/omp-18.1.16.json`](verification/omp-18.1.16.json).
+The exact runtime guard, `pi-utils` dependency, and optional coding-agent peer
+are pinned to `18.1.16`; `bun install --frozen-lockfile` and all three Bun
+regressions passed. Funes retains the maintained-fork revision above, using
+the previously built executable recorded in `verification/fork-source.json`.
+No Funes rebuild or Cargo dependency update was required for these probes.
+
+The upstream comparison adds rename-request revision tracking to SessionManager
+and `isProjectTrusted()` to extension context. Experimental context notes use
+custom entries, with rollover represented by compaction metadata. The native
+archive message representation, MCP implementation, and directory resolver
+sources are unchanged. No bridge API adaptation was required. Experimental
+rollover itself was source-reviewed, not exercised end-to-end.
+
+Fresh isolated Linux x86-64 probes passed eight directory-resolution cases,
+completed and aborted persistence, native MCP recall/get with child provenance
+and live-reader refresh, repeatable installation/removal with ownership checks,
+and existing-index startup. The three-session workload completed initial
+coverage in 8.74 seconds, arrival-during-import coverage in 3.43 seconds, warm
+coverage in 11.19 seconds, and reopening catch-up in 2.29 seconds. The installed
+extension running inside OMP made a new persisted message searchable by ranked
+recall in 11.35 seconds.
+
+These are synthetic host measurements, not renewed large-load, fault-injection,
+spontaneous model recall, or rendered TUI claims. No live installation or
+enrollment was changed. To upgrade an existing installation, rerun the install
+command with its existing agent directory, source roots, and memory location,
+using the pinned fork executable, then restart OMP. Older patch-based Funes
+executables do not satisfy the current maintained-fork capability check.
 
 ### OMP 18.1.15 compatibility
 

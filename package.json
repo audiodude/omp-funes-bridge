@@ -9,8 +9,8 @@
     "build:funes": "bun scripts/build-funes.ts"
   },
   "engines": { "bun": ">=1.4.0" },
-  "dependencies": { "@oh-my-pi/pi-utils": "18.1.15" },
+  "dependencies": { "@oh-my-pi/pi-utils": "18.1.16" },
   "devDependencies": { "@types/bun": "1.3.10" },
-  "peerDependencies": { "@oh-my-pi/pi-coding-agent": "18.1.15" },
+  "peerDependencies": { "@oh-my-pi/pi-coding-agent": "18.1.16" },
   "peerDependenciesMeta": { "@oh-my-pi/pi-coding-agent": { "optional": true } }
 }
