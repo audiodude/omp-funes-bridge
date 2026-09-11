@@ -1,0 +1,527 @@
+{
+  "date": "2026-09-11T05:26:58.517Z",
+  "ompVersion": "18.1.17",
+  "upstreamCommit": "3b3a6dc9bbd85102ce19d0b1c11bf6870915f6ec",
+  "upstreamComparison": "https://github.com/can1357/oh-my-pi/compare/v18.1.16...v18.1.17",
+  "upstreamChangedFiles": [
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    "AGENTS.md",
+    "Cargo.lock",
+    "Cargo.toml",
+    "README.md",
+    "bun.lock",
+    "crates/pi-natives/src/desktop/linux/wayland/capture.rs",
+    "crates/pi-natives/src/desktop/linux/wayland/mod.rs",
+    "crates/pi-natives/src/lib.rs",
+    "docs/compaction.md",
+    "docs/environment-variables.md",
+    "docs/keybindings.md",
+    "docs/models.md",
+    "docs/settings.md",
+    "nix/bun.nix",
+    "package.json",
+    "packages/agent/CHANGELOG.md",
+    "packages/agent/package.json",
+    "packages/agent/src/agent-loop.ts",
+    "packages/agent/src/compaction/compaction-v2-streaming.ts",
+    "packages/agent/src/compaction/compaction.ts",
+    "packages/agent/src/compaction/openai.ts",
+    "packages/agent/src/proxy.ts",
+    "packages/agent/src/tokenizer.ts",
+    "packages/agent/test/agent-loop.test.ts",
+    "packages/agent/test/compact-reset-boundary.test.ts",
+    "packages/agent/test/proxy-stream-disconnect.test.ts",
+    "packages/agent/test/tokenizer.test.ts",
+    "packages/ai/CHANGELOG.md",
+    "packages/ai/package.json",
+    "packages/ai/src/error/flags.ts",
+    "packages/ai/src/providers/amazon-bedrock.ts",
+    "packages/ai/src/providers/anthropic.ts",
+    "packages/ai/src/providers/cursor.ts",
+    "packages/ai/src/providers/devin.ts",
+    "packages/ai/src/providers/github-copilot-headers.ts",
+    "packages/ai/src/providers/google-gemini-cli.ts",
+    "packages/ai/src/providers/google-shared.ts",
+    "packages/ai/src/providers/ollama.ts",
+    "packages/ai/src/providers/openai-codex-responses.ts",
+    "packages/ai/src/providers/openai-completions.ts",
+    "packages/ai/src/providers/openai-responses.ts",
+    "packages/ai/src/providers/openai-shared.ts",
+    "packages/ai/src/providers/vision-guard.ts",
+    "packages/ai/src/registry/oauth/github-copilot.ts",
+    "packages/ai/src/utils/http-inspector.ts",
+    "packages/ai/test/error-id.test.ts",
+    "packages/ai/test/github-copilot-error.test.ts",
+    "packages/ai/test/github-copilot-headers.test.ts",
+    "packages/ai/test/github-copilot-login.test.ts",
+    "packages/ai/test/github-copilot-openai-base-url.test.ts",
+    "packages/ai/test/models-cost.test.ts",
+    "packages/ai/test/ollama-cache-usage.test.ts",
+    "packages/ai/test/openai-codex-stream.test.ts",
+    "packages/ai/test/openai-completions-compat.test.ts",
+    "packages/ai/test/providers/openai-codex-error.test.ts",
+    "packages/catalog/CHANGELOG.md",
+    "packages/catalog/README.md",
+    "packages/catalog/package.json",
+    "packages/catalog/scripts/generate-models.ts",
+    "packages/catalog/scripts/generated-policies.ts",
+    "packages/catalog/src/build.ts",
+    "packages/catalog/src/compat/auth-ids.ts",
+    "packages/catalog/src/compat/axes.ts",
+    "packages/catalog/src/compat/resolve.ts",
+    "packages/catalog/src/compat/rules.json",
+    "packages/catalog/src/compat/rules/README.md",
+    "packages/catalog/src/compat/rules/auth/_order.kdl",
+    "packages/catalog/src/compat/rules/auth/commandcode.kdl",
+    "packages/catalog/src/compat/rules/providers/commandcode.kdl",
+    "packages/catalog/src/compat/rules/providers/deepseek.kdl",
+    "packages/catalog/src/compat/rules/runtime/behavior.kdl",
+    "packages/catalog/src/model-manager.ts",
+    "packages/catalog/src/models.json",
+    "packages/catalog/src/models.ts",
+    "packages/catalog/src/pricing.ts",
+    "packages/catalog/src/provider-models/descriptor-types.ts",
+    "packages/catalog/src/provider-models/descriptors.ts",
+    "packages/catalog/src/provider-models/openai-compat.ts",
+    "packages/catalog/src/types.ts",
+    "packages/catalog/src/wire/github-copilot.ts",
+    "packages/catalog/test/canonical-limit-fallback.test.ts",
+    "packages/catalog/test/commandcode-provider.test.ts",
+    "packages/catalog/test/github-copilot-wire.test.ts",
+    "packages/catalog/test/time-based-pricing.test.ts",
+    "packages/coding-agent/CHANGELOG.md",
+    "packages/coding-agent/package.json",
+    "packages/coding-agent/src/cli/gallery-fixtures/segments.ts",
+    "packages/coding-agent/src/cli/help-extra.ts",
+    "packages/coding-agent/src/cli/models-cli.ts",
+    "packages/coding-agent/src/collab/host.ts",
+    "packages/coding-agent/src/config/custom-models.ts",
+    "packages/coding-agent/src/config/model-patch.ts",
+    "packages/coding-agent/src/config/settings-schema.ts",
+    "packages/coding-agent/src/discovery/claude-plugins.ts",
+    "packages/coding-agent/src/mcp/startup-events.ts",
+    "packages/coding-agent/src/modes/acp/acp-agent.ts",
+    "packages/coding-agent/src/modes/components/ask-dialog.ts",
+    "packages/coding-agent/src/modes/components/custom-editor.ts",
+    "packages/coding-agent/src/modes/components/settings-defs.ts",
+    "packages/coding-agent/src/modes/components/status-line/component.ts",
+    "packages/coding-agent/src/modes/components/status-line/presets.ts",
+    "packages/coding-agent/src/modes/components/status-line/segments.ts",
+    "packages/coding-agent/src/modes/components/status-line/types.ts",
+    "packages/coding-agent/src/modes/controllers/extension-ui-controller.ts",
+    "packages/coding-agent/src/modes/controllers/selector-controller.ts",
+    "packages/coding-agent/src/modes/index.ts",
+    "packages/coding-agent/src/modes/interactive-mode.ts",
+    "packages/coding-agent/src/modes/theme/symbols.ts",
+    "packages/coding-agent/src/modes/theme/theme-class.ts",
+    "packages/coding-agent/src/modes/types.ts",
+    "packages/coding-agent/src/modes/utils/ui-helpers.ts",
+    "packages/coding-agent/src/plan-mode/plan-autosave.ts",
+    "packages/coding-agent/src/prompts/tools/read.md",
+    "packages/coding-agent/src/session/agent-session.ts",
+    "packages/coding-agent/src/session/prewalk.ts",
+    "packages/coding-agent/src/session/stream-guards.ts",
+    "packages/coding-agent/src/session/turn-recovery.ts",
+    "packages/coding-agent/src/tools/ask.ts",
+    "packages/coding-agent/src/tools/render-utils.ts",
+    "packages/coding-agent/src/tools/write.ts",
+    "packages/coding-agent/test/acp-agent.test.ts",
+    "packages/coding-agent/test/agent-session-retry-cap.test.ts",
+    "packages/coding-agent/test/agent-session-snapcompact-frame-dead-end.test.ts",
+    "packages/coding-agent/test/agent-session-stats.test.ts",
+    "packages/coding-agent/test/collab/guest-ui-request.test.ts",
+    "packages/coding-agent/test/collab/read-only.test.ts",
+    "packages/coding-agent/test/compaction.test.ts",
+    "packages/coding-agent/test/discovery/claude-plugins.test.ts",
+    "packages/coding-agent/test/input-controller-large-paste.test.ts",
+    "packages/coding-agent/test/interactive-mode-plan-review.test.ts",
+    "packages/coding-agent/test/model-registry.test.ts",
+    "packages/coding-agent/test/models-cli-image-support.test.ts",
+    "packages/coding-agent/test/modes/components/ask-dialog.test.ts",
+    "packages/coding-agent/test/modes/components/custom-editor-draft.test.ts",
+    "packages/coding-agent/test/modes/components/custom-editor-vim.test.ts",
+    "packages/coding-agent/test/modes/controllers/extension-ui-controller.test.ts",
+    "packages/coding-agent/test/plan-autosave.test.ts",
+    "packages/coding-agent/test/status-line-cost-segment.test.ts",
+    "packages/coding-agent/test/status-line-loop.test.ts",
+    "packages/coding-agent/test/status-line-model.test.ts",
+    "packages/coding-agent/test/status-line-overflow.test.ts",
+    "packages/coding-agent/test/status-line-path.test.ts",
+    "packages/coding-agent/test/status-line-pricing-timer.test.ts",
+    "packages/coding-agent/test/status-line-time-spent.test.ts",
+    "packages/coding-agent/test/status-line-vim.test.ts",
+    "packages/coding-agent/test/streaming-edit-abort.test.ts",
+    "packages/coding-agent/test/tools/ask.test.ts",
+    "packages/coding-agent/test/turn-recovery-replay-unsafe.test.ts",
+    "packages/coding-agent/test/write-streaming-incremental.test.ts",
+    "packages/coding-agent/test/write-streaming-preview-expand.test.ts",
+    "packages/collab-web/CHANGELOG.md",
+    "packages/collab-web/src/components/transcript/Markdown.tsx",
+    "packages/collab-web/test/markdown.test.tsx",
+    "packages/mnemopi/package.json",
+    "packages/natives/CHANGELOG.md",
+    "packages/natives/native/index.d.ts",
+    "packages/natives/native/index.js",
+    "packages/natives/package.json",
+    "packages/omptype/package.json",
+    "packages/snapcompact/package.json",
+    "packages/stats/CHANGELOG.md",
+    "packages/stats/package.json",
+    "packages/stats/src/client/data/formatters.ts",
+    "packages/stats/src/client/routes/TracesRoute.tsx",
+    "packages/stats/src/client/traces/SummaryStrip.tsx",
+    "packages/stats/src/client/types.ts",
+    "packages/stats/src/db.ts",
+    "packages/stats/src/parser.ts",
+    "packages/stats/src/shared-types.ts",
+    "packages/stats/src/trace.ts",
+    "packages/stats/src/types.ts",
+    "packages/stats/test/db-cost.test.ts",
+    "packages/stats/test/parser-malformed-entries.test.ts",
+    "packages/stats/test/trace-builder.test.ts",
+    "packages/tui/CHANGELOG.md",
+    "packages/tui/package.json",
+    "packages/tui/src/components/editor.ts",
+    "packages/tui/src/terminal.ts",
+    "packages/tui/src/vim.ts",
+    "packages/tui/test/editor-vim.test.ts",
+    "packages/tui/test/editor.test.ts",
+    "packages/utils/package.json",
+    "packages/utils/test/incoming-json.test.ts",
+    "packages/wire/package.json"
+  ],
+  "sourceReview": "SessionManager, extension API definitions, and directory resolvers are unchanged. Session code changes cover transport recovery, streaming edit guards, and plan autosave; MCP changes only refactor startup display formatting. No bridge API or archive parser adaptation required.",
+  "funesRepository": "https://github.com/audiodude/funes.git",
+  "funesRevision": "69387f12dca29c2c8e939b0d9890e5768cc2067c",
+  "funesSha256": "22b2068b969ac49ad5613955db97dc92f40807260070f62f8e5f366919ff7355",
+  "funesRebuilt": false,
+  "environment": "Linux x86-64 host, Bun 1.4.2, installed omp/18.1.17, isolated synthetic agent directories/archives/memory; reused pinned fork build",
+  "benchmark": {
+    "fixtureSessions": 3,
+    "sessions": 3,
+    "sources": 3,
+    "completedMessages": 12,
+    "chunks": 12,
+    "backfillMs": 9409.890376,
+    "duringBackfillMs": 3650.781062,
+    "pendingAtArrivalCoverage": 3,
+    "warmUpdateMs": 11275.50707,
+    "reopenMs": 2392.531547999999,
+    "maxIndexerRssKiB": 293780,
+    "maxFunesRssKiB": 293780,
+    "maxBridgeRssBytes": 80084992,
+    "eventLoopP95Ms": 0.194815,
+    "eventLoopP99Ms": 0.459007,
+    "events": [
+      {
+        "at": 0.16708399999993162,
+        "phase": "checking",
+        "operation": "discover",
+        "pending": 0
+      },
+      {
+        "at": 163.4800929999999,
+        "phase": "never-indexed",
+        "operation": "idle",
+        "pending": 3
+      },
+      {
+        "at": 164.63228099999992,
+        "phase": "never-indexed",
+        "operation": "index",
+        "pending": 3
+      },
+      {
+        "at": 2597.4855909999997,
+        "phase": "stale",
+        "operation": "idle",
+        "pending": 3
+      },
+      {
+        "at": 2597.6527450000003,
+        "phase": "stale",
+        "operation": "index",
+        "pending": 3
+      },
+      {
+        "at": 4828.177970000001,
+        "phase": "catching-up",
+        "operation": "idle",
+        "pending": 2
+      },
+      {
+        "at": 4828.310589000001,
+        "phase": "catching-up",
+        "operation": "index",
+        "pending": 2
+      },
+      {
+        "at": 7116.432007,
+        "phase": "catching-up",
+        "operation": "idle",
+        "pending": 1
+      },
+      {
+        "at": 7116.602357,
+        "phase": "catching-up",
+        "operation": "index",
+        "pending": 1
+      },
+      {
+        "at": 9393.340645,
+        "phase": "current",
+        "operation": "idle",
+        "pending": 0
+      },
+      {
+        "at": 19394.669421,
+        "phase": "catching-up",
+        "operation": "idle",
+        "pending": 2
+      },
+      {
+        "at": 19394.881049,
+        "phase": "catching-up",
+        "operation": "index",
+        "pending": 2
+      }
+    ]
+  },
+  "roots": [
+    {
+      "case": "default",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "custom-agent",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/custom",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/custom/sessions"
+    },
+    {
+      "case": "named-profile",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "empty-canonical-profile",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-not-migrated",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-default",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/xdg/omp/sessions"
+    },
+    {
+      "case": "xdg-profile-not-migrated",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "xdg-profile",
+      "agentDir": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/roots/xdg/omp/profiles/work/sessions",
+      "profile": "work"
+    }
+  ],
+  "installation": {
+    "staleBuildRejectedBeforeWrites": true,
+    "repeatableInstall": true,
+    "repeatableRemoval": true,
+    "unrelatedMcpAndBackendPreserved": true,
+    "transcriptsAndDerivedMemoryPreserved": true,
+    "symlinkAgentWorks": true,
+    "externalSourceSymlinkNotEnrolled": true,
+    "customRootsRequireEnrollment": true,
+    "conflictingOwnershipRejected": true
+  },
+  "startup": {
+    "passed": true
+  },
+  "nativeMcp": {
+    "passed": true,
+    "tools": [
+      "mcp__funes_bridge_get",
+      "mcp__funes_bridge_recall",
+      "mcp__funes_bridge_scan",
+      "mcp__funes_bridge_sessions",
+      "mcp__funes_bridge_sketch",
+      "mcp__funes_bridge_status"
+    ],
+    "recallGetAndChildProvenance": true,
+    "excludedContentAbsent": true,
+    "liveReaderRefresh": true
+  },
+  "lifecycleComplete": {
+    "file": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/life-rpc-0/session.jsonl",
+    "observations": [
+      {
+        "event": "message_end",
+        "persisted": false
+      },
+      {
+        "event": "turn_end",
+        "persisted": false
+      },
+      {
+        "event": "filesystem",
+        "persisted": true,
+        "aborted": false
+      }
+    ]
+  },
+  "lifecycleAbort": {
+    "file": "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/life-rpc-1/session.jsonl",
+    "observations": [
+      {
+        "event": "message_end",
+        "persisted": false
+      },
+      {
+        "event": "turn_end",
+        "persisted": false
+      },
+      {
+        "event": "filesystem",
+        "persisted": true,
+        "aborted": true
+      }
+    ]
+  },
+  "installedExtensionSearchability": {
+    "mode": "running",
+    "marker": "search-proof-9d6a0272-4fb7-47ac-949e-4027a602de21",
+    "searchableMs": 9230.903902999999,
+    "attempts": 3,
+    "pendingArchiveSources": 1,
+    "measurement": "Includes native OMP append/startup and a real Funes ranked recall, not just a receipt or index exit"
+  },
+  "installedExtensionFinalStatus": "Funes current · 0 pending · scanned · current source not enrolled",
+  "bunTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "frozenLockfile": true,
+  "commands": [
+    {
+      "name": "fixtures",
+      "args": [
+        "/home/tmoney/.bun/bin/omp",
+        "--model",
+        "openai/gpt-4o-mini",
+        "--no-extensions",
+        "--no-skills",
+        "--no-rules",
+        "--no-title",
+        "--no-lsp",
+        "--no-tools",
+        "-e",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/fixtures.ts",
+        "-p",
+        "synthetic"
+      ],
+      "code": 0
+    },
+    {
+      "name": "benchmark",
+      "args": [
+        "bun",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/benchmark.ts"
+      ],
+      "code": 0
+    },
+    {
+      "name": "startup",
+      "args": [
+        "bun",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/startup.ts"
+      ],
+      "code": 0
+    },
+    {
+      "name": "installation",
+      "args": [
+        "bun",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/install.ts"
+      ],
+      "code": 0
+    },
+    {
+      "name": "roots",
+      "args": [
+        "bun",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/roots.ts"
+      ],
+      "code": 0
+    },
+    {
+      "name": "lifecycle-1",
+      "args": [
+        "/home/tmoney/.bun/bin/omp",
+        "--model",
+        "funes-probe/synthetic",
+        "--no-extensions",
+        "--no-skills",
+        "--no-rules",
+        "--no-title",
+        "--no-lsp",
+        "--no-tools",
+        "-e",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/lifecycle.ts",
+        "--session",
+        "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/life-1/session.jsonl",
+        "-p",
+        "synthetic"
+      ],
+      "code": 1
+    },
+    {
+      "name": "lifecycle-0",
+      "args": [
+        "/home/tmoney/.bun/bin/omp",
+        "--model",
+        "funes-probe/synthetic",
+        "--no-extensions",
+        "--no-skills",
+        "--no-rules",
+        "--no-title",
+        "--no-lsp",
+        "--no-tools",
+        "-e",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/lifecycle.ts",
+        "--session",
+        "/home/tmoney/code/vibes/omp-funes-bridge/.build/compat-18.1.17-rKBlFm/life-0/session.jsonl",
+        "-p",
+        "synthetic"
+      ],
+      "code": 0
+    },
+    {
+      "name": "searchable",
+      "args": [
+        "bun",
+        "/home/tmoney/code/vibes/omp-funes-bridge/probes/searchable.ts"
+      ],
+      "code": 0
+    }
+  ],
+  "probeNotes": [
+    "Lifecycle print mode produced the completed response (exit 0) and aborted response (exit 1) but no persistence acceptance markers. Repeated in persistent RPC mode; both filesystem persistence assertions passed.",
+    "Native MCP and installed extension probes ran in supervised OMP RPC processes; lifecycle RPC sessions received {type:prompt,message:synthetic}."
+  ],
+  "limits": [
+    "Synthetic three-session workload; historical large-load and fault-injection results were not rerun.",
+    "No spontaneous model recall or rendered TUI verification.",
+    "No real-history enrollment or live installation changes; existing installations require explicit upgrade and restart.",
+    "Funes source and transitive Cargo dependencies retain the maintained fork pin; prior build artifact was reused, not rebuilt."
+  ],
+  "assistance": "OpenAI Codex"
+}

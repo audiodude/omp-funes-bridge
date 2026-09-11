@@ -1,7 +1,7 @@
 # OMP–Funes Bridge Specification
 
 Status: maintained-fork/source cutover verified in an isolated synthetic sandbox; current evidence is separate from the historical OMP acceptance below.
-Date: 2026-09-09; historical implementation verification: 2026-09-07.
+Date: 2026-09-10; historical implementation verification: 2026-09-07.
 
 This specification records decisions from the design interview and the subsequently requested implementation. `DESIGN.md` remains unchanged as the original research proposal and evidence baseline; its prior probe results are not renewed verification. Implementation and synthetic verification do not authorize indexing real history, modifying the running OMP installation, remote binding, or uploading data. Live enrollment still requires separate approval.
 
@@ -111,7 +111,7 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.1.16`, upstream commit `61b1b8aef634334eaf1412afd003a763e1d1b9c1`.
+- OMP `18.1.17`, upstream commit `3b3a6dc9bbd85102ce19d0b1c11bf6870915f6ec`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`),
   fetched only from `https://github.com/audiodude/funes.git`. The transitional
   fork baseline `5fb623a` contains the former OMP patch but does **not** implement
@@ -389,12 +389,42 @@ live-reader behavior before the OMP-specific patch and onboarding implementation
 Subsequent probes used the recorded patched build. Raw thinking/provider payloads
 and credentials are not part of the verification record.
 
-### OMP 18.1.16 compatibility
+### OMP 18.1.17 compatibility
 
 Current OMP compatibility evidence is in
+[`verification/omp-18.1.17.json`](verification/omp-18.1.17.json).
+The exact runtime guard, `pi-utils` dependency, and optional coding-agent peer
+are pinned to `18.1.17`; the frozen lockfile check and all three Bun regressions
+passed. The maintained Funes fork pin and previously built executable are unchanged.
+
+The upstream release changes transport-error recovery, streaming edit guards,
+plan autosave, and MCP startup display formatting. SessionManager, extension API
+definitions, and directory resolver sources are unchanged. No bridge API or
+archive parser adaptation was required.
+
+Fresh isolated probes passed eight directory-resolution cases, repeatable
+installation/removal and ownership checks, existing-index startup, completed and
+aborted persistence through RPC, and native MCP recall/get with child provenance,
+excluded-content checks, and live-reader refresh. The three-session workload
+completed initial coverage in 9.41 seconds, arrival-during-import coverage in
+3.65 seconds, warm coverage in 11.28 seconds, and reopening catch-up in 2.39 seconds.
+The installed extension in OMP made a fresh persisted message searchable through
+ranked recall in 9.23 seconds and reached `current` with zero pending sources.
+
+These synthetic host checks do not renew large-load, fault-injection, spontaneous
+model recall, or rendered TUI claims. Print-mode lifecycle runs exited before
+the asynchronous persistence probe completed; the completed/aborted acceptance
+results come from RPC runs. No live installation or real-history enrollment was
+changed. Upgrade an existing installation by rerunning the install command with
+its existing agent directory, source roots, memory location, and pinned fork
+executable, then restart OMP.
+
+### OMP 18.1.16 compatibility
+
+Historical OMP compatibility evidence is in
 [`verification/omp-18.1.16.json`](verification/omp-18.1.16.json).
 The exact runtime guard, `pi-utils` dependency, and optional coding-agent peer
-are pinned to `18.1.16`; `bun install --frozen-lockfile` and all three Bun
+were pinned to `18.1.16`; `bun install --frozen-lockfile` and all three Bun
 regressions passed. Funes retains the maintained-fork revision above, using
 the previously built executable recorded in `verification/fork-source.json`.
 No Funes rebuild or Cargo dependency update was required for these probes.
