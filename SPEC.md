@@ -112,17 +112,16 @@ verification records below are not evidence for this new cutover.
 ### Pinned build
 
 - OMP `18.1.17`, upstream commit `3b3a6dc9bbd85102ce19d0b1c11bf6870915f6ec`.
-- Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`),
-  fetched only from `https://github.com/audiodude/funes.git`. The transitional
-  fork baseline `5fb623a` contains the former OMP patch but does **not** implement
-  source protocol 1; it is not a compatible installation target. The final
-  source-enabled fork SHA must replace that pin before release or verification.
+- Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
+  The maintained source is `https://github.com/audiodude/funes.git`; the current
+  dependency refresh is committed locally and has not been published. Build it
+  from the supplied Funes worktree at that exact revision using the commands below.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
   local-only/metadata-only/revision/snapshot guarantees. Stock or stale builds fail.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
-- Bun `1.4.0`; tested Rust/Cargo `1.98.1`, LLD `18.1.3`, Linux x86-64.
+- Bun `1.4.0`; tested Rust/Cargo `1.98.0`, LLD, Linux x86-64.
   These are the verified versions, not a claim of broad compatibility.
 
 The fork retains Funes' Apache-2.0 license; a copy is retained in `FUNES-LICENSE`.
@@ -130,16 +129,22 @@ This is a third-party notice, not a license designation for the entire bridge.
 The former consumer patch is committed in the fork and is no longer distributed
 or applied by this repository.
 
-From this repository:
+From this repository, using the supplied Funes worktree:
 
 ```sh
 bun install --frozen-lockfile
-bun run build:funes
+FUNES_SOURCE=/absolute/funes-worktree
+git -C "$FUNES_SOURCE" rev-parse HEAD # must match FUNES_REVISION in src/config.ts
+CARGO_BUILD_JOBS=2 CARGO_PROFILE_DEV_DEBUG=0 CARGO_PROFILE_DEV_OPT_LEVEL=1 \
+  CARGO_PROFILE_DEV_INCREMENTAL=false RUSTFLAGS="-C link-arg=-fuse-ld=lld" \
+  cargo build --locked --manifest-path "$FUNES_SOURCE/Cargo.toml"
 bun run bridge paths
 ```
 
 Building requires Git, Cargo/Rust, a C/C++ toolchain, `pkg-config`, OpenSSL
-development headers, `protoc`, and Clang/LLD. The build script checks out the exact
+development headers, `protoc`, and Clang/LLD. For an already-published pin,
+`bun run build:funes` fetches from the maintained fork. It cannot fetch the current
+local-only commit until publication is separately authorized. The script checks out the exact
 fork revision, rejects a wrong origin/HEAD, tracked changes, and all extra files
 (including ignored files), then builds with Cargo's locked dependency graph.
 Use a fresh `FUNES_BUILD_DIR` for a new pin; stale or locally modified checkouts
@@ -163,7 +168,7 @@ index, model download, or provider request, and rejects creation of corpus state
 verification did not install into the live OMP configuration or index real history.**
 
 ```sh
-bun run bridge install --funes-bin "$PWD/.build/funes/bin/funes"
+bun run bridge install --funes-bin "$FUNES_SOURCE/target/debug/funes"
 ```
 
 Installation itself writes wiring; the next OMP startup starts automatic backfill.
@@ -361,11 +366,11 @@ No claim of guaranteed model tool selection or citation discipline is made.
 
 ## Verification record
 
-Current fork/source evidence is in [`verification/fork-source.json`](verification/fork-source.json). The pinned runtime is `audiodude/funes@69387f12dca29c2c8e939b0d9890e5768cc2067c`, including the upstream main changes rather than reverting them. A fresh checkout built through `bun run build:funes` without patch application; its SHA256 is recorded in the evidence. Three bridge regressions passed, including private metadata permissions under an unrestricted caller umask.
+Initial fork/source evidence is in [`verification/fork-source.json`](verification/fork-source.json). That run used `audiodude/funes@69387f12dca29c2c8e939b0d9890e5768cc2067c`, including upstream main changes rather than reverting them. A fresh checkout built through `bun run build:funes` without patch application; its SHA256 is recorded in the evidence. Three bridge regressions passed, including private metadata permissions under an unrestricted caller umask.
 
 The five-session synthetic workload completed backfill in 5.03 seconds, warm updates in 8.64 seconds, and reopening catch-up in 0.68 seconds. Native MCP retrieved parent/child history and saw a persisted append through the existing reader. These measurements do not renew historical large-load or spontaneous-model-recall claims. Installation/removal remained repeatable, stale builds were rejected before writes, and unrelated configuration and originals were preserved.
 
-Re-run `bun run build:funes` with a fresh `FUNES_BUILD_DIR`, then `bun test`. For the installation/ownership/scheduler scenario, supply only synthetic inputs and a fresh installation probe root:
+Build the current committed Funes worktree as described above, then run `bun test`. For the installation/ownership/scheduler scenario, supply only synthetic inputs and a fresh installation probe root:
 
 ```sh
 PROBE_ROOT=/absolute/empty/install-probe \
@@ -389,13 +394,35 @@ live-reader behavior before the OMP-specific patch and onboarding implementation
 Subsequent probes used the recorded patched build. Raw thinking/provider payloads
 and credentials are not part of the verification record.
 
+### September 2026 dependency refresh
+
+Current evidence is in [`verification/dependencies-20260911.json`](verification/dependencies-20260911.json).
+The Funes pin now selects `65b91893d2ca7be80a18ed578c392c8260559b8f`, with stable
+`hf-hub` 1.0.0 and refreshed compatible Cargo dependencies. OMP and `pi-utils`
+remain at the latest published version checked, `18.1.17`; `@types/bun` advances
+to `1.4.2`. Actomasto's Python lockfile was already current within its constraints.
+
+The frozen Bun install and three tests passed. Synthetic native probes passed
+eight root-resolution cases, completed/aborted persistence, repeatable installation
+and removal, stale-build rejection, ownership and source preservation, and native
+MCP recall/get with child provenance and live-reader refresh. The five-session
+workload reached initial coverage in 14.02 seconds, warm coverage in 11.21 seconds,
+and reopening catch-up in 2.32 seconds. Actomasto passed 210 tests against the
+rebuilt committed executable and preserved native completed-turn text/provenance,
+pending aborted turns, restart deduplication, and interval exclusions.
+
+These checks used synthetic originals and isolated installations, not private
+history or the live OMP configuration. No hosted generation, push, publication,
+or deployment occurred. Existing unsupported source-format exclusions remain;
+large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
+
 ### OMP 18.1.17 compatibility
 
-Current OMP compatibility evidence is in
+Historical OMP compatibility evidence is in
 [`verification/omp-18.1.17.json`](verification/omp-18.1.17.json).
 The exact runtime guard, `pi-utils` dependency, and optional coding-agent peer
 are pinned to `18.1.17`; the frozen lockfile check and all three Bun regressions
-passed. The maintained Funes fork pin and previously built executable are unchanged.
+passed. That run left the maintained Funes fork pin and previously built executable unchanged.
 
 The upstream release changes transport-error recovery, streaming edit guards,
 plan autosave, and MCP startup display formatting. SessionManager, extension API

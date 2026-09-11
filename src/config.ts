@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 export const OWNER = 'omp-funes-bridge';
 export const OMP_VERSION = '18.1.17';
 export const FUNES_REPOSITORY = 'https://github.com/audiodude/funes.git';
-export const FUNES_REVISION = '69387f12dca29c2c8e939b0d9890e5768cc2067c';
+export const FUNES_REVISION = '65b91893d2ca7be80a18ed578c392c8260559b8f';
 export const CONFIG_NAME = 'funes-bridge.json';
 export const SERVER_NAME = 'funes_bridge';
 export interface Config {

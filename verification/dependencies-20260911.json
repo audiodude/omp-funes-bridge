@@ -1,0 +1,260 @@
+{
+  "date": "2026-09-11",
+  "assistance": "OpenAI Codex",
+  "omp_version": "18.1.17",
+  "bun_types_version": "1.4.2",
+  "funes": {
+    "revision": "65b91893d2ca7be80a18ed578c392c8260559b8f",
+    "sha256": "cc41cc05867f0c101aa06ddb9297a5d22f4c23b7f58fef632f943bbb3ea7537b",
+    "build": "cargo build --locked in the supplied committed Funes worktree",
+    "published": false
+  },
+  "actomasto": {
+    "revision": "64526259fe79076906a8d1b3f47e0d0e1e6494d2",
+    "pytest_passed": 210,
+    "native_consumer": {
+      "funes_revision": "65b91893d2ca7be80a18ed578c392c8260559b8f",
+      "fixtures": [
+        {
+          "fixture": "complete",
+          "sha256": "9c4a3029f1f8cf5b62b50e1f367f94b7c1a5d9448cf350211dc65bbc77646354",
+          "units": 1,
+          "status": {
+            "dependency": "available",
+            "protocol": "compatible",
+            "build_revision": "65b91893d2ca7be80a18ed578c392c8260559b8f",
+            "coverage": "current",
+            "pending_turns": 0,
+            "streams": {
+              "complete": 1
+            },
+            "refreshed_at": 1789147251.373583,
+            "lag_seconds": 0.03468036651611328
+          },
+          "content_and_provenance": true,
+          "restart_no_replay": true,
+          "ineligible_interval_no_units": true,
+          "original_unchanged": true
+        },
+        {
+          "fixture": "abort",
+          "sha256": "e4702053f4a540276f1662a8f2c4ab122dc1ca9110af9aff9bf07943ea63783e",
+          "units": 0,
+          "status": {
+            "dependency": "available",
+            "protocol": "compatible",
+            "build_revision": "65b91893d2ca7be80a18ed578c392c8260559b8f",
+            "coverage": "current",
+            "pending_turns": 1,
+            "streams": {
+              "incomplete_turn": 1
+            },
+            "refreshed_at": 1789147251.5037766,
+            "lag_seconds": 0.03428530693054199
+          },
+          "content_and_provenance": true,
+          "restart_no_replay": true,
+          "ineligible_interval_no_units": true,
+          "original_unchanged": true
+        }
+      ],
+      "synthetic_only": true,
+      "hosted_generation": false
+    }
+  },
+  "verification": {
+    "bun_frozen_install": "passed",
+    "bun_tests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "native_root_cases_passed": 8,
+    "installation": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 5,
+      "sessions": 5,
+      "sources": 5,
+      "completedMessages": 20,
+      "chunks": 20,
+      "backfillMs": 14017.433654999999,
+      "duringBackfillMs": 3717.3067940000005,
+      "pendingAtArrivalCoverage": 5,
+      "warmUpdateMs": 11209.761911,
+      "reopenMs": 2318.470250000002,
+      "maxIndexerRssKiB": 279800,
+      "maxFunesRssKiB": 294004,
+      "maxBridgeRssBytes": 82145280,
+      "eventLoopP95Ms": 0.168447,
+      "eventLoopP99Ms": 0.386559,
+      "events": [
+        {
+          "at": 0.1408649999999625,
+          "phase": "checking",
+          "operation": "discover",
+          "pending": 0
+        },
+        {
+          "at": 175.80523099999994,
+          "phase": "never-indexed",
+          "operation": "idle",
+          "pending": 5
+        },
+        {
+          "at": 178.36940499999992,
+          "phase": "never-indexed",
+          "operation": "index",
+          "pending": 5
+        },
+        {
+          "at": 2741.2104609999997,
+          "phase": "stale",
+          "operation": "idle",
+          "pending": 5
+        },
+        {
+          "at": 2741.4229109999997,
+          "phase": "stale",
+          "operation": "index",
+          "pending": 5
+        },
+        {
+          "at": 5056.980106,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 4
+        },
+        {
+          "at": 5057.160776,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 4
+        },
+        {
+          "at": 7261.290486,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 3
+        },
+        {
+          "at": 7261.484742,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 3
+        },
+        {
+          "at": 9454.956677,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 2
+        },
+        {
+          "at": 9455.166301,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 2
+        },
+        {
+          "at": 11739.417947,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 1
+        },
+        {
+          "at": 11739.563431,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 1
+        },
+        {
+          "at": 14006.822396,
+          "phase": "current",
+          "operation": "idle",
+          "pending": 0
+        },
+        {
+          "at": 24008.062424000003,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 2
+        },
+        {
+          "at": 24008.27802,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 2
+        }
+      ]
+    },
+    "native_mcp": {
+      "tools": [
+        "mcp__funes_bridge_get",
+        "mcp__funes_bridge_recall",
+        "mcp__funes_bridge_scan",
+        "mcp__funes_bridge_sessions",
+        "mcp__funes_bridge_sketch",
+        "mcp__funes_bridge_status"
+      ],
+      "recalled": "OMP historical archive 01a09157-adc8-7375-8acf-8af29a89c8f8: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl (snapshot 5595:1789147270712816541:1789147270712816541:40922429; parse complete: true).\nArchive control 81472d3b type=branch_summary parent=284f2b4e links={\"fromId\":\"284f2b4e\"}.\nArchive control 8bb1c177 type=compaction parent=afa10cfe links={\"firstKeptEntryId\":\"284f2b4e\"}.\nArchive control d136fd15 type=reset_boundary parent=8bb1c177 links={}.\nEntry 284f2b4e parent=root metadata={\"role\":\"user\"}.\nEntry 1accd579 parent=81472d3b metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry f1f9a9e1 parent=4b0e80d6 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nOMP historical archive 01a09157-add9-7368-bd9b-c94dfe127775: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8/ChildReview.jsonl (snapshot 1492:1735689600000000000:1789144837594837044:40922431; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl (session 01a09157-adc8-7375-8acf-8af29a89c8f8). Structural ownership does not establish the immediate spawning agent.\nEntry b22158e0 parent=0ee02a32 metadata={\"role\":\"user\"}.\n  Graph ancestor 0ee02a32 type=session_init metadata={}.\nOMP historical archive 01a09157-adda-74ff-b606-ff592725c946: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/project-0/2026-09-11T16-40-37-594Z_01a09157-adda-74ff-b606-ff592725c946.jsonl (snapshot 2723:1735689600000000000:1789144837594837044:40922435; parse complete: true).\nEntry 01e7c238 parent=ed55d376 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\nOMP historical archive 01a09157-adda-7500-9541-b77110089c61: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/project-1/2026-09-11T16-40-37-594Z_01a09157-adda-7500-9541-b77110089c61.jsonl (snapshot 2723:1735689600000000000:1789144837594837044:40922437; parse complete: true).\nEntry df287418 parent=root metadata={\"role\":\"user\"}.\nEntry 03dce7c6 parent=df287418 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\nEntry 0c9cebcc parent=03dce7c6 metadata={\"role\":\"user\"}.\n[2026-09-11T16:40:37.577Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.996\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 0 --to 5 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 2, turn 1accd579]. Current applicability and supersession are unknown.]\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n  ~ [assistant text seq1] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n  ~ [user text seq3] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 3] [Archived statement, not independent verification] The durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-11T16:40:37.576Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.696\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 0, turn 284f2b4e]. Current applicability and supersession are unknown.]\nCerulean is an offline kiosk. What persistence approach should we use?\n  ~ [assistant text seq1] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-11T16:40:37.593Z] omp -synthetic-cerulean/01a09157-add9-7368-bd9b-c94dfe127775 text  score=0.231\n  \u2192 get 01a09157-add9-7368-bd9b-c94dfe127775 --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-add9-7368-bd9b-c94dfe127775, seq 0, turn b22158e0]. Current applicability and supersession are unknown.]\nAssess the Cerulean checksum footer.\n  ~ [assistant text seq1] [session 01a09157-add9-7368-bd9b-c94dfe127775, seq 1] [Archived statement, not independent verification] Child reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n---\n[2026-09-11T17:20:58.564Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.019\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 3 --to 9 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 6, turn f1f9a9e1]. Current applicability and supersession are unknown.]\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n  ~ [assistant text seq5] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 5] [Archived statement, not independent verification] Fresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n  ~ [assistant text seq7] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 7] [Archived statement, not independent verification] Closed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-11T16:40:37.594Z] omp -synthetic-archive-1/01a09157-adda-7500-9541-b77110089c61 text  score=0.007\n  \u2192 get 01a09157-adda-7500-9541-b77110089c61 --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adda-7500-9541-b77110089c61, seq 1, turn 03dce7c6]. Current applicability and supersession are unknown.]\nArchive project 1, decision 1: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-1.\n  ~ [user text seq0] [session 01a09157-adda-7500-9541-b77110089c61, seq 0] [Archived statement, not independent verification] Archive project 1, decision 0: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-0.\n  ~ [user text seq2] [session 01a09157-adda-7500-9541-b77110089c61, seq 2] [Archived statement, not independent verification] Archive project 1, decision 2: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-2.\n---\n[2026-09-11T16:40:37.594Z] omp -synthetic-archive-0/01a09157-adda-74ff-b606-ff592725c946 text  score=0.004\n  \u2192 get 01a09157-adda-74ff-b606-ff592725c946 --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adda-74ff-b606-ff592725c946, seq 1, turn 01e7c238]. Current applicability and supersession are unknown.]\nArchive project 0, decision 1: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-0-1.\n  ~ [user text seq0] [session 01a09157-adda-74ff-b606-ff592725c946, seq 0] [Archived statement, not independent verification] Archive project 0, decision 0: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-0-0.\n  ~ [user text seq2] [session 01a09157-adda-74ff-b606-ff592725c946, seq 2] [Archived statement, not independent verification] Archive project 0, decision 2: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-0-2.\n---\n[2026-09-11T16:40:37.594Z] omp -synthetic-archive-1/01a09157-adda-7500-9541-b77110089c61 text  score=0.003\n  \u2192 get 01a09157-adda-7500-9541-b77110089c61 --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adda-7500-9541-b77110089c61, seq 0, turn df287418]. Current applicability and supersession are unknown.]\nArchive project 1, decision 0: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-0.\n  ~ [assistant text seq1] [session 01a09157-adda-7500-9541-b77110089c61, seq 1] [Archived statement, not independent verification] Archive project 1, decision 1: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-1.\n---\n[2026-09-11T16:40:37.594Z] omp -synthetic-archive-1/01a09157-adda-7500-9541-b77110089c61 text  score=0.003\n  \u2192 get 01a09157-adda-7500-9541-b77110089c61 --from 0 --to 5 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adda-7500-9541-b77110089c61, seq 2, turn 0c9cebcc]. Current applicability and supersession are unknown.]\nArchive project 1, decision 2: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-2.\n  ~ [assistant text seq1] [session 01a09157-adda-7500-9541-b77110089c61, seq 1] [Archived statement, not independent verification] Archive project 1, decision 1: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-1.\n  ~ [assistant text seq3] [session 01a09157-adda-7500-9541-b77110089c61, seq 3] [Archived statement, not independent verification] Archive project 1, decision 3: use local append-only audit records with atomic checkpoints and explicit human approval for public deployment. The historical rationale was intermittent network availability and operator control. Unique reference archive-1-3.\n---\n",
+      "detail": "Indexed OMP source paths: {\"/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl\"}.\nIndexed entry 284f2b4e parent=root/unknown.\nIndexed entry 6d4642fb parent=284f2b4e.\nIndexed entry 1accd579 parent=81472d3b.\nIndexed entry b06b1dba parent=d136fd15.\nIndexed entry 6d0ff090 parent=b06b1dba.\nIndexed entry 4b0e80d6 parent=6d0ff090.\nIndexed entry f1f9a9e1 parent=4b0e80d6.\nIndexed entry 22ad47f9 parent=f1f9a9e1.\nOMP historical archive 01a09157-adc8-7375-8acf-8af29a89c8f8: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl (snapshot 5595:1789147270712816541:1789147270712816541:40922429; parse complete: true).\nArchive control 81472d3b type=branch_summary parent=284f2b4e links={\"fromId\":\"284f2b4e\"}.\nArchive control 8bb1c177 type=compaction parent=afa10cfe links={\"firstKeptEntryId\":\"284f2b4e\"}.\nArchive control d136fd15 type=reset_boundary parent=8bb1c177 links={}.\nEntry 284f2b4e parent=root metadata={\"role\":\"user\"}.\nEntry 6d4642fb parent=284f2b4e metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\nEntry 1accd579 parent=81472d3b metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry b06b1dba parent=d136fd15 metadata={\"role\":\"user\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 6d0ff090 parent=b06b1dba metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 4b0e80d6 parent=6d0ff090 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry f1f9a9e1 parent=4b0e80d6 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 22ad47f9 parent=f1f9a9e1 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\n[2026-09-11T16:40:37.576Z] user seq0 turn=284f2b4e\nCerulean is an offline kiosk. What persistence approach should we use?\n---\n[2026-09-11T16:40:37.576Z] assistant seq1 turn=6d4642fb\nInvestigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-11T16:40:37.577Z] assistant seq2 turn=1accd579\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n---\n[2026-09-11T16:40:37.577Z] user seq3 turn=b06b1dba\nThe durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-11T16:40:37.577Z] assistant seq4 turn=6d0ff090\nCerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n---\n[2026-09-11T17:20:44.932Z] assistant seq5 turn=4b0e80d6\nFresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n---\n[2026-09-11T17:20:58.564Z] assistant seq6 turn=f1f9a9e1\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n---\n[2026-09-11T17:21:10.713Z] assistant seq7 turn=22ad47f9\nClosed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\nturns 0-7 of 8\n",
+      "childText": "Indexed OMP source paths: {\"/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8/ChildReview.jsonl\"}.\nIndexed entry b22158e0 parent=0ee02a32.\nIndexed entry fb1ddf80 parent=b22158e0.\nOMP historical archive 01a09157-add9-7368-bd9b-c94dfe127775: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8/ChildReview.jsonl (snapshot 1492:1735689600000000000:1789144837594837044:40922431; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl (session 01a09157-adc8-7375-8acf-8af29a89c8f8). Structural ownership does not establish the immediate spawning agent.\nEntry b22158e0 parent=0ee02a32 metadata={\"role\":\"user\"}.\n  Graph ancestor 0ee02a32 type=session_init metadata={}.\nEntry fb1ddf80 parent=b22158e0 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 0ee02a32 type=session_init metadata={}.\n[2026-09-11T16:40:37.593Z] user seq0 turn=b22158e0\nAssess the Cerulean checksum footer.\n---\n[2026-09-11T16:40:37.593Z] assistant seq1 turn=fb1ddf80\nChild reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n---\nturns 0-1 of 2\n",
+      "updated": "Indexed OMP source paths: {\"/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl\"}.\nIndexed entry 284f2b4e parent=root/unknown.\nIndexed entry 6d4642fb parent=284f2b4e.\nIndexed entry 1accd579 parent=81472d3b.\nIndexed entry b06b1dba parent=d136fd15.\nIndexed entry 6d0ff090 parent=b06b1dba.\nIndexed entry 4b0e80d6 parent=6d0ff090.\nIndexed entry f1f9a9e1 parent=4b0e80d6.\nIndexed entry 22ad47f9 parent=f1f9a9e1.\nIndexed entry 3140ba99 parent=22ad47f9.\nOMP historical archive 01a09157-adc8-7375-8acf-8af29a89c8f8: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl (snapshot 5874:1789147305053014996:1789147305053014996:40922429; parse complete: true).\nArchive control 81472d3b type=branch_summary parent=284f2b4e links={\"fromId\":\"284f2b4e\"}.\nArchive control 8bb1c177 type=compaction parent=afa10cfe links={\"firstKeptEntryId\":\"284f2b4e\"}.\nArchive control d136fd15 type=reset_boundary parent=8bb1c177 links={}.\nEntry 284f2b4e parent=root metadata={\"role\":\"user\"}.\nEntry 6d4642fb parent=284f2b4e metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\nEntry 1accd579 parent=81472d3b metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry b06b1dba parent=d136fd15 metadata={\"role\":\"user\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 6d0ff090 parent=b06b1dba metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 4b0e80d6 parent=6d0ff090 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry f1f9a9e1 parent=4b0e80d6 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 22ad47f9 parent=f1f9a9e1 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 3140ba99 parent=22ad47f9 metadata={\"role\":\"user\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\n[2026-09-11T16:40:37.576Z] user seq0 turn=284f2b4e\nCerulean is an offline kiosk. What persistence approach should we use?\n---\n[2026-09-11T16:40:37.576Z] assistant seq1 turn=6d4642fb\nInvestigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-11T16:40:37.577Z] assistant seq2 turn=1accd579\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n---\n[2026-09-11T16:40:37.577Z] user seq3 turn=b06b1dba\nThe durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-11T16:40:37.577Z] assistant seq4 turn=6d0ff090\nCerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n---\n[2026-09-11T17:20:44.932Z] assistant seq5 turn=4b0e80d6\nFresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n---\n[2026-09-11T17:20:58.564Z] assistant seq6 turn=f1f9a9e1\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n---\n[2026-09-11T17:21:10.713Z] assistant seq7 turn=22ad47f9\nClosed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-11T17:21:45.052Z] user seq8 turn=3140ba99\nNew Cerulean decision LIVE_READER_abc28f6d-2edd-4148-af71-b429cbe237c9: retain the checksum footer for offline export.\n---\nturns 0-8 of 9\n",
+      "liveRecall": "OMP historical archive 01a09157-adc8-7375-8acf-8af29a89c8f8: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl (snapshot 5874:1789147305053014996:1789147305053014996:40922429; parse complete: true).\nArchive control 81472d3b type=branch_summary parent=284f2b4e links={\"fromId\":\"284f2b4e\"}.\nArchive control 8bb1c177 type=compaction parent=afa10cfe links={\"firstKeptEntryId\":\"284f2b4e\"}.\nArchive control d136fd15 type=reset_boundary parent=8bb1c177 links={}.\nEntry 284f2b4e parent=root metadata={\"role\":\"user\"}.\nEntry 1accd579 parent=81472d3b metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 6d0ff090 parent=b06b1dba metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry f1f9a9e1 parent=4b0e80d6 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nEntry 3140ba99 parent=22ad47f9 metadata={\"role\":\"user\"}.\n  Graph ancestor d136fd15 type=reset_boundary metadata={}.\n  Graph ancestor 8bb1c177 type=compaction metadata={\"firstKeptEntryId\":\"284f2b4e\"}.\n  Graph ancestor afa10cfe type=custom metadata={}.\n  Graph ancestor 81472d3b type=branch_summary metadata={\"fromId\":\"284f2b4e\"}.\nOMP historical archive 01a09157-add9-7368-bd9b-c94dfe127775: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8/ChildReview.jsonl (snapshot 1492:1735689600000000000:1789144837594837044:40922431; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8.jsonl (session 01a09157-adc8-7375-8acf-8af29a89c8f8). Structural ownership does not establish the immediate spawning agent.\nEntry b22158e0 parent=0ee02a32 metadata={\"role\":\"user\"}.\n  Graph ancestor 0ee02a32 type=session_init metadata={}.\nEntry fb1ddf80 parent=b22158e0 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n  Graph ancestor 0ee02a32 type=session_init metadata={}.\nOMP historical archive 01a09157-adda-74fe-b0c1-9be878d6e6ad: archived branches retained; branch relation is not a current recommendation; supersession unknown. File-order neighbors are not necessarily on the same branch. Citations report user/assistant statements, not independent verification of omitted tool output.\nSource: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8/ChildReview/__advisor.jsonl (snapshot 1210:1735689600000000000:1789144837594837044:40922433; parse complete: true).\nstructural_owner: /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/archive/cerulean/2026-09-11T16-40-37-576Z_01a09157-adc8-7375-8acf-8af29a89c8f8/ChildReview.jsonl (session 01a09157-add9-7368-bd9b-c94dfe127775). Structural ownership does not establish the immediate spawning agent.\nEntry 5d47ffdc parent=3c3df822 metadata={\"role\":\"assistant\",\"stopReason\":\"stop\"}.\n[2026-09-11T16:40:37.577Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.969\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 1 --to 7 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 4, turn 6d0ff090]. Current applicability and supersession are unknown.]\nCerulean export choice: cobalt-otter-784 JSONL with a checksum footer. This supersedes the speculative CSV export discussed elsewhere.\n  ~ [user text seq3] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 3] [Archived statement, not independent verification] The durable format is JSONL. Screenshots are not evidence of command output.\n  ~ [assistant text seq5] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 5] [Archived statement, not independent verification] Fresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n---\n[2026-09-11T16:40:37.593Z] omp -synthetic-cerulean/01a09157-add9-7368-bd9b-c94dfe127775 text  score=0.939\n  \u2192 get 01a09157-add9-7368-bd9b-c94dfe127775 --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-add9-7368-bd9b-c94dfe127775, seq 0, turn b22158e0]. Current applicability and supersession are unknown.]\nAssess the Cerulean checksum footer.\n  ~ [assistant text seq1] [session 01a09157-add9-7368-bd9b-c94dfe127775, seq 1] [Archived statement, not independent verification] Child reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n---\n[2026-09-11T17:21:45.052Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.831\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 5 --to 11 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 8, turn 3140ba99]. Current applicability and supersession are unknown.]\nNew Cerulean decision LIVE_READER_abc28f6d-2edd-4148-af71-b429cbe237c9: retain the checksum footer for offline export.\n  ~ [assistant text seq7] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 7] [Archived statement, not independent verification] Closed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-11T17:20:58.564Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.118\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 3 --to 9 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 6, turn f1f9a9e1]. Current applicability and supersession are unknown.]\nWarm decision: violet-wren-773 preserves the offline checksum footer.\n  ~ [assistant text seq5] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 5] [Archived statement, not independent verification] Fresh decision during initial import: amber-falcon-992 must be searchable before the archive finishes.\n  ~ [assistant text seq7] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 7] [Archived statement, not independent verification] Closed-session update: marigold-lynx-331 must catch up when OMP reopens.\n---\n[2026-09-11T16:40:37.577Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.074\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 0 --to 5 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 2, turn 1accd579]. Current applicability and supersession are unknown.]\nAccepted Cerulean decision: use SQLite WAL for offline kiosk writes. Redis was rejected because kiosks must commit transactions while disconnected. The user reported an outage test passed; this historical report does not independently verify the omitted test output.\n  ~ [assistant text seq1] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n  ~ [user text seq3] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 3] [Archived statement, not independent verification] The durable format is JSONL. Screenshots are not evidence of command output.\n---\n[2026-09-11T16:40:37.576Z] omp -synthetic-cerulean/01a09157-adc8-7375-8acf-8af29a89c8f8 text  score=0.054\n  \u2192 get 01a09157-adc8-7375-8acf-8af29a89c8f8 --from 0 --to 3 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 0, turn 284f2b4e]. Current applicability and supersession are unknown.]\nCerulean is an offline kiosk. What persistence approach should we use?\n  ~ [assistant text seq1] [session 01a09157-adc8-7375-8acf-8af29a89c8f8, seq 1] [Archived statement, not independent verification] Investigation only: Redis looked promising. This proposal was abandoned after offline write durability failed. Do not recommend this abandoned Redis branch.\n---\n[2026-09-11T16:40:37.594Z] omp -synthetic-cerulean/01a09157-adda-74fe-b0c1-9be878d6e6ad text  score=0.026\n  \u2192 get 01a09157-adda-74fe-b0c1-9be878d6e6ad --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-adda-74fe-b0c1-9be878d6e6ad, seq 1, turn 5d47ffdc]. Current applicability and supersession are unknown.]\nAdvisor note: historical claims about the Cerulean outage test are not independent verification.\n  ~ [user text seq0] [session 01a09157-adda-74fe-b0c1-9be878d6e6ad, seq 0] [Archived statement, not independent verification] Synthetic advisor review delta\n---\n[2026-09-11T16:40:37.593Z] omp -synthetic-cerulean/01a09157-add9-7368-bd9b-c94dfe127775 text  score=0.006\n  \u2192 get 01a09157-add9-7368-bd9b-c94dfe127775 --from 0 --to 4 --memory /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/memory/memory\n[Archived statement, NOT a verified outcome. Citation: [session 01a09157-add9-7368-bd9b-c94dfe127775, seq 1, turn fb1ddf80]. Current applicability and supersession are unknown.]\nChild reviewer reported that cobalt-otter-784 footer verification catches truncated exports. This is a reported conclusion; current tests still require inspection.\n  ~ [user text seq0] [session 01a09157-add9-7368-bd9b-c94dfe127775, seq 0] [Archived statement, not independent verification] Assess the Cerulean checksum footer.\n---\n",
+      "index": "indexed sessions=1 skipped=0 chunks=1\n"
+    },
+    "lifecycle": {
+      "complete": {
+        "file": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/life-complete/session.jsonl",
+        "observations": [
+          {
+            "event": "message_end",
+            "persisted": false
+          },
+          {
+            "event": "turn_end",
+            "persisted": false
+          },
+          {
+            "event": "filesystem",
+            "persisted": true,
+            "aborted": false
+          }
+        ]
+      },
+      "abort": {
+        "file": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-bridge-dependencies-20260911/.build/verification/life-abort/session.jsonl",
+        "observations": [
+          {
+            "event": "message_end",
+            "persisted": false
+          },
+          {
+            "event": "turn_end",
+            "persisted": false
+          },
+          {
+            "event": "filesystem",
+            "persisted": true,
+            "aborted": true
+          }
+        ]
+      }
+    }
+  },
+  "limits": [
+    "All cross-project smoke originals are synthetic; no private transcripts.",
+    "No live installation, enrollment, hosted generation, push, publication, or deployment.",
+    "The remote-fetch build script was not exercised for the unpublished commit; build the supplied local Funes worktree.",
+    "No renewed large-load, spontaneous-recall, fault-injection, or rendered-TUI acceptance.",
+    "Existing source protocol harness schema exclusions remain unchanged."
+  ]
+}
