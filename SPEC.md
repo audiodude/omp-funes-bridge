@@ -111,11 +111,11 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.1.17`, upstream commit `3b3a6dc9bbd85102ce19d0b1c11bf6870915f6ec`.
+- OMP `18.1.18`, upstream commit `00085d4e7dfdcfbf302c122fa2682b410a0f43d1`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
-  The maintained source is `https://github.com/audiodude/funes.git`; the current
-  dependency refresh is committed locally and has not been published. Build it
-  from the supplied Funes worktree at that exact revision using the commands below.
+  The maintained source is `https://github.com/audiodude/funes.git`; revision
+  `e1e398cce025da6c56cb95b18de5e1a7289058e5` is published on the fork's main branch.
+  Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
   local-only/metadata-only/revision/snapshot guarantees. Stock or stale builds fail.
@@ -142,9 +142,8 @@ bun run bridge paths
 ```
 
 Building requires Git, Cargo/Rust, a C/C++ toolchain, `pkg-config`, OpenSSL
-development headers, `protoc`, and Clang/LLD. For an already-published pin,
-`bun run build:funes` fetches from the maintained fork. It cannot fetch the current
-local-only commit until publication is separately authorized. The script checks out the exact
+development headers, `protoc`, and Clang/LLD. For the published pin,
+`bun run build:funes` fetches from the maintained fork. The script checks out the exact
 fork revision, rejects a wrong origin/HEAD, tracked changes, and all extra files
 (including ignored files), then builds with Cargo's locked dependency graph.
 Use a fresh `FUNES_BUILD_DIR` for a new pin; stale or locally modified checkouts
@@ -396,8 +395,8 @@ and credentials are not part of the verification record.
 
 ### September 2026 dependency refresh
 
-Current evidence is in [`verification/dependencies-20260911.json`](verification/dependencies-20260911.json).
-The Funes pin now selects `65b91893d2ca7be80a18ed578c392c8260559b8f`, with stable
+Historical dependency-refresh evidence is in [`verification/dependencies-20260911.json`](verification/dependencies-20260911.json).
+That refresh selected `65b91893d2ca7be80a18ed578c392c8260559b8f`, with stable
 `hf-hub` 1.0.0 and refreshed compatible Cargo dependencies. OMP and `pi-utils`
 remain at the latest published version checked, `18.1.17`; `@types/bun` advances
 to `1.4.2`. Actomasto's Python lockfile was already current within its constraints.
@@ -415,6 +414,31 @@ These checks used synthetic originals and isolated installations, not private
 history or the live OMP configuration. No hosted generation, push, publication,
 or deployment occurred. Existing unsupported source-format exclusions remain;
 large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
+
+### OMP 18.1.18 compatibility and local rollout
+
+Current evidence is in [`verification/omp-18.1.18.json`](verification/omp-18.1.18.json).
+The runtime guard, dependency, and peer pins advance to `18.1.18`. Funes advances
+to published revision `e1e398cce025da6c56cb95b18de5e1a7289058e5` (`1.4.0+dev`),
+including GitHub release/update routing; its OMP parser and source protocol are
+unchanged. OMP's inspected session-manager delta adds optional `isolated` metadata
+to `session_init`; no bridge API adaptation was needed.
+
+Verification passed three bridge regressions, 288 Funes tests, 39 fork hyperlink
+tests, the compiled OMP CLI smoke test, completed/aborted RPC persistence,
+repeatable installation/removal and ownership checks, existing-index restart,
+and native MCP recall/get with child provenance, excluded-content checks, and
+live-reader refresh. Native verification used the newly built fork executable
+and revisioned Funes executable in a synthetic isolated enrollment.
+
+The local bridge was reinstalled with its existing roots and memory location;
+unrelated MCP servers were preserved. A fresh OMP process loaded the new bridge
+and resumed indexing without the prior version-mismatch failure. Existing OMP
+processes retain their loaded code until restarted. The unrelated Actomasto
+consumer retains its own pinned executable and refresh launcher.
+
+This does not establish fully current or sanitized historical coverage, nor
+renew large-load, spontaneous-recall, or rendered-TUI claims.
 
 ### OMP 18.1.17 compatibility
 
