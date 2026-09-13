@@ -437,6 +437,15 @@ inputs. Reinstallation preserves the existing explicit roots and memory home.
 Already-running OMP processes retain loaded code until restarted; do not
 terminate unrelated interactive sessions during installation.
 
+Verification passed three bridge regressions, 106 focused OMP regressions,
+288 Funes regressions, eight root-resolution cases, completed/aborted session
+persistence, installation preservation, existing-index restart, and native MCP
+retrieval with live-reader refresh. The rebuilt Funes executable was byte-identical
+to the existing verified installation and was reinstalled at the same revisioned
+path. When reusing a Cargo target across worktrees, set `FUNES_BUILD_REVISION`
+to the verified full Git HEAD to invalidate cached build-script revision metadata;
+the capability check still requires the embedded revision to match the bridge pin.
+
 This verification does not renew large-load, spontaneous-recall, rendered-TUI,
 or fully current/sanitized historical-coverage claims.
 

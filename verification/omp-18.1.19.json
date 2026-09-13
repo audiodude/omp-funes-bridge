@@ -132,5 +132,28 @@
     "Large-load, spontaneous recall and rendered TUI were not revalidated.",
     "Live historical coverage remains stale/mixed, not fully current or sanitized.",
     "Unrelated Actomasto consumer retains its separate pinned executable."
-  ]
+  ],
+  "funesTests": {
+    "passed": 288,
+    "failed": 0,
+    "command": "cargo test --locked --lib --bin funes --test local_source_normalize"
+  },
+  "funesBuild": {
+    "revision": "e1e398cce025da6c56cb95b18de5e1a7289058e5",
+    "sha256": "d4b5589f9c2d1bdee123876102250c40e15d2acf0666433af770cfbeac2ae584",
+    "reproducedInstalledExecutable": true,
+    "reinstalled": true,
+    "cacheNote": "A reused Cargo target initially retained old build-script revision metadata; setting the declared FUNES_BUILD_REVISION input reran build.rs against the verified Git HEAD. The rejected binary was never installed.",
+    "rebuiltInstallation": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    }
+  }
 }
