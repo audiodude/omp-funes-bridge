@@ -111,7 +111,7 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.1.18`, upstream commit `00085d4e7dfdcfbf302c122fa2682b410a0f43d1`.
+- OMP `18.1.19`, upstream commit `e4dd2ec3b487f216c569281e2cdb7ec476a81f2e`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
   `e1e398cce025da6c56cb95b18de5e1a7289058e5` is published on the fork's main branch.
@@ -415,9 +415,34 @@ history or the live OMP configuration. No hosted generation, push, publication,
 or deployment occurred. Existing unsupported source-format exclusions remain;
 large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
 
+### OMP 18.1.19 compatibility and local rollout
+
+Current evidence is in [`verification/omp-18.1.19.json`](verification/omp-18.1.19.json).
+The runtime guard, dependency, and peer pins advance to `18.1.19`. The maintained
+Funes pin remains `e1e398cce025da6c56cb95b18de5e1a7289058e5`, which already includes
+upstream main `72c108157ffd5721a1cbb68e3394cfa5eeaaac7f`. The OMP fork integrates
+the release on `vscode-file-hyperlinks` at
+`69775fe62e2fa609837925c92237a266d123b9f2`, preserving the editor-link feature.
+
+OMP's session journal and extension event types did not change in the inspected
+release delta. Native MCP name aliases and refresh retention did change; native
+recall/get and live-reader refresh were exercised against the compiled fork.
+New BTW-history JSON sidecars are separate from the enrolled session journals
+and are not newly enrolled by this compatibility update.
+
+Build the OMP executable from the maintained feature branch, not stock upstream,
+to retain editor links. This rollout uses integrity-checked published
+`@oh-my-pi/pi-natives-linux-x64@18.1.19` baseline/modern addons as compilation
+inputs. Reinstallation preserves the existing explicit roots and memory home.
+Already-running OMP processes retain loaded code until restarted; do not
+terminate unrelated interactive sessions during installation.
+
+This verification does not renew large-load, spontaneous-recall, rendered-TUI,
+or fully current/sanitized historical-coverage claims.
+
 ### OMP 18.1.18 compatibility and local rollout
 
-Current evidence is in [`verification/omp-18.1.18.json`](verification/omp-18.1.18.json).
+Historical evidence is in [`verification/omp-18.1.18.json`](verification/omp-18.1.18.json).
 The runtime guard, dependency, and peer pins advance to `18.1.18`. Funes advances
 to published revision `e1e398cce025da6c56cb95b18de5e1a7289058e5` (`1.4.0+dev`),
 including GitHub release/update routing; its OMP parser and source protocol are
