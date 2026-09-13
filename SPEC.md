@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.1.18`, upstream commit `00085d4e7dfdcfbf302c122fa2682b410a0f43d1`.
+- OMP `18.1.19`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `e1e398cce025da6c56cb95b18de5e1a7289058e5` is published on the fork's main branch.
+  `a847bd5e0d2c17ade3baa6cb49c5b29340d691fb` is the verified dependency refresh.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -415,9 +415,34 @@ history or the live OMP configuration. No hosted generation, push, publication,
 or deployment occurred. Existing unsupported source-format exclusions remain;
 large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
 
+### OMP 18.1.19 local-stack refresh
+
+Current evidence is in [`verification/dependencies-20260912.json`](verification/dependencies-20260912.json).
+The runtime guard, dependency, and peer pins advance to `18.1.19`. Funes advances
+to `a847bd5e0d2c17ade3baa6cb49c5b29340d691fb`, refreshing six compatible locked
+dependencies without changing the source protocol or harness schemas.
+Actomasto's compatible Python dependency versions are unchanged; its refreshed
+virtual environment and native consumer were tested against this Funes build.
+
+Synthetic verification passed bridge regressions, eight native directory cases,
+completed/aborted RPC persistence, repeatable installation/removal and ownership
+checks, existing-index startup, and native MCP recall/get with child provenance
+and live-reader refresh. Actomasto's 210 tests and native OMP 18.1.19 consumption
+passed, including exact text/provenance, aborted-turn exclusion, restart
+deduplication, and ineligible-interval exclusion.
+
+For local activation, reinstall the bridge with its existing roots and memory
+location and the revisioned Funes executable. Update Actomasto's v2 executable
+configuration and service runtime using its README instructions, and point the
+independent refresh launcher at the same build before restarting the refresh
+service/timer and Actomasto. No release tags or Hugging Face release publication
+are part of this operation. Existing OMP processes retain their loaded extension
+until restarted. These checks do not establish fully current or sanitized
+historical coverage or support for previously rejected source formats.
+
 ### OMP 18.1.18 compatibility and local rollout
 
-Current evidence is in [`verification/omp-18.1.18.json`](verification/omp-18.1.18.json).
+Historical evidence is in [`verification/omp-18.1.18.json`](verification/omp-18.1.18.json).
 The runtime guard, dependency, and peer pins advance to `18.1.18`. Funes advances
 to published revision `e1e398cce025da6c56cb95b18de5e1a7289058e5` (`1.4.0+dev`),
 including GitHub release/update routing; its OMP parser and source protocol are
