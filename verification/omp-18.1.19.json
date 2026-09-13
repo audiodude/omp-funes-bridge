@@ -125,7 +125,8 @@
       "Funes checking · 0 pending · unscanned:unknown",
       "Funes stale · 3 pending · unscanned:mixed"
     ],
-    "interactiveSessionsNotTerminated": true
+    "interactiveSessionsNotTerminated": true,
+    "measurementScope": "Observed during our e1e398c installation, before concurrent replacement; not final live state."
   },
   "limits": [
     "No BTW JSON sidecar enrollment; session journals remain the source scope.",
@@ -155,5 +156,14 @@
       "customRootsRequireEnrollment": true,
       "conflictingOwnershipRejected": true
     }
+  },
+  "finalInstallation": {
+    "disposition": "User selected Keep concurrent installation after final ownership check detected concurrent replacement.",
+    "ompVersion": "18.1.19",
+    "bridgeFunesRevision": "a847bd5e0d2c17ade3baa6cb49c5b29340d691fb",
+    "funesBin": "/home/tmoney/.local/lib/funes-source/a847bd5e0d2c17ade3baa6cb49c5b29340d691fb/funes",
+    "binarySha256": "8c091129d910add2d23b094aad287c11dfc0aee25cf80dec128f0008368bce35",
+    "ourInstallationSuperseded": true,
+    "concurrentCombinationVerified": false
   }
 }

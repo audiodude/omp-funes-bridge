@@ -446,6 +446,12 @@ path. When reusing a Cargo target across worktrees, set `FUNES_BUILD_REVISION`
 to the verified full Git HEAD to invalidate cached build-script revision metadata;
 the capability check still requires the embedded revision to match the bridge pin.
 
+The final ownership check detected another process replacing live wiring with
+Funes `a847bd5e0d2c17ade3baa6cb49c5b29340d691fb`, still pinned to OMP `18.1.19`.
+The user explicitly chose to keep that concurrent installation. The evidence
+above verifies this repository's `e1e398c` combination, not the subsequently
+installed combination; the final live state is recorded separately in the JSON.
+
 This verification does not renew large-load, spontaneous-recall, rendered-TUI,
 or fully current/sanitized historical-coverage claims.
 
