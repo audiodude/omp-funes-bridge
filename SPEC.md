@@ -111,10 +111,11 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.1.19`, upstream commit `e4dd2ec3b487f216c569281e2cdb7ec476a81f2e`.
+- OMP `18.2.1`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `e1e398cce025da6c56cb95b18de5e1a7289058e5` is published on the fork's main branch.
+  `994232af714fc8466a95ab32db6c4411e5e1f685` is published on the fork's
+  `update-local-20260916` branch.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -414,6 +415,31 @@ These checks used synthetic originals and isolated installations, not private
 history or the live OMP configuration. No hosted generation, push, publication,
 or deployment occurred. Existing unsupported source-format exclusions remain;
 large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
+
+### OMP 18.2.1 and September 16 dependency refresh
+
+The runtime guard, dependency and peer pins now match installed OMP `18.2.1`.
+Funes advances to `994232af714fc8466a95ab32db6c4411e5e1f685`, with 25 compatible
+Cargo dependency updates; its source protocol and maintained parsers are unchanged.
+Actomasto updates `urllib3` to `2.8.0` within its existing constraints.
+
+[`verification/dependencies-20260916.json`](verification/dependencies-20260916.json)
+records the rebuilt Funes tests, bridge tests, native OMP root resolution and
+completed/aborted persistence checks, isolated installation/removal, native MCP
+recall/get with warm-reader updates, and Actomasto's real-binary consumer checks.
+Verification used synthetic originals and no hosted generation. Historical
+unsupported transcript formats remain unsupported; this is not renewed
+large-load or spontaneous-recall evidence.
+
+For local activation, install the immutable SHA-addressed Funes binary with the
+existing bridge `--agent-dir`, `--source` and `--memory` values. Stop
+`actomasto.service` without issuing `off`, change only `[funes].executable`, then
+apply that configuration and run `service install` from the updated Actomasto
+worktree. Update the independent refresh launcher's binary path and restart
+`funes-source-refresh.service` and its timer. Preserve enrollment, memory and
+unrelated MCP entries. Running interactive OMP processes retain loaded extension
+code until reopened; do not terminate unrelated sessions. No release tags or
+Hugging Face release artifacts are published.
 
 ### OMP 18.1.19 compatibility and local rollout
 

@@ -1,0 +1,167 @@
+{
+  "date": "2026-09-16T10:01:44.877Z",
+  "assistance": "OpenAI Codex",
+  "ompVersion": "18.2.1",
+  "funes": {
+    "revision": "994232af714fc8466a95ab32db6c4411e5e1f685",
+    "sha256": "dd1143dc8b1e357c4070eacd4fda1f881b09a94ecab88af8f45d63a5b19e4079",
+    "build": "cargo build --locked",
+    "tests": {
+      "command": "cargo test --locked --lib --bin funes --test local_source_normalize",
+      "passed": 288,
+      "failed": 0
+    },
+    "compatibleCargoUpdates": 25
+  },
+  "bridgeTests": {
+    "passed": 3,
+    "failed": 0,
+    "frozenInstall": true
+  },
+  "rootResolution": {
+    "cases": 8,
+    "passed": true
+  },
+  "lifecycle": {
+    "complete": {
+      "file": "/tmp/bridge-update-20260916/lifecycle-session.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": false
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": false
+        }
+      ]
+    },
+    "abort": {
+      "file": "/tmp/bridge-update-20260916/abort-session.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": false
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": true
+        }
+      ]
+    }
+  },
+  "installation": {
+    "staleBuildRejectedBeforeWrites": true,
+    "repeatableInstall": true,
+    "repeatableRemoval": true,
+    "unrelatedMcpAndBackendPreserved": true,
+    "transcriptsAndDerivedMemoryPreserved": true,
+    "symlinkAgentWorks": true,
+    "externalSourceSymlinkNotEnrolled": true,
+    "customRootsRequireEnrollment": true,
+    "conflictingOwnershipRejected": true
+  },
+  "startup": {
+    "previousIndexPreserved": true,
+    "phases": [
+      "checking",
+      "catching-up",
+      "catching-up",
+      "current"
+    ],
+    "final": {
+      "phase": "current",
+      "operation": "idle",
+      "roots": [
+        "/tmp/bridge-update-20260916/archive"
+      ],
+      "pending": 0,
+      "scanner": "scanned",
+      "lastSuccess": "2026-09-16T10:01:03.106043702+00:00"
+    }
+  },
+  "nativeMcp": {
+    "tools": [
+      "mcp__funes_bridge_get",
+      "mcp__funes_bridge_recall",
+      "mcp__funes_bridge_scan",
+      "mcp__funes_bridge_sessions",
+      "mcp__funes_bridge_sketch",
+      "mcp__funes_bridge_status"
+    ],
+    "recallAndGet": true,
+    "childProvenance": true,
+    "excludedContentAbsent": true,
+    "warmReaderSeesNativeAppend": true
+  },
+  "actomasto": {
+    "lockRevision": "34a28b1b82a422bceec43e53466085a491ca752c",
+    "dependencyUpdates": [
+      "urllib3 2.7.0 -> 2.8.0"
+    ],
+    "tests": {
+      "passed": 210,
+      "failed": 0,
+      "realFunesBinary": true
+    },
+    "nativeConsumer": [
+      {
+        "fixture": "complete",
+        "sha256": "7bc9cbc5b32f89fd309357b595d5a9656a94062f2f55b2b4423045e534cd2f1d",
+        "units": 1,
+        "status": {
+          "dependency": "available",
+          "protocol": "compatible",
+          "build_revision": "994232af714fc8466a95ab32db6c4411e5e1f685",
+          "coverage": "current",
+          "pending_turns": 0,
+          "streams": {
+            "complete": 1
+          },
+          "refreshed_at": 1789552842.3742175,
+          "lag_seconds": 0.01641106605529785
+        },
+        "contentAndProvenance": true,
+        "restartNoReplay": true,
+        "excludedIntervalNotReplayed": true,
+        "originalUnchanged": true
+      },
+      {
+        "fixture": "abort",
+        "sha256": "b4d1ba4fd8acd643acae6dfba3e7e78d6786a96889880fbef396ea1fb9b6815d",
+        "units": 0,
+        "status": {
+          "dependency": "available",
+          "protocol": "compatible",
+          "build_revision": "994232af714fc8466a95ab32db6c4411e5e1f685",
+          "coverage": "current",
+          "pending_turns": 1,
+          "streams": {
+            "incomplete_turn": 1
+          },
+          "refreshed_at": 1789552842.486049,
+          "lag_seconds": 0.015969038009643555
+        },
+        "contentAndProvenance": true,
+        "restartNoReplay": true,
+        "excludedIntervalNotReplayed": true,
+        "originalUnchanged": true
+      }
+    ]
+  },
+  "limits": [
+    "Synthetic originals only for compatibility probes; live rollout recorded separately.",
+    "No hosted generation or release publication exercised.",
+    "Previously unsupported historical formats remain unsupported."
+  ]
+}
