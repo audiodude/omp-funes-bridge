@@ -1,0 +1,189 @@
+{
+  "date": "2026-09-17T01:01:21.113899+00:00",
+  "assistance": "OpenAI Codex",
+  "ompVersion": "18.2.2",
+  "funes": {
+    "revision": "6a96776853c58c6bbca2b48db866cc4470720819",
+    "sha256": "fbca545685a010943534ca68d461aaa1888ab140b41219caa6517353e23df03b",
+    "testsPassed": 288,
+    "newCompatibleUpdates": 8
+  },
+  "actomasto": {
+    "revision": "f985a262ce3ecfb380c2c9058642d8735ee51ab2",
+    "testsPassed": 210,
+    "realFunesBinary": true,
+    "consumer": [
+      {
+        "kind": "complete",
+        "units": 1,
+        "status": {
+          "dependency": "available",
+          "protocol": "compatible",
+          "build_revision": "6a96776853c58c6bbca2b48db866cc4470720819",
+          "coverage": "current",
+          "pending_turns": 0,
+          "streams": {
+            "complete": 1
+          },
+          "refreshed_at": 1789606816.9796772,
+          "lag_seconds": 0.01478886604309082
+        },
+        "originalUnchanged": true,
+        "restartNoReplay": true
+      },
+      {
+        "kind": "abort",
+        "units": 0,
+        "status": {
+          "dependency": "available",
+          "protocol": "compatible",
+          "build_revision": "6a96776853c58c6bbca2b48db866cc4470720819",
+          "coverage": "current",
+          "pending_turns": 1,
+          "streams": {
+            "incomplete_turn": 1
+          },
+          "refreshed_at": 1789606817.0488822,
+          "lag_seconds": 0.01343393325805664
+        },
+        "originalUnchanged": true,
+        "restartNoReplay": true
+      }
+    ]
+  },
+  "bridgeTests": {
+    "passed": 3,
+    "failed": 0,
+    "frozenInstall": true
+  },
+  "rootResolution": [
+    {
+      "case": "default",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "custom-agent",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/custom",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/custom/sessions"
+    },
+    {
+      "case": "named-profile",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "empty-canonical-profile",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-not-migrated",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-default",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/xdg/omp/sessions"
+    },
+    {
+      "case": "xdg-profile-not-migrated",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "xdg-profile",
+      "agentDir": "/tmp/bridge-update-20260916-5RrWzJ/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260916-5RrWzJ/roots/xdg/omp/profiles/work/sessions",
+      "profile": "work"
+    }
+  ],
+  "installation": {
+    "staleBuildRejectedBeforeWrites": true,
+    "repeatableInstall": true,
+    "repeatableRemoval": true,
+    "unrelatedMcpAndBackendPreserved": true,
+    "transcriptsAndDerivedMemoryPreserved": true,
+    "symlinkAgentWorks": true,
+    "externalSourceSymlinkNotEnrolled": true,
+    "customRootsRequireEnrollment": true,
+    "conflictingOwnershipRejected": true
+  },
+  "startup": {
+    "previousIndexPreserved": true,
+    "phases": [
+      "checking",
+      "catching-up",
+      "catching-up",
+      "current"
+    ],
+    "final": {
+      "phase": "current",
+      "operation": "idle",
+      "roots": [
+        "/tmp/bridge-update-20260916-5RrWzJ/native/archive"
+      ],
+      "pending": 0,
+      "scanner": "scanned",
+      "lastSuccess": "2026-09-17T01:00:42.713947287+00:00"
+    }
+  },
+  "lifecycle": {
+    "complete": {
+      "file": "/tmp/bridge-update-20260916-5RrWzJ/complete/agent/sessions/-tmp-bridge-update-20260916-5RrWzJ/2026-09-17T00-39-01-635Z_01a0accd-7703-7755-ab0e-77be80024e5e.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": false
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": false
+        }
+      ]
+    },
+    "abort": {
+      "file": "/tmp/bridge-update-20260916-5RrWzJ/abort/agent/sessions/-tmp-bridge-update-20260916-5RrWzJ/2026-09-17T00-39-15-415Z_01a0accd-acd7-759b-80db-07b0ab646371.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": false
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": true
+        }
+      ]
+    }
+  },
+  "nativeMcp": {
+    "passed": true,
+    "warmReaderUpdate": true,
+    "tools": [
+      "mcp__funes_bridge_get",
+      "mcp__funes_bridge_recall",
+      "mcp__funes_bridge_scan",
+      "mcp__funes_bridge_sessions",
+      "mcp__funes_bridge_sketch",
+      "mcp__funes_bridge_status"
+    ]
+  },
+  "releaseArtifactsPublished": false,
+  "limits": [
+    "Synthetic compatibility verification, not renewed large-load or spontaneous-recall evidence.",
+    "Existing unsupported historical source formats remain unsupported."
+  ]
+}

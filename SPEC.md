@@ -111,11 +111,11 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.2.1`.
+- OMP `18.2.2`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `994232af714fc8466a95ab32db6c4411e5e1f685` is published on the fork's
-  `update-local-20260916` branch.
+  `6a96776853c58c6bbca2b48db866cc4470720819` is published on the fork's
+  `update-local-20260916-evening` branch.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -415,6 +415,25 @@ These checks used synthetic originals and isolated installations, not private
 history or the live OMP configuration. No hosted generation, push, publication,
 or deployment occurred. Existing unsupported source-format exclusions remain;
 large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
+
+### OMP 18.2.2 local refresh
+
+The bridge pins now match OMP `18.2.2`. Funes revision
+`6a96776853c58c6bbca2b48db866cc4470720819` incorporates upstream protoc build
+maintenance and eight additional compatible Cargo updates. Actomasto's lockfile
+remains current after its earlier `urllib3` 2.8.0 update.
+
+[`verification/dependencies-20260916-evening.json`](verification/dependencies-20260916-evening.json)
+records 288 Funes tests, 210 Actomasto tests using the rebuilt binary, three bridge
+tests, eight native root-resolution cases, native complete/abort persistence,
+installation preservation checks, and native MCP recall/get with a warm-reader
+update. Synthetic Actomasto consumption verifies complete-turn provenance,
+pending aborted turns, restart deduplication, and unchanged originals.
+
+Local activation follows the procedure below, retaining SHA-addressed binaries
+and the Actomasto worktree environment. Existing interactive OMP sessions must be
+reopened to load the new extension; unrelated sessions are not terminated.
+No release tags or Hugging Face artifacts are published.
 
 ### OMP 18.2.1 and September 16 dependency refresh
 
