@@ -185,5 +185,27 @@
   "limits": [
     "Synthetic compatibility verification, not renewed large-load or spontaneous-recall evidence.",
     "Existing unsupported historical source formats remain unsupported."
-  ]
+  ],
+  "localRollout": {
+    "installedBinary": "/home/tmoney/.local/lib/funes-source/6a96776853c58c6bbca2b48db866cc4470720819/funes",
+    "sha256": "fbca545685a010943534ca68d461aaa1888ab140b41219caa6517353e23df03b",
+    "bridgeEnrollmentPreserved": true,
+    "unrelatedMcpPreserved": true,
+    "actomastoScopeConfigPreserved": true,
+    "freshOmpStartup": "Funes stale; 25 pending; mixed scanner; no configuration/version mismatch",
+    "oneShotExit": 1,
+    "oneShotDetail": "Source coverage incomplete; missing results do not prove absence.",
+    "actomastoRuntime": "/home/tmoney/code/vibes/actomasto/.worktrees/update-local-20260916-evening/.venv/bin/actomasto",
+    "actomastoConfigRevision": 6,
+    "actomastoReady": true,
+    "actomastoCollectionHealthy": false,
+    "actomastoHealthDetail": "All adapters remain false; stored source status retains old build metadata and unsupported_version / unknown_content_schema errors.",
+    "services": {
+      "actomasto": "active/running, ready event, zero restarts",
+      "funesSourceRefresh": "oneshot succeeded, exit 0, 643 sources",
+      "funesSourceRefreshTimer": "active/waiting"
+    },
+    "backup": "/home/tmoney/.local/share/actomasto/backups/update-local-20260916-evening",
+    "existingOmpSessions": "not terminated; reopen to load updated extension and MCP connection"
+  }
 }

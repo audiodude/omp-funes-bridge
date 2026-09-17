@@ -435,6 +435,13 @@ and the Actomasto worktree environment. Existing interactive OMP sessions must b
 reopened to load the new extension; unrelated sessions are not terminated.
 No release tags or Hugging Face artifacts are published.
 
+The local rollout resolved the version mismatch in a fresh OMP process. Live
+coverage still reports 25 pending sources with mixed scanner coverage, and
+Actomasto's stored adapter health remains false with stale metadata and
+unsupported historical source errors. Service readiness is not a claim that
+those collection failures are repaired. The refresh oneshot succeeded over
+643 sources; its timer and the updated collector are active.
+
 ### OMP 18.2.1 and September 16 dependency refresh
 
 The runtime guard, dependency and peer pins now match installed OMP `18.2.1`.
