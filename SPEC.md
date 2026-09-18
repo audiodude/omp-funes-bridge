@@ -111,11 +111,11 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.2.2`.
+- OMP `18.2.5`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `6a96776853c58c6bbca2b48db866cc4470720819` is published on the fork's
-  `update-local-20260916-evening` branch.
+  `7519c97c6bcdb23c70417d60d1a4df0c97a15241` is published on the fork's
+  `update-local-20260917` branch.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -415,6 +415,38 @@ These checks used synthetic originals and isolated installations, not private
 history or the live OMP configuration. No hosted generation, push, publication,
 or deployment occurred. Existing unsupported source-format exclusions remain;
 large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
+
+### OMP 18.2.5 local refresh
+
+The bridge runtime guard and package pins match OMP `18.2.5`. The Funes source
+pin above includes upstream `0612fce1a05450366bf2160f3dae5dcfcd3d48ce`,
+the Linux BLAS exponential-underflow fix, and `unicode-ident` 1.0.26.
+Actomasto advances `idna` to 3.20. Earlier completed update branches are retained.
+
+[`verification/dependencies-20260917.json`](verification/dependencies-20260917.json)
+records 291 Funes tests, 210 Actomasto tests using the rebuilt executable, three
+bridge tests, eight root-resolution cases, native complete/abort persistence
+and consumption, repeatable installation/removal, existing-index startup, and
+native MCP retrieval with a warm-reader update. Checks used isolated synthetic
+originals; no hosted generation was exercised.
+
+Local activation uses the SHA-addressed Funes executable and Actomasto's
+`update-local-20260917` worktree environment. Enrollment, unrelated MCP entries,
+memory locations, and collector settings were preserved; wiring and the stopped
+collector's SQLite database were backed up. The collector and source-refresh
+service/timer were restarted. The refresh succeeded over 663 sources; collector
+readiness was observed. A fresh OMP process loaded the bridge without a version
+mismatch and reconciled live coverage, which remained mixed and catching up.
+
+Live collection is not healthy: `actomasto config validate` encounters
+`discovery_limit`; the structurally validated executable-only configuration was
+applied with the existing scope using `config apply --yes`. All three adapters
+still report false with stale source status, including `unsupported_version`
+and `unknown_content_schema`. These existing collection problems were not
+repaired by this dependency update. Already-running OMP sessions retain their
+loaded extension/MCP connection until reopened; unrelated sessions were not
+terminated. No release tags or Hugging Face release artifacts were published.
+Update and verification assisted by OpenAI Codex.
 
 ### OMP 18.2.2 local refresh
 

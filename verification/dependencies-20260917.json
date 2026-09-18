@@ -1,0 +1,227 @@
+{
+  "date": "2026-09-18T00:03:23.531197+00:00",
+  "assistance": "OpenAI Codex",
+  "branch": "update-local-20260917",
+  "ompVersion": "18.2.5",
+  "funes": {
+    "sourceRevision": "7519c97c6bcdb23c70417d60d1a4df0c97a15241",
+    "branchHeadAfterDocumentation": "8d65413",
+    "sha256": "8040ba993a7642547c7146a423062d285dff23f1e12c253dd08cd6603a8c23c0",
+    "upstreamRevision": "0612fce1a05450366bf2160f3dae5dcfcd3d48ce",
+    "updates": [
+      "Linux BLAS exponential-underflow fix",
+      "unicode-ident 1.0.25 -> 1.0.26"
+    ],
+    "testsPassed": 291,
+    "testCommand": "cargo test --locked --lib --bin funes --test local_source_normalize",
+    "build": "cargo build --locked; optimized dev profile; FUNES_BUILD_REVISION set to sourceRevision"
+  },
+  "actomasto": {
+    "sourceRevision": "80f6066c499fe43afd58ad4a099d1b91b2cdd972",
+    "branchHeadAfterDocumentation": "eac0644",
+    "updates": [
+      "idna 3.19 -> 3.20"
+    ],
+    "testsPassed": 210,
+    "realFunesBinary": true,
+    "lockedSync": true,
+    "build": "uv build produced wheel and source distribution",
+    "cliSmoke": true,
+    "consumer": [
+      {
+        "kind": "complete",
+        "units": 1,
+        "status": {
+          "dependency": "available",
+          "protocol": "compatible",
+          "build_revision": "7519c97c6bcdb23c70417d60d1a4df0c97a15241",
+          "coverage": "current",
+          "pending_turns": 0,
+          "streams": {
+            "complete": 1
+          },
+          "refreshed_at": 1789689558.7923498,
+          "lag_seconds": 0.015274286270141602
+        },
+        "originalUnchanged": true,
+        "restartNoReplay": true
+      },
+      {
+        "kind": "abort",
+        "units": 0,
+        "status": {
+          "dependency": "available",
+          "protocol": "compatible",
+          "build_revision": "7519c97c6bcdb23c70417d60d1a4df0c97a15241",
+          "coverage": "current",
+          "pending_turns": 1,
+          "streams": {
+            "incomplete_turn": 1
+          },
+          "refreshed_at": 1789689558.8604336,
+          "lag_seconds": 0.015292644500732422
+        },
+        "originalUnchanged": true,
+        "restartNoReplay": true
+      }
+    ]
+  },
+  "bridgeTests": {
+    "passed": 3,
+    "failed": 0,
+    "frozenInstall": true
+  },
+  "rootResolution": [
+    {
+      "case": "default",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "custom-agent",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/custom",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/custom/sessions"
+    },
+    {
+      "case": "named-profile",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "empty-canonical-profile",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-not-migrated",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-default",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/xdg/omp/sessions"
+    },
+    {
+      "case": "xdg-profile-not-migrated",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "xdg-profile",
+      "agentDir": "/tmp/bridge-update-20260917-xAxZEn/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260917-xAxZEn/roots/xdg/omp/profiles/work/sessions",
+      "profile": "work"
+    }
+  ],
+  "installation": {
+    "staleBuildRejectedBeforeWrites": true,
+    "repeatableInstall": true,
+    "repeatableRemoval": true,
+    "unrelatedMcpAndBackendPreserved": true,
+    "transcriptsAndDerivedMemoryPreserved": true,
+    "symlinkAgentWorks": true,
+    "externalSourceSymlinkNotEnrolled": true,
+    "customRootsRequireEnrollment": true,
+    "conflictingOwnershipRejected": true
+  },
+  "startup": {
+    "previousIndexPreserved": true,
+    "phases": [
+      "checking",
+      "current"
+    ],
+    "final": {
+      "phase": "current",
+      "operation": "idle",
+      "roots": [
+        "/tmp/bridge-update-20260917-xAxZEn/native/archive"
+      ],
+      "pending": 0,
+      "scanner": "scanned",
+      "lastSuccess": "2026-09-17T23:59:25.855913703+00:00"
+    }
+  },
+  "lifecycle": {
+    "complete": {
+      "file": "/tmp/bridge-update-20260917-xAxZEn/complete/agent/sessions/-tmp-bridge-update-20260917-xAxZEn/2026-09-17T23-36-45-825Z_01a0b1ba-d201-7277-8840-83b4d4133a85.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": true
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": false
+        }
+      ]
+    },
+    "abort": {
+      "file": "/tmp/bridge-update-20260917-xAxZEn/abort/agent/sessions/-tmp-bridge-update-20260917-xAxZEn/2026-09-17T23-36-46-346Z_01a0b1ba-d40a-7219-a2c4-ffa2c916bf2b.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": true
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": true
+        }
+      ]
+    }
+  },
+  "nativeMcp": {
+    "passed": true,
+    "warmReaderUpdate": true,
+    "tools": [
+      "mcp__funes_bridge_get",
+      "mcp__funes_bridge_recall",
+      "mcp__funes_bridge_scan",
+      "mcp__funes_bridge_sessions",
+      "mcp__funes_bridge_sketch",
+      "mcp__funes_bridge_status"
+    ]
+  },
+  "localRollout": {
+    "installedBinary": "/home/tmoney/.local/lib/funes-source/7519c97c6bcdb23c70417d60d1a4df0c97a15241/funes",
+    "sha256": "8040ba993a7642547c7146a423062d285dff23f1e12c253dd08cd6603a8c23c0",
+    "bridgeEnrollmentPreserved": true,
+    "unrelatedMcpPreserved": true,
+    "actomastoConfigOnlyExecutableChanged": true,
+    "actomastoScopePreserved": true,
+    "freshOmpStartup": "No configuration/version mismatch; checking -> catching-up/stale, mixed scanner; last observed 3 pending",
+    "actomastoRuntime": "/home/tmoney/code/vibes/actomasto/.worktrees/update-local-20260917/.venv/bin/actomasto",
+    "actomastoConfigRevision": 7,
+    "actomastoReady": true,
+    "actomastoCollectionHealthy": false,
+    "actomastoValidation": "config validate failed with discovery_limit; config apply --yes succeeded for the unchanged scope and new executable",
+    "actomastoHealthDetail": "All adapters false; stored source metadata remains stale with unsupported_version and unknown_content_schema",
+    "services": {
+      "actomasto": "active/running; ready event; zero restarts",
+      "funesSourceRefresh": "oneshot succeeded, exit 0, 663 sources",
+      "funesSourceRefreshTimer": "active/waiting"
+    },
+    "backup": "/home/tmoney/.local/share/actomasto/backups/update-local-20260917",
+    "sqliteBackup": "Consistent SQLite backup while service stopped",
+    "existingOmpSessions": "Not terminated; retain old extension/MCP connection until reopened"
+  },
+  "releaseArtifactsPublished": false,
+  "releaseTagsPublished": false,
+  "limits": [
+    "Synthetic compatibility checks do not verify all historical formats or fully current/scanned live coverage.",
+    "No large-load, spontaneous-recall, rendered-TUI, or hosted-generation verification.",
+    "Existing discovery_limit and unsupported historical collection failures remain unresolved."
+  ]
+}
