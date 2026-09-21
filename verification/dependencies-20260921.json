@@ -1,0 +1,155 @@
+{
+  "date": "2026-09-21",
+  "assistance": "OpenAI Codex",
+  "branch": "update-local-20260921",
+  "ompVersion": "18.2.8",
+  "funes": {
+    "sourceRevision": "0c443bf8d22ec0a0a1c731681b8efefdeeb3e189",
+    "upstreamRevision": "f120a742ce485668e0ca2744cc1d3819564d5c43",
+    "sha256": "e819a8f1bc2cc2a3464fdbfebaf093c45ccb67e876e6e04b705775a6330b04a8",
+    "testsPassed": 314,
+    "suites": [
+      "lib",
+      "bin funes",
+      "local_source_normalize",
+      "funes_jsonl_index",
+      "index_check",
+      "index_recall",
+      "reindex_incremental"
+    ],
+    "readOnlyOmpCheck": {
+      "completeExit": 0,
+      "malformedExit": 1,
+      "noPersistentWrites": true
+    }
+  },
+  "actomasto": {
+    "sourceRevision": "07bf935b29a68c32b8632d3050a70a00462b410d",
+    "dependencyUpdates": [],
+    "testsPassed": 221,
+    "lockedSync": true,
+    "wheelAndSdistBuilt": true,
+    "consumer": [
+      {
+        "kind": "complete",
+        "units": 1,
+        "restartNoReplay": true,
+        "originalUnchanged": true
+      },
+      {
+        "kind": "abort",
+        "units": 0,
+        "restartNoReplay": true,
+        "originalUnchanged": true
+      }
+    ]
+  },
+  "bridgeTests": {
+    "passed": 3,
+    "failed": 0,
+    "frozenInstall": true
+  },
+  "rootResolution": [
+    {
+      "case": "default",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "custom-agent",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/custom",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/custom/sessions"
+    },
+    {
+      "case": "named-profile",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "empty-canonical-profile",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-not-migrated",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/agent/sessions"
+    },
+    {
+      "case": "xdg-default",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/xdg/omp/sessions"
+    },
+    {
+      "case": "xdg-profile-not-migrated",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/profiles/work/agent/sessions",
+      "profile": "work"
+    },
+    {
+      "case": "xdg-profile",
+      "agentDir": "/tmp/bridge-update-20260921-mbtmjl2_/roots/home/.omp/profiles/work/agent",
+      "defaultSessionRoot": "/tmp/bridge-update-20260921-mbtmjl2_/roots/xdg/omp/profiles/work/sessions",
+      "profile": "work"
+    }
+  ],
+  "installation": {
+    "staleBuildRejectedBeforeWrites": true,
+    "repeatableInstall": true,
+    "repeatableRemoval": true,
+    "unrelatedMcpAndBackendPreserved": true,
+    "transcriptsAndDerivedMemoryPreserved": true,
+    "symlinkAgentWorks": true,
+    "externalSourceSymlinkNotEnrolled": true,
+    "customRootsRequireEnrollment": true,
+    "conflictingOwnershipRejected": true
+  },
+  "lifecycle": {
+    "complete": {
+      "file": "/tmp/bridge-update-20260921-mbtmjl2_/complete-agent/sessions/-tmp-bridge-update-20260921-mbtmjl2_/2026-09-21T22-10-30-076Z_01a0c605-483c-7676-b3ae-c0faee2bee1f.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": true
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": false
+        }
+      ]
+    },
+    "abort": {
+      "file": "/tmp/bridge-update-20260921-mbtmjl2_/abort-agent/sessions/-tmp-bridge-update-20260921-mbtmjl2_/2026-09-21T22-11-27-618Z_01a0c606-2902-751a-89dd-28ebe7760576.jsonl",
+      "observations": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": true
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": true
+        }
+      ]
+    }
+  },
+  "nativeMcp": {
+    "passed": true,
+    "recallGetAndWarmReader": true
+  },
+  "publication": {
+    "sourceBranchesOnly": true,
+    "huggingFaceArtifacts": false,
+    "releaseTags": false
+  }
+}

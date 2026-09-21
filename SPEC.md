@@ -111,11 +111,11 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.2.5`.
+- OMP `18.2.8`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `7519c97c6bcdb23c70417d60d1a4df0c97a15241` is published on the fork's
-  `update-local-20260917` branch.
+  `0c443bf8d22ec0a0a1c731681b8efefdeeb3e189` is published on the fork's
+  `update-local-20260921` branch.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -416,10 +416,34 @@ history or the live OMP configuration. No hosted generation, push, publication,
 or deployment occurred. Existing unsupported source-format exclusions remain;
 large-load, spontaneous-recall, and rendered-TUI claims were not revalidated.
 
+### OMP 18.2.8 local refresh
+
+The bridge pins OMP `18.2.8` and Funes
+`0c443bf8d22ec0a0a1c731681b8efefdeeb3e189`. Funes incorporates upstream
+`f120a742ce485668e0ca2744cc1d3819564d5c43`, serialized turns input,
+read-only `index --check`, per-turn repository facets, and seven compatible
+Cargo dependency updates. Actomasto retains current main's collection repair and
+UTC Git cutoff; a refreshed dependency resolution found no compatible updates.
+Bun's lockfile advances `@types/node` to 26.6.2.
+
+[`verification/dependencies-20260921.json`](verification/dependencies-20260921.json)
+records 314 Funes tests, 221 Actomasto tests using the rebuilt executable,
+three bridge tests, eight native root-resolution cases, complete/aborted-turn
+persistence and consumption, installation preservation, indexing, and native MCP
+recall/get with a warm-reader update. The abort lifecycle probe now recognizes
+the persisted aborted assistant record rather than requiring a complete response
+marker: OMP can durably persist only the interrupted response's partial text.
+Direct `index --check` smoke checks accepted complete OMP input, rejected a
+malformed tail, and wrote no persistent state.
+
+These checks used synthetic originals and did not exercise hosted generation.
+Only source branches are published; no Hugging Face artifacts or release tags.
+Update and verification assisted by OpenAI Codex.
+
 ### OMP 18.2.5 local refresh
 
-The bridge runtime guard and package pins match OMP `18.2.5`. The Funes source
-pin above includes upstream `0612fce1a05450366bf2160f3dae5dcfcd3d48ce`,
+That refresh pinned OMP `18.2.5` and Funes `7519c97`. Its Funes source
+includes upstream `0612fce1a05450366bf2160f3dae5dcfcd3d48ce`,
 the Linux BLAS exponential-underflow fix, and `unicode-ident` 1.0.26.
 Actomasto advances `idna` to 3.20. Earlier completed update branches are retained.
 
