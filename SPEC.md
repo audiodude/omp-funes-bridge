@@ -436,6 +436,24 @@ marker: OMP can durably persist only the interrupted response's partial text.
 Direct `index --check` smoke checks accepted complete OMP input, rejected a
 malformed tail, and wrote no persistent state.
 
+Local activation installed the SHA-addressed executable for both bridge and
+collector, and switched Actomasto to the `update-local-20260921` environment.
+Configuration validation passed before applying the executable-only change.
+Enrollment, unrelated MCP entries, collector controls, and memory locations were
+preserved; wiring and the stopped collector database were backed up under
+`~/.local/state/omp-funes-updates/20260921`.
+The restarted collector emitted readiness and remained active/running; source
+refresh exited successfully over 689 sources, and its timer was active/waiting.
+A fresh OMP process loaded the installed extension without a version mismatch
+and reconciled pending work from seven sources to five, with mixed scanner state.
+
+This does not claim healthy collection of every historical source. The collector's
+persisted adapter diagnostics still referenced the previous build at observation
+time and reported missing originals/schema issues; the new source sweep succeeded
+but complete collector recovery was not established. Existing OMP sessions retain
+their loaded extension and MCP process until reopened; unrelated sessions were
+not terminated.
+
 These checks used synthetic originals and did not exercise hosted generation.
 Only source branches are published; no Hugging Face artifacts or release tags.
 Update and verification assisted by OpenAI Codex.

@@ -151,5 +151,75 @@
     "sourceBranchesOnly": true,
     "huggingFaceArtifacts": false,
     "releaseTags": false
+  },
+  "activation": {
+    "binary": "/home/tmoney/.local/lib/funes-source/0c443bf8d22ec0a0a1c731681b8efefdeeb3e189/funes",
+    "binarySha256": "e819a8f1bc2cc2a3464fdbfebaf093c45ccb67e876e6e04b705775a6330b04a8",
+    "collectorWorktree": "/home/tmoney/code/vibes/actomasto/.worktrees/update-local-20260921",
+    "backup": "/home/tmoney/.local/state/omp-funes-updates/20260921",
+    "configValidated": true,
+    "configurationRevision": 11,
+    "enrollmentPreserved": true,
+    "unrelatedMcpPreserved": true,
+    "collectorSettingsPreserved": true,
+    "collectorReadyObserved": true,
+    "services": {
+      "actomasto": "active/running",
+      "funes-source-refresh": "completed successfully, exit 0",
+      "funes-source-refresh.timer": "active/waiting"
+    },
+    "refreshedSources": 689,
+    "freshOmpStartup": "loaded without mismatch; reconciled from 7 pending to 5 pending, scanner mixed",
+    "collectorAdapters": {
+      "claude": false,
+      "codex": false,
+      "omp": false
+    },
+    "collectorFunesStatus": {
+      "claude": {
+        "build_revision": "152307b3e9d34e34cc9ecc422960f2cc9971e797",
+        "coverage": "current",
+        "dependency": "available",
+        "error": "source_missing",
+        "lag_seconds": 25.6021568775177,
+        "pending_turns": 0,
+        "protocol": "compatible",
+        "refreshed_at": 1790028866.3322453,
+        "streams": {
+          "complete": 7,
+          "source_missing": 155
+        }
+      },
+      "codex": {
+        "build_revision": "152307b3e9d34e34cc9ecc422960f2cc9971e797",
+        "coverage": "current",
+        "dependency": "available",
+        "error": "unknown_content_schema",
+        "lag_seconds": 25.699832677841187,
+        "pending_turns": 0,
+        "protocol": "compatible",
+        "refreshed_at": 1790028866.3322453,
+        "streams": {
+          "complete": 10
+        }
+      },
+      "omp": {
+        "build_revision": "152307b3e9d34e34cc9ecc422960f2cc9971e797",
+        "coverage": "current",
+        "dependency": "available",
+        "error": "source_changed",
+        "lag_seconds": 26.42394232749939,
+        "pending_turns": 0,
+        "protocol": "compatible",
+        "refreshed_at": 1790028866.3322453,
+        "streams": {
+          "complete": 14
+        }
+      }
+    },
+    "limits": [
+      "Source coverage remains incomplete; dependency update does not recover missing originals or certify unsupported historical schemas.",
+      "Already-running OMP sessions retain loaded extension/MCP until reopened."
+    ]
   }
 }
