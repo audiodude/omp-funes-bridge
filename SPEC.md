@@ -111,18 +111,18 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.1.19`, upstream commit `e4dd2ec3b487f216c569281e2cdb7ec476a81f2e`.
+- OMP `18.2.8`, upstream commit `5e0fc867f8a58dfe8812b5e99b2e7b6a0313da6c`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `e1e398cce025da6c56cb95b18de5e1a7289058e5` is published on the fork's main branch.
+  `0c443bf8d22ec0a0a1c731681b8efefdeeb3e189` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
   local-only/metadata-only/revision/snapshot guarantees. Stock or stale builds fail.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
-- Bun `1.4.0`; tested Rust/Cargo `1.98.0`, LLD, Linux x86-64.
-  These are the verified versions, not a claim of broad compatibility.
+- Historically tested toolchain: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
+  These records do not establish compatibility with the current pins.
 
 The fork retains Funes' Apache-2.0 license; a copy is retained in `FUNES-LICENSE`.
 This is a third-party notice, not a license designation for the entire bridge.
@@ -784,3 +784,33 @@ at each script's entry point. No probe is part of normal OMP startup.
 Implementation and verification were AI-assisted. This operational record extends
 the original specification; it does not retroactively turn the original design
 document's proposed experiments into observed results.
+
+### OMP 18.2.8 / Funes 0c443bf refresh (2026-09-22)
+
+AI-assisted with OpenAI Codex. The consumer now pins OMP `18.2.8` and Funes
+`0c443bf8d22ec0a0a1c731681b8efefdeeb3e189`. The installed Funes executable is
+`~/.local/lib/funes-source/0c443bf8d22ec0a0a1c731681b8efefdeeb3e189/funes`.
+
+Observed verification in this refresh:
+
+- `bun install --frozen-lockfile --ignore-scripts` succeeded; `bun test` passed
+  all 3 tests (6 assertions).
+- The custom OMP standalone executable reported `omp/18.2.8` and passed
+  `--smoke-test`. Its native addon was built with pinned Rust
+  `nightly-2026-08-12` via the Cargo backend. Bun `1.4.0` bytecode output failed
+  before startup with an `import.meta` syntax error; the fork disables bytecode
+  compilation, and its rebuilt ordinary-JavaScript executable passed.
+- `probes/install.ts` passed against that executable and the pinned Funes build,
+  using an isolated synthetic transcript authored by OMP 18.2.8's
+  `SessionManager`, including completed and aborted assistant messages.
+  It verified stale-build rejection before writes, repeatable installation and
+  removal, unrelated MCP/backend preservation, transcript/derived-data
+  preservation, symlink enrollment boundaries, and ownership conflicts.
+- The live installer succeeded with the existing explicit OMP session root and
+  memory home; no enrollment expansion or publishing was performed.
+- Actomasto's `FUNES_TEST_BIN=… uv run --locked pytest -q` passed 221 tests
+  against the same installed Funes binary.
+
+This refresh does not renew historical performance, spontaneous-recall, or
+live-reader benchmark claims. Existing interactive OMP sessions must restart to
+load the replaced executable and extension.
