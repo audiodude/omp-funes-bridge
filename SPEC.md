@@ -114,7 +114,7 @@ verification records below are not evidence for this new cutover.
 - OMP `18.2.11`, upstream commit `e4151593ace2781d1dc2f06d760301f88af3e9dc`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `b65df60b0c29256b81926962c1a13f8acee7c0ec` is the required build revision.
+  `2e60cf8795b17379a3630c22c7f3da69679a84cd` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -836,3 +836,19 @@ Observed verification in this refresh:
 This refresh does not renew historical performance, spontaneous-recall, or
 live-reader benchmark claims. Existing interactive OMP sessions must restart to
 load the replaced executable and extension.
+
+### Funes upstream refresh (2026-09-23)
+
+The bridge retains custom OMP `18.2.11` and now pins Funes
+`2e60cf8795b17379a3630c22c7f3da69679a84cd`, incorporating upstream
+`da8a8307ed48a06137fcb03b5e272d29bc09de81`. This includes length-grouped BLAS
+inference batching, representative-length benchmarks, and CI permission scoping.
+Compatible Cargo, npm, and Actomasto Python dependency checks found no additional
+updates beyond the previously integrated dependency branches.
+
+Fresh verification: 4 BLAS regression tests, 3 bridge tests, and 221 Actomasto
+tests passed against the rebuilt binary. Isolated OMP-authored fixtures passed
+installation safeguards, scheduler backfill/warm-update/reopen, existing-index
+startup, and native MCP recall/get with live-reader updates. The three-session
+smoke is not a renewal of historical large-load or spontaneous-recall claims.
+No Hugging Face release artifacts were published. AI-assisted with OpenAI Codex.
