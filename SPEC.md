@@ -111,7 +111,7 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.2.10`, upstream commit `da58b16f424273605795435a6753778f422baff3`.
+- OMP `18.2.11`, upstream commit `e4151593ace2781d1dc2f06d760301f88af3e9dc`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
   `b65df60b0c29256b81926962c1a13f8acee7c0ec` is the required build revision.
@@ -123,6 +123,17 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Verified toolchain for these pins: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
   The custom OMP native addon used its pinned `nightly-2026-08-12` toolchain.
+
+The stable 18.2.11 refresh passed three bridge configuration tests, isolated
+installation/removal/ownership checks, native MCP recall/get with live-reader
+updates, and scheduler backfill/warm/reopen checks on newly OMP-authored synthetic
+sessions. Actomasto passed 221 tests against the pinned Funes binary, plus native
+completed/aborted-turn consumption, exact text/provenance, restart deduplication,
+and terminal interval exclusion. The lifecycle probe now checks the actual
+delivered prefix on cancellation rather than waiting for text never emitted.
+Funes and Actomasto dependency refreshes found no newer compatible packages;
+their existing source revisions were retained. No Hugging Face publication was
+performed. Verification assisted by OpenAI Codex.
 
 The stable 18.2.10 refresh passed all three bridge configuration tests and the
 isolated installation/removal/ownership probe, including rejection of a stale

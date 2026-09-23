@@ -8,6 +8,7 @@ export default function probe(pi: ExtensionAPI): void {
   const root = process.env.PROBE_ROOT!;
   const aborted = process.env.PROBE_ABORT === '1';
   const marker = `DURABLE_LIFECYCLE_${aborted ? 'ABORT' : 'COMPLETE'}`;
+  let observedText = marker;
   const observations: Record<string,unknown>[] = [];
   let release!: () => void;
   const held = new Promise<void>(resolve => { release=resolve; });
@@ -36,7 +37,7 @@ export default function probe(pi: ExtensionAPI): void {
     await mkdir(dir,{recursive:true});
     durable = new Promise<void>(resolve => {
       const watcher = watch(dir,async () => {
-        if (await Bun.file(file).exists() && (await Bun.file(file).text()).includes(marker)) { watcher.close(); resolve(); }
+        if (await Bun.file(file).exists() && (await Bun.file(file).text()).includes(observedText)) { watcher.close(); resolve(); }
       });
       stopWatching = () => watcher.close();
     });
@@ -45,15 +46,18 @@ export default function probe(pi: ExtensionAPI): void {
   pi.on('message_update',(_,ctx) => { if (aborted && !abortedOnce) {abortedOnce=true;ctx.abort();} });
   pi.on('message_end',async (event,ctx) => {
     if (event.message.role !== 'assistant') return;
+    observedText = event.message.content.filter(part => part.type === 'text').map(part => part.text).join('');
+    assert(observedText.length > 0 && marker.startsWith(observedText), 'Persist the text actually delivered before cancellation');
+    if (!aborted) assert.equal(observedText, marker);
     const file = Bun.file(ctx.sessionManager.getSessionFile()!);
-    const persisted = await file.exists() && (await file.text()).includes(marker);
+    const persisted = await file.exists() && (await file.text()).includes(observedText);
     observations.push({event:'message_end',persisted});
     assert.equal(persisted,false,'message_end must not be used as a durable barrier');
     await held;
   });
   pi.on('turn_end',async (_,ctx) => {
     const file = Bun.file(ctx.sessionManager.getSessionFile()!);
-    const persisted = await file.exists() && (await file.text()).includes(marker);
+    const persisted = await file.exists() && (await file.text()).includes(observedText);
     observations.push({event:'turn_end',persisted});
     release();
   });
@@ -62,7 +66,7 @@ export default function probe(pi: ExtensionAPI): void {
     stopWatching?.();
     const file = ctx.sessionManager.getSessionFile()!;
     const records = (await Bun.file(file).text()).trim().split('\n').map(line => JSON.parse(line));
-    assert(records.some(record => record.message?.content?.some((part:{text?:string}) => part.text === marker)));
+    assert(records.some(record => record.message?.role === 'assistant' && record.message.stopReason === (aborted ? 'aborted' : 'stop') && record.message.content?.some((part:{text?:string}) => part.text === observedText)));
     observations.push({event:'filesystem',persisted:true,aborted});
     await Bun.write(`${root}/lifecycle-${aborted ? 'abort' : 'complete'}.json`,JSON.stringify({file,observations},null,2));
     console.error(`LIFECYCLE_${aborted ? 'ABORT' : 'COMPLETE'}_PASS`);
