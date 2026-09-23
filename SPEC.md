@@ -111,18 +111,29 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.2.8`, upstream commit `5e0fc867f8a58dfe8812b5e99b2e7b6a0313da6c`.
+- OMP `18.2.10`, upstream commit `da58b16f424273605795435a6753778f422baff3`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `0c443bf8d22ec0a0a1c731681b8efefdeeb3e189` is the required build revision.
+  `b65df60b0c29256b81926962c1a13f8acee7c0ec` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
   local-only/metadata-only/revision/snapshot guarantees. Stock or stale builds fail.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
-- Historically tested toolchain: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
-  These records do not establish compatibility with the current pins.
+- Verified toolchain for these pins: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
+  The custom OMP native addon used its pinned `nightly-2026-08-12` toolchain.
+
+The stable 18.2.10 refresh passed all three bridge configuration tests and the
+isolated installation/removal/ownership probe, including rejection of a stale
+Funes build before writes. Native OMP-authored synthetic sessions passed scheduler
+backfill, arrival during backfill, warm updates, and reopen catch-up. Native MCP
+`recall`/`get` preserved parent/child provenance and exclusions, and a warm reader
+observed a newly persisted message. The rebuilt Funes revision passed 314 focused
+tests; Actomasto passed 221 tests plus completed/aborted native-turn consumption,
+exact text/provenance, restart deduplication, and interval exclusion. These checks
+used synthetic originals, not private transcript contents. No hosted-generation
+smoke or Hugging Face publication was performed. Verification assisted by OpenAI Codex.
 
 The fork retains Funes' Apache-2.0 license; a copy is retained in `FUNES-LICENSE`.
 This is a third-party notice, not a license designation for the entire bridge.
