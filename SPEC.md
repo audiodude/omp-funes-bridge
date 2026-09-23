@@ -852,3 +852,14 @@ installation safeguards, scheduler backfill/warm-update/reopen, existing-index
 startup, and native MCP recall/get with live-reader updates. The three-session
 smoke is not a renewal of historical large-load or spontaneous-recall claims.
 No Hugging Face release artifacts were published. AI-assisted with OpenAI Codex.
+
+[Local rollout evidence](verification/update-all-20260923.json) records the
+installed binary digest, preserved bridge enrollment/MCP entries, and private
+Actomasto backup. Actomasto runs from the new update worktree; its enabled state,
+budget, queued IDs, expiry times, and processing state were preserved.
+Configuration apply reserialized queued payloads, changing their byte total.
+The independent Funes refresh completed successfully with 716 sources and its
+timer resumed. Conversation adapters were unhealthy both before and after this
+activation; service startup is not proof of live conversation coverage.
+Already-running OMP sessions retain their loaded extension/MCP process until
+restarted.

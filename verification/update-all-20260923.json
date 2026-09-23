@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-23",
+  "ai_assistance": "OpenAI Codex",
+  "funes_revision": "2e60cf8795b17379a3630c22c7f3da69679a84cd",
+  "funes_upstream_revision": "da8a8307ed48a06137fcb03b5e272d29bc09de81",
+  "omp_version": "18.2.11",
+  "binary": "/home/tmoney/.local/lib/funes-source/2e60cf8795b17379a3630c22c7f3da69679a84cd/funes",
+  "binary_sha256": "517a9bf3945c8d74b4b824f8f3b84b9e009c607f119356d90b345122353da35a",
+  "verification": {
+    "bridge_tests": 3,
+    "blas_regressions": 4,
+    "actomasto_tests": 221,
+    "installer": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 3,
+      "sessions": 3,
+      "sources": 3,
+      "completedMessages": 12,
+      "chunks": 12,
+      "backfillMs": 9694.721275,
+      "duringBackfillMs": 3699.4937350000005,
+      "pendingAtArrivalCoverage": 3,
+      "warmUpdateMs": 10929.699502000001,
+      "reopenMs": 2260.8636589999987,
+      "maxIndexerRssKiB": 293972,
+      "maxFunesRssKiB": 2361792,
+      "maxBridgeRssBytes": 83013632,
+      "eventLoopP95Ms": 0.193151,
+      "eventLoopP99Ms": 0.555007
+    },
+    "existing_index_startup": true,
+    "native_mcp_live_reader": true,
+    "actomasto_wheel_and_sdist": true
+  },
+  "activation": {
+    "bridge_enrollment_and_unrelated_mcp_preserved": true,
+    "actomasto_enabled_and_budget_preserved": true,
+    "queue_ids_expiries_processing_state_preserved": true,
+    "queue_bytes_before": 74753,
+    "queue_bytes_after_apply": 75558,
+    "queue_bytes_note": "Configuration apply re-filters and reserializes existing queued payloads.",
+    "actomasto_service": "active/running; new worktree .venv; zero restarts",
+    "funes_refresh_service": "oneshot completed successfully; 716 sources",
+    "funes_refresh_timer": "active/waiting",
+    "preexisting_adapters_before": {
+      "claude": false,
+      "codex": false,
+      "omp": false
+    },
+    "adapters_after_restart": {
+      "claude": false,
+      "codex": false,
+      "omp": false
+    },
+    "backup": "/home/tmoney/.local/share/actomasto/deployment-backups/update-all-20260923"
+  },
+  "limits": [
+    "Three-session synthetic smoke, not historical large-load benchmark renewal.",
+    "Already-running OMP sessions retain their loaded extension and MCP process until restarted.",
+    "Conversation adapter health was false before and after activation; update does not establish live conversation coverage."
+  ],
+  "publication": {
+    "github_update_branches_pushed": true,
+    "hugging_face_release_artifacts_published": false
+  }
+}
