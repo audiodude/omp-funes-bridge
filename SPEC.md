@@ -111,18 +111,18 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.2.11`, upstream commit `e4151593ace2781d1dc2f06d760301f88af3e9dc`.
+- OMP `18.3.0`, upstream commit `62bc57be1b03ef0802a33cf7f5f530e534527531`.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `2e60cf8795b17379a3630c22c7f3da69679a84cd` is the required build revision.
+  `c6396271a1beb3f9fb1466d1105c0a87c45db07b` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
   local-only/metadata-only/revision/snapshot guarantees. Stock or stale builds fail.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
-- Verified toolchain for these pins: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
-  The custom OMP native addon used its pinned `nightly-2026-08-12` toolchain.
+- Build toolchain: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
+  Custom OMP embeds the published, version-matched `18.3.0` native addons.
 
 The stable 18.2.11 refresh passed three bridge configuration tests, isolated
 installation/removal/ownership checks, native MCP recall/get with live-reader
@@ -863,3 +863,31 @@ timer resumed. Conversation adapters were unhealthy both before and after this
 activation; service startup is not proof of live conversation coverage.
 Already-running OMP sessions retain their loaded extension/MCP process until
 restarted.
+
+### OMP 18.3.0 and dependency refresh (2026-09-24)
+
+The bridge pins custom OMP `18.3.0` and Funes
+`c6396271a1beb3f9fb1466d1105c0a87c45db07b`, incorporating upstream
+`8c7c5caac5e44fd1a1912e05cc34be2c7cb9fef0`. Funes retains the local source
+protocol and OMP normalization customizations; compatible Cargo updates cover
+frostem, thiserror/thiserror-impl, and zerocopy/zerocopy-derive.
+Actomasto's compatible Python dependencies were already current.
+
+Fresh checks passed: 3 bridge tests, 221 Actomasto tests, installer ownership
+and stale-build safeguards, scheduler backfill/warm-update/reopen,
+existing-index startup, and native MCP recall/get with live-reader updates.
+OMP 18.3.0-authored complete/aborted turns also passed the real Actomasto consumer's
+text/provenance, identity, restart deduplication, exclusion, and original-file
+preservation checks. These synthetic probes do not establish live historical
+coverage or renew large-load benchmarks. No Hugging Face artifacts were deployed.
+Verification assisted by OpenAI Codex.
+
+[Local rollout evidence](verification/update-all-20260924.json) records 316 passing
+Funes tests, 302 focused OMP tests, workspace TypeScript checks, and compiled and
+installed worker smoke checks. The custom OMP binary, bridge integration, Funes
+source-refresh service/timer, and Actomasto worktree service were switched.
+Configuration validation and binary-path-only apply preserved enrollment,
+controls, budgets, intervals, history, cursors, markers, and queued identities,
+expiry times and processing state. The Actomasto control socket is ready; its
+conversation adapters remain unhealthy as they were before this update.
+Existing OMP sessions must restart to load the new executable and bridge.

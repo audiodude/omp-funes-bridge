@@ -1,0 +1,110 @@
+{
+  "date": "2026-09-24",
+  "ai_assistance": "OpenAI Codex",
+  "omp": {
+    "version": "18.3.0",
+    "upstream_revision": "62bc57be1b03ef0802a33cf7f5f530e534527531",
+    "fork_revision": "d1856016a1",
+    "branch": "update/stable-18.3.0",
+    "installed": "/home/tmoney/.bun/bin/omp",
+    "sha256": "3495e694a9823fc1dde264bfb04746d9efba142e4f0d0e44c47b3fbf0311b193",
+    "customization": "VS Code terminal file hyperlinks retained",
+    "native_addons": "Published @oh-my-pi/pi-natives-linux-x64@18.3.0"
+  },
+  "funes": {
+    "revision": "c6396271a1beb3f9fb1466d1105c0a87c45db07b",
+    "upstream_revision": "8c7c5caac5e44fd1a1912e05cc34be2c7cb9fef0",
+    "binary": "/home/tmoney/.local/lib/funes-source/c6396271a1beb3f9fb1466d1105c0a87c45db07b/funes",
+    "sha256": "3096a323c4e9665070765e81251f958d6283d01c79b3e7a31d4368ec6f7c7079",
+    "dependency_updates": [
+      "frostem 1.20260821.6 -> 1.20260821.7",
+      "thiserror/thiserror-impl 2.0.20 -> 2.0.21",
+      "zerocopy/zerocopy-derive 0.8.57 -> 0.8.58"
+    ]
+  },
+  "actomasto": {
+    "revision": "737d278",
+    "compatible_python_dependency_updates": []
+  },
+  "verification": {
+    "omp_tests": 302,
+    "omp_workspace_typechecks": true,
+    "compiled_worker_smoke": true,
+    "installed_worker_smoke": true,
+    "native_completed_and_aborted_sessions": true,
+    "funes_tests": 316,
+    "funes_test_suites": 7,
+    "bridge_tests": 3,
+    "actomasto_tests": 221,
+    "actomasto_wheel_and_sdist": true,
+    "installer": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 3,
+      "sessions": 3,
+      "sources": 3,
+      "completedMessages": 12,
+      "chunks": 12,
+      "backfillMs": 10407.364309,
+      "duringBackfillMs": 4049.3389569999995,
+      "pendingAtArrivalCoverage": 3,
+      "warmUpdateMs": 11132.177456,
+      "reopenMs": 2437.6023300000015,
+      "maxIndexerRssKiB": 302664,
+      "maxFunesRssKiB": 391872,
+      "maxBridgeRssBytes": 82550784,
+      "eventLoopP95Ms": 0.269311,
+      "eventLoopP99Ms": 0.982527
+    },
+    "existing_index_startup": true,
+    "native_mcp_live_reader": true,
+    "actomasto_native_consumer": {
+      "omp_version": "18.3.0",
+      "complete_turns": 1,
+      "aborted_turn_emitted": false,
+      "exact_text_and_provenance": true,
+      "stable_identity": true,
+      "restart_deduplication": true,
+      "terminal_interval_exclusion": true,
+      "originals_unchanged": true
+    }
+  },
+  "limits": [
+    "Synthetic consumer probes do not establish live historical coverage or renew large-load benchmarks.",
+    "Already-running OMP sessions retain their loaded executable, extension and MCP process until restarted.",
+    "Actomasto conversation adapters were unhealthy before and immediately after restart; this rollout does not repair or certify live conversation coverage."
+  ],
+  "publication": {
+    "hugging_face_release_artifacts_published": false,
+    "omp_update_used": false
+  },
+  "activation": {
+    "bridge_enrollment_memory_and_unrelated_mcp_preserved": true,
+    "standalone_enrollment_preserved": true,
+    "actomasto_controls_budgets_intervals_history_cursors_markers_preserved": true,
+    "queue_identity_expiry_processing_state_preserved": true,
+    "private_backup": "/home/tmoney/.local/share/actomasto/deployment-backups/update-all-20260924",
+    "actomasto_service": "active/running; new worktree .venv; zero restarts; control socket ready",
+    "source_refresh": "oneshot success, exit 0; timer active/waiting",
+    "adapters_before": {
+      "claude": false,
+      "codex": false,
+      "omp": false
+    },
+    "adapters_after": {
+      "claude": false,
+      "codex": false,
+      "omp": false
+    },
+    "configuration_revision": 14
+  }
+}
