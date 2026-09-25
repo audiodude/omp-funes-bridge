@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.3.0`, upstream commit `62bc57be1b03ef0802a33cf7f5f530e534527531`.
+- OMP `18.3.1`, upstream commit `6204b75080` (stable release tag `v18.3.1`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `c6396271a1beb3f9fb1466d1105c0a87c45db07b` is the required build revision.
+  `70de3188987cd7cc16a909803969fb8c7ad7a718` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -122,7 +122,17 @@ verification records below are not evidence for this new cutover.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
-  Custom OMP embeds the published, version-matched `18.3.0` native addons.
+  Custom OMP embeds the published, version-matched `18.3.1` native addons.
+
+The September 25 refresh targets custom OMP 18.3.1 and preserves Funes' newer
+current-source parser fixes while updating twelve compatible Cargo dependencies.
+Bridge configuration tests (3), isolated installer ownership/stale-build checks,
+native MCP recall/get and live-reader updates, and reopen-to-searchability checks
+passed against the installed custom binary. Completed and aborted native OMP
+turns both passed durable-persistence probes. Actomasto's merged briefing and
+collector runtime passed 379 tests against the pinned Funes binary; Funes passed
+319 tests across six suites. Local wiring retains existing enrollment and memory.
+No Hugging Face release artifacts were published. Verification assisted by OpenAI Codex.
 
 The stable 18.2.11 refresh passed three bridge configuration tests, isolated
 installation/removal/ownership checks, native MCP recall/get with live-reader
