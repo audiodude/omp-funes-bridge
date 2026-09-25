@@ -114,7 +114,7 @@ verification records below are not evidence for this new cutover.
 - OMP `18.3.1`, upstream commit `6204b75080` (stable release tag `v18.3.1`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `70de3188987cd7cc16a909803969fb8c7ad7a718` is the required build revision.
+  `c27917ac833c34b9f5b7f39e397efc56f6d59899` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -133,6 +133,14 @@ turns both passed durable-persistence probes. Actomasto's merged briefing and
 collector runtime passed 379 tests against the pinned Funes binary; Funes passed
 319 tests across six suites. Local wiring retains existing enrollment and memory.
 No Hugging Face release artifacts were published. Verification assisted by OpenAI Codex.
+
+The final pin also repairs an existing OMP assistant `requestControls` metadata
+allowlist gap discovered during live activation. Strict shape validation keeps
+this replay bookkeeping out of evidence and rejects malformed or unknown fields.
+The repaired build passed 316 library/binary/source-normalizer tests (including
+two new regressions), and the previously failing live stream returned complete.
+Bridge configuration tests, native MCP live-reader retrieval, and all 379
+Actomasto tests were repeated successfully against this final pin.
 
 The stable 18.2.11 refresh passed three bridge configuration tests, isolated
 installation/removal/ownership checks, native MCP recall/get with live-reader
