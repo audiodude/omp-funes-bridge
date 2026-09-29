@@ -111,18 +111,32 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.3.1`, upstream commit `6204b75080` (stable release tag `v18.3.1`).
+- OMP `18.4.3`, upstream commit `fc671eba383f` (stable release tag `v18.4.3`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `c27917ac833c34b9f5b7f39e397efc56f6d59899` is the required build revision.
+  `eb7babe7ee251e232c5088dd0b99953c72efe43b` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
   local-only/metadata-only/revision/snapshot guarantees. Stock or stale builds fail.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
-- Build toolchain: Bun `1.4.0`, Rust/Cargo `1.98.0`, LLD, Linux x86-64.
-  Custom OMP embeds the published, version-matched `18.3.1` native addons.
+- Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
+  the repository-pinned Rust nightly (`nightly-2026-08-12`).
+  Custom OMP embeds its source-built, version-matched `18.4.3` native addons.
+
+The September 29 refresh targets custom OMP 18.4.3 with VS Code file hyperlinks
+preserved. Funes incorporates upstream external spools, rows-first indexing and
+pooled MCP readers while retaining the fork's explicit native OMP indexing,
+strict source protocol, graph provenance and atomic coverage receipts.
+Bridge configuration tests (3), isolated installer safeguards, native MCP
+recall/get and live-reader updates, and backfill/warm/reopen checks passed.
+Native OMP completed and aborted turns both passed durable-persistence probes;
+Actomasto consumed the completed turn without replay and left the aborted turn
+pending. Actomasto passed 379 tests; its compatible Python dependencies were
+already current. Funes reported 347 passing tests, with five live-Hub cases
+returning early behind their credential gate; no live-Hub result is claimed.
+No Hugging Face release artifacts were published. Verification assisted by OpenAI Codex.
 
 The September 25 refresh targets custom OMP 18.3.1 and preserves Funes' newer
 current-source parser fixes while updating twelve compatible Cargo dependencies.
