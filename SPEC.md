@@ -138,6 +138,15 @@ already current. Funes reported 347 passing tests, with five live-Hub cases
 returning early behind their credential gate; no live-Hub result is claimed.
 No Hugging Face release artifacts were published. Verification assisted by OpenAI Codex.
 
+Local activation retained enrollment, memory, unrelated MCP configuration and
+collector history, spending, controls and pending evidence. The collector and
+source-refresh service use the new Funes revision; briefing units use the new
+Actomasto environment and their timers were restarted without sending a briefing.
+The pre-existing OMP source `unknown_content_schema` condition remains; successful
+synthetic probes do not establish complete historical compatibility. Details:
+`verification/update-all-20260929.json`. Already-running OMP sessions retain their
+loaded executable, extension and MCP process until restarted.
+
 The September 25 refresh targets custom OMP 18.3.1 and preserves Funes' newer
 current-source parser fixes while updating twelve compatible Cargo dependencies.
 Bridge configuration tests (3), isolated installer ownership/stale-build checks,

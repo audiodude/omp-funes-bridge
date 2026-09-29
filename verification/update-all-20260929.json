@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-29",
+  "ai_assistance": "OpenAI Codex",
+  "omp": {
+    "version": "18.4.3",
+    "upstream_revision": "fc671eba383f2a7208500836673b485c0dc7073d",
+    "fork_revision": "820f843c7012ea6a066797cad3c40f1e83565ecb",
+    "branch": "update/stable-18.4.3",
+    "installed": "/home/tmoney/.bun/bin/omp",
+    "sha256": "3017501d7cc0ef568abcd1ae7691dd59c5cbe576fe0f4f06d309adc3e972a3e6",
+    "customization": "VS Code terminal file hyperlinks retained",
+    "native_addons": "Source-built with pinned nightly-2026-08-12"
+  },
+  "funes": {
+    "revision": "eb7babe7ee251e232c5088dd0b99953c72efe43b",
+    "upstream_revision": "9712c6f",
+    "binary": "/home/tmoney/.local/lib/funes-source/eb7babe7ee251e232c5088dd0b99953c72efe43b/funes",
+    "sha256": "ca5a98f08dff42b4f7cabc70d003f5c5da4d691498e3880df6728815066345d8",
+    "changes": "Merged upstream external spools, rows-first indexing and pooled readers; retained native OMP graph/coverage indexing and strict local-source protocol; refreshed compatible dependencies"
+  },
+  "actomasto": {
+    "revision": "d09590c68573309f8f81d102ade71a8c9803e37a",
+    "branch": "update-all-20260929",
+    "compatible_python_dependency_updates": []
+  },
+  "verification": {
+    "omp_custom_settings_tests": 72,
+    "omp_packaging_tests": 4,
+    "omp_workspace_typechecks": 16,
+    "compiled_and_installed_worker_smoke": true,
+    "hyperlink_runtime_and_config_roundtrip": true,
+    "native_completed_and_aborted_durable_turns": true,
+    "funes_reported_passing_tests": 347,
+    "funes_live_hub_tests_returning_early": 5,
+    "funes_default_and_onnx_clippy": true,
+    "funes_source_and_mcp_runtime": true,
+    "actomasto_tests": 379,
+    "actomasto_isolated_daemon_and_distribution_builds": true,
+    "actomasto_completed_turn_exact_text_provenance_no_replay": true,
+    "actomasto_aborted_turn_left_pending": true,
+    "bridge_tests": 3,
+    "bridge_installer_ownership_stale_build_and_preservation_probes": true,
+    "bridge_native_mcp_recall_get_live_reader": true,
+    "bridge_existing_index_startup": true,
+    "benchmark": {
+      "fixture_sessions": 3,
+      "chunks": 12,
+      "backfill_ms": 7691.565775,
+      "arrival_during_backfill_ms": 2745.5825159999995,
+      "warm_update_ms": 10811.648222,
+      "reopen_ms": 1999.355012,
+      "indexer_peak_rss_kib": 237236,
+      "event_loop_p99_ms": 0.364031
+    }
+  },
+  "activation": {
+    "bridge_enrollment_memory_and_unrelated_mcp_preserved": true,
+    "standalone_enrollment_unchanged": true,
+    "collector_config_only_changed_funes_executable": true,
+    "collector_config_validate": "valid=true, protocol=1, exact final build revision; broad metadata preview required more than 60 seconds",
+    "collector_config_revision": 18,
+    "preserved_tables_before_restart": ["intervals", "periods", "source_cursors", "source_markers", "suggestions", "evidence"],
+    "pending_units_before_restart": "Both retained exact identity, payload, expiry and processing state; only policy_revision changed",
+    "enabled_and_generation_pause_preserved": true,
+    "private_backup": "/home/tmoney/.local/share/actomasto/deployment-backups/update-all-20260929",
+    "collector_service": "Restarted on updated worktree .venv; active/running; CLI status responds",
+    "briefing_services": "Updated executable paths; daily and weekly timers restarted and active/waiting; no unscheduled briefing sent",
+    "source_refresh": "Updated launcher; oneshot succeeded exit 0; timer restarted active/waiting",
+    "all_collector_harnesses_report_final_funes_revision": true,
+    "existing_bridge_memory_read": {"sessions": 579, "chunks": 6642}
+  },
+  "limits": [
+    "Live OMP source unknown_content_schema predates this update and remains present; this update does not claim full historical source compatibility.",
+    "Already-running OMP sessions retain their loaded executable, extension and MCP process until restarted.",
+    "Synthetic integration probes do not certify all historical transcripts or large-load performance.",
+    "No live-Hub test result is claimed."
+  ],
+  "publication": {"hugging_face_release_artifacts_published": false, "omp_update_used": false}
+}
