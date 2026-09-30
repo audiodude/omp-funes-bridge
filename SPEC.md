@@ -137,6 +137,14 @@ checks, not certification of every historical transcript. Verification:
 `verification/update-all-20260930.json`. No Hugging Face release artifacts were
 published and `omp update` was not used. Update assisted by OpenAI Codex.
 
+Local activation preserved enrollment, memory, unrelated MCP servers, collector
+controls, spending, history, cursors and pending state. The updated collector and
+source-refresh service were restarted; briefing executable paths and timers were
+updated without sending an unscheduled briefing. A fresh installed OMP process
+read the existing memory through native MCP. All three collector harnesses report
+the new Funes revision, but the pre-existing OMP `unknown_content_schema` condition
+still leaves that adapter unavailable; Claude and Codex adapters are healthy.
+
 The September 29 refresh targets custom OMP 18.4.3 with VS Code file hyperlinks
 preserved. Funes incorporates upstream external spools, rows-first indexing and
 pooled MCP readers while retaining the fork's explicit native OMP indexing,

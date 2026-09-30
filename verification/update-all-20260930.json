@@ -15,7 +15,20 @@
     "binary": "/home/tmoney/.local/lib/funes-source/116500583749fc70c31084d514f8007c61d88d6d/funes",
     "sha256": "8221f49d7c5252923432d80ce09e2bca7f891acea0ce301bea171dd39b61168d"
   },
+  "actomasto": {
+    "revision": "7fa64a3d242f085b49501362e09c2a3b72397705",
+    "branch": "update-all-20260930",
+    "compatible_python_dependency_updates": [],
+    "tests_passed": 379,
+    "isolated_daemon_and_native_omp_consumer_smoke": true
+  },
   "verification": {
+    "omp_custom_tests_passed": 39,
+    "omp_workspace_typechecks": 16,
+    "omp_compiled_and_installed_worker_smoke": true,
+    "funes_reported_test_passes": 350,
+    "funes_live_hub_early_returns": 5,
+    "funes_default_and_onnx_clippy": true,
     "bridge_tests": {
       "passed": 3,
       "failed": 0,
@@ -47,7 +60,25 @@
       "event_loop_p99_ms": 0.588799
     }
   },
+  "activation": {
+    "backup": "/home/tmoney/.local/share/actomasto/deployment-backups/update-all-20260930",
+    "collector_config_only_changed_funes_executable": true,
+    "collector_config_validate": "valid=true; protocol=1; exact final Funes build revision",
+    "collector_config_revision": 19,
+    "bridge_enrollment_memory_and_unrelated_mcp_preserved": true,
+    "standalone_enrollment_unchanged": true,
+    "preserved_tables_before_restart": ["intervals", "source_cursors", "source_markers", "pending_units", "periods", "attempts", "suggestions", "evidence", "export_outbox"],
+    "pending_units_before_restart": 0,
+    "enabled_and_generation_pause_preserved": true,
+    "collector_service": "Restarted; active/running on updated worktree virtual environment; status responds",
+    "collector_harness_build_revisions": "All three report 116500583749fc70c31084d514f8007c61d88d6d",
+    "collector_adapters": {"claude": true, "codex": true, "omp": false},
+    "briefing_services": "Updated executable paths; daily and weekly timers restarted; no unscheduled briefing sent",
+    "source_refresh": "Restarted successfully with exit 0; timer restarted",
+    "installed_native_mcp_status": {"passed": true, "sessions": 582, "chunks": 6653}
+  },
   "limits": [
+    "The pre-existing OMP unknown_content_schema condition remains in live Actomasto collection; its OMP adapter is unavailable while Claude and Codex adapters are healthy.",
     "Synthetic integration probes do not certify every historical transcript or large-load performance.",
     "Already-running OMP sessions retain their loaded executable, extension and MCP process until restarted."
   ],
