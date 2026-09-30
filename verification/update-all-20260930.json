@@ -1,0 +1,58 @@
+{
+  "date": "2026-09-30",
+  "ai_assistance": "OpenAI Codex",
+  "omp": {
+    "version": "18.4.4",
+    "upstream_revision": "8ac1309bd8adaddc891eeb389c545345073875be",
+    "fork_revision": "c686be0c51b8d82293db1dbd308e11910482312a",
+    "branch": "update/stable-18.4.4",
+    "installed": "/home/tmoney/.bun/bin/omp",
+    "sha256": "b56cdaae2bf8c40ddf53caec35c78951ee8c7d2dabd709c33566c94d013a037e",
+    "customization": "VS Code file hyperlinks and editor settings preserved"
+  },
+  "funes": {
+    "revision": "116500583749fc70c31084d514f8007c61d88d6d",
+    "binary": "/home/tmoney/.local/lib/funes-source/116500583749fc70c31084d514f8007c61d88d6d/funes",
+    "sha256": "8221f49d7c5252923432d80ce09e2bca7f891acea0ce301bea171dd39b61168d"
+  },
+  "verification": {
+    "bridge_tests": {
+      "passed": 3,
+      "failed": 0,
+      "assertions": 6
+    },
+    "installer": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "native_mcp_recall_get_and_live_reader": true,
+    "native_completed_and_aborted_durable_turns": true,
+    "existing_index_startup": true,
+    "root_resolution_cases": 8,
+    "benchmark": {
+      "fixture_sessions": 3,
+      "chunks": 12,
+      "backfill_ms": 8913.628801,
+      "during_backfill_ms": 3312.8439900000003,
+      "warm_update_ms": 10981.930167,
+      "reopen_ms": 2236.371889000002,
+      "indexer_peak_rss_kib": 230632,
+      "event_loop_p99_ms": 0.588799
+    }
+  },
+  "limits": [
+    "Synthetic integration probes do not certify every historical transcript or large-load performance.",
+    "Already-running OMP sessions retain their loaded executable, extension and MCP process until restarted."
+  ],
+  "publication": {
+    "hugging_face_release_artifacts_published": false,
+    "omp_update_used": false
+  }
+}

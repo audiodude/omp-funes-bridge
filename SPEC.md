@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.4.3`, upstream commit `fc671eba383f` (stable release tag `v18.4.3`).
+- OMP `18.4.4`, upstream commit `8ac1309bd8ad` (stable release tag `v18.4.4`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `eb7babe7ee251e232c5088dd0b99953c72efe43b` is the required build revision.
+  `116500583749fc70c31084d514f8007c61d88d6d` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -123,7 +123,19 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-08-12`).
-  Custom OMP embeds its source-built, version-matched `18.4.3` native addons.
+  Custom OMP embeds its source-built, version-matched `18.4.4` native addons.
+
+The September 30 refresh targets custom OMP 18.4.4, preserving VS Code file
+hyperlinks and editor settings. Bridge dependencies now match that release;
+the compatible Node type dependency also advanced. Funes incorporates current
+upstream changes while preserving the fork's OMP provenance and source protocol.
+Configuration tests (3), installer preservation/stale-build safeguards, eight
+root-resolution cases, native MCP recall/get and live-reader updates, and
+backfill/warm/reopen/existing-index startup checks passed. Native completed and
+aborted OMP turns passed durable-persistence probes. These are isolated synthetic
+checks, not certification of every historical transcript. Verification:
+`verification/update-all-20260930.json`. No Hugging Face release artifacts were
+published and `omp update` was not used. Update assisted by OpenAI Codex.
 
 The September 29 refresh targets custom OMP 18.4.3 with VS Code file hyperlinks
 preserved. Funes incorporates upstream external spools, rows-first indexing and
