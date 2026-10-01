@@ -952,3 +952,30 @@ controls, budgets, intervals, history, cursors, markers, and queued identities,
 expiry times and processing state. The Actomasto control socket is ready; its
 conversation adapters remain unhealthy as they were before this update.
 Existing OMP sessions must restart to load the new executable and bridge.
+
+### OMP 18.4.6 and dependency refresh (2026-10-01)
+
+The bridge now pins custom OMP `18.4.6` and maintained Funes
+`c517d868d4d36856f992682045d3610ad0f55762`, incorporating upstream
+`4d3b5413230139aa1791bdb707b50ac4225d80d1`. OMP retains the VS Code file-link
+editor override; Funes retains source protocol 1, native OMP normalization and
+strict provenance. Compatible Cargo dependencies were refreshed within the
+existing constraints. Actomasto advances `charset-normalizer` from 3.5.1 to 3.5.2
+and consumes that exact Funes build.
+
+Fresh verification passed 107 focused OMP tests, 16 workspace type checks,
+style checks, compiled and installed worker smoke, actual settings TUI rendering
+and compiled VS Code/system hyperlink output. Funes formatting, strict default
+and ONNX Clippy, and its all-targets suite passed; the suite reports 356 passes,
+including six credential-gated live-Hub cases that returned early and are not
+claimed as verified. All 379 Actomasto tests, package builds, isolated daemon
+readiness/shutdown, and native OMP completed/aborted-turn consumer checks passed.
+
+The bridge passed its three tests, eight root-resolution cases, installer
+ownership/stale-build safeguards, three-session backfill/warm-update/reopen,
+existing-index startup and native MCP recall/get with live-reader updates.
+Synthetic probes do not certify every historical transcript, large-load
+performance, ONNX runtime behavior or remote publication. Install the pinned
+builds using the existing enrollment and corpus; do not use `omp update` or
+`funes update`. No Hugging Face release artifacts were published.
+Verification assisted by OpenAI Codex.
