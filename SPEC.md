@@ -978,4 +978,21 @@ Synthetic probes do not certify every historical transcript, large-load
 performance, ONNX runtime behavior or remote publication. Install the pinned
 builds using the existing enrollment and corpus; do not use `omp update` or
 `funes update`. No Hugging Face release artifacts were published.
+
+[Local rollout evidence](verification/update-all-20261001.json) records the
+installed binary digests and user-service cutover. Metadata-only validation
+passed for the new Funes revision and 256 discovered repositories. The
+binary-path-only configuration apply preserved enrollment, controls, budgets,
+intervals, cursors, markers, history and the queued unit's identity, payload,
+expiry and processing state; only its policy revision advanced. The collector,
+source-refresh timer and daily/weekly briefing timers were restarted. Source
+refresh exited successfully, the control socket is ready, and all three
+conversation adapters report the new build revision. Claude and Codex adapters
+are healthy; OMP retains its pre-existing `unknown_content_schema` diagnostic.
+An installed native OMP MCP reader returned the existing local memory's status.
+No unscheduled briefing send was invoked. Rollback files are retained under
+`~/.local/share/actomasto/deployment-backups/update-all-20261001`, with the previous
+OMP executable under `~/.local/lib/omp-custom/`. Existing OMP sessions must restart
+to load the new executable and bridge.
+
 Verification assisted by OpenAI Codex.
