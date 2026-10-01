@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.4.4`, upstream commit `8ac1309bd8ad` (stable release tag `v18.4.4`).
+- OMP `18.4.9`, upstream commit `d3a32f6c9e2db84a54741464099422b8f2b2ad51` (stable release tag `v18.4.9`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `116500583749fc70c31084d514f8007c61d88d6d` is the required build revision.
+  `eee23d57b6a5895b23898792728c880b3fdd25f8` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -123,7 +123,7 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-08-12`).
-  Custom OMP embeds its source-built, version-matched `18.4.4` native addons.
+  Custom OMP embeds its source-built, version-matched `18.4.9` native addons.
 
 The September 30 refresh targets custom OMP 18.4.4, preserving VS Code file
 hyperlinks and editor settings. Bridge dependencies now match that release;
@@ -994,5 +994,54 @@ No unscheduled briefing send was invoked. Rollback files are retained under
 `~/.local/share/actomasto/deployment-backups/update-all-20261001`, with the previous
 OMP executable under `~/.local/lib/omp-custom/`. Existing OMP sessions must restart
 to load the new executable and bridge.
+
+Verification assisted by OpenAI Codex.
+
+### OMP 18.4.9 and dependency refresh (2026-10-01)
+
+The current build pins custom OMP `18.4.9` and maintained Funes
+`eee23d57b6a5895b23898792728c880b3fdd25f8` (`1.5.0+dev`), incorporating
+upstream `21eb3ab4a81fcb670c9d00547f93d446cfe4516a`. OMP retains the VS Code
+file-link editor override. Funes preserves source protocol 1, native OMP
+normalization and strict provenance; its compatible Cargo refresh updates
+`lazy_static` from 1.5.0 to 1.5.1. Actomasto combines its deployed collector
+fixes with the current `main` project-suggestion feature; compatible Python
+dependencies were already current.
+
+Fresh bridge verification passed three tests, eight root-resolution cases,
+installer ownership/stale-build safeguards, three-session backfill,
+arrival during indexing, warm updates, reopen catch-up, and native MCP
+`recall`/`get` with warm-reader updates. Native OMP completed and aborted
+turns passed durability checks. OMP passed 670 focused tests, 16 workspace
+typechecks, compiled/installed worker smoke, actual settings TUI and compiled
+VS Code hyperlink output. Funes passed formatting, strict default/ONNX
+Clippy and its all-targets suite: 350 exercised cases plus six credential-gated
+live-Hub cases that returned early, not verified remote behavior.
+
+Local rollout evidence is recorded in
+[verification/update-20261001-stable1849.json](verification/update-20261001-stable1849.json).
+Existing enrollment, corpus and memory are retained. No `omp update`,
+`funes update`, release publishing or Hugging Face artifact deployment is used.
+Existing OMP sessions must restart to load the updated executable and bridge.
+Synthetic probes do not certify all historical transcripts, large-load
+performance, hosted generation, email delivery or ONNX runtime inference.
+
+All 415 Actomasto tests, package builds, isolated daemon lifecycle,
+project-suggestion dry run and native completed/aborted OMP consumer checks
+passed against the exact Funes pin. Live metadata-only configuration validation
+passed for 260 repositories in 202.89 seconds; the initial two-minute operator
+timeout was too short for the exhaustive Git-ref preview.
+
+Local activation preserved enrollment, controls, budget, history, intervals,
+cursors, markers and both queued units; only the Funes executable field and
+configuration/epoch/policy revisions changed. The collector and source-refresh,
+daily-briefing and weekly-briefing timers are active and enabled; source refresh
+exited successfully. All three conversation adapters report the new Funes
+revision. Claude and Codex are healthy; OMP retains its pre-existing
+`unknown_content_schema` diagnostic. The installed native MCP reader returned
+the existing local memory's status. No unscheduled briefing send was invoked.
+Private rollback files remain under
+`~/.local/share/actomasto/deployment-backups/update-20261001-stable1849`;
+the previous OMP executable remains under `~/.local/lib/omp-custom/`.
 
 Verification assisted by OpenAI Codex.

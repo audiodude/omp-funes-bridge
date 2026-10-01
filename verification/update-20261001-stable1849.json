@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-01",
+  "assisted_by": "OpenAI Codex",
+  "components": {
+    "omp": {
+      "version": "18.4.9",
+      "branch": "update/stable-18.4.9",
+      "commit": "ab13eda9201248a086cf9f2451a79540503c32c1",
+      "upstream_tag": "v18.4.9",
+      "upstream_commit": "d3a32f6c9e2db84a54741464099422b8f2b2ad51",
+      "installed_path": "/home/tmoney/.bun/bin/omp",
+      "sha256": "64dcd402d8f4088ef204f32035e88707ae8589f00ff29995e9ed7a6983d6cdf4",
+      "customization": "VS Code file-link/editor override and interactive setting repaint preserved"
+    },
+    "bridge": {
+      "branch": "update-20261001-stable1849",
+      "omp_dependency_and_peer": "18.4.9",
+      "installed_extension": "/home/tmoney/.omp/agent/extensions/omp-funes-bridge"
+    },
+    "funes": {
+      "version": "1.5.0+dev",
+      "branch": "update-20261001-stable1849",
+      "commit": "eee23d57b6a5895b23898792728c880b3fdd25f8",
+      "upstream_main": "21eb3ab4a81fcb670c9d00547f93d446cfe4516a",
+      "installed_path": "/home/tmoney/.local/lib/funes-source/eee23d57b6a5895b23898792728c880b3fdd25f8/funes",
+      "sha256": "6bf09ba6c06a8edd80bc60ad849c30fcb2309d472c86683360433e1339fa5482",
+      "compatible_dependency_update": "lazy_static 1.5.0 -> 1.5.1",
+      "source_protocol": 1,
+      "source_identity": "actomasto-v1"
+    },
+    "actomasto": {
+      "branch": "update-20261001-stable1849",
+      "commit": "aa1f5686b2ced55d5bfd833a5307a1e055c97c43",
+      "main_merged": "2cb9b410d1073eb607acad60fa8d791532dfab66",
+      "executable": "/home/tmoney/code/vibes/actomasto/.worktrees/update-20261001-stable1849/.venv/bin/actomasto",
+      "python_dependency_refresh": "No newer compatible versions",
+      "verification_record": "actomasto:verification/dependencies-20261001-stable1849.json"
+    }
+  },
+  "verification": {
+    "omp": {
+      "focused_tests_passed": 670,
+      "test_files": 53,
+      "workspace_typechecks": 16,
+      "compiled_and_installed_worker_smoke": "passed",
+      "actual_settings_tui": "system -> vscode observed on real PTY",
+      "compiled_vscode_hyperlink": "passed",
+      "native_completed_and_aborted_durability": "passed"
+    },
+    "funes": {
+      "format": "passed",
+      "strict_default_and_onnx_clippy": "passed",
+      "all_targets_harness_passed": 356,
+      "exercised_cases": 350,
+      "credential_gated_cases_returning_early": 6,
+      "source_protocol_originals_and_strict_provenance": "passed",
+      "suite_output": "artifact://91",
+      "lint_output": "artifact://76"
+    },
+    "actomasto": {
+      "pytest_passed": 415,
+      "pytest_skipped": 0,
+      "wheel_and_sdist": "passed",
+      "isolated_daemon_lifecycle": "passed",
+      "project_suggestion_dry_run": "passed",
+      "native_completed_turn": "exact text/provenance/identity, deduplication and interval exclusion",
+      "native_aborted_turn": "zero units, one pending turn, original unchanged",
+      "suite_output": "artifact://90"
+    },
+    "bridge": {
+      "tests_passed": 3,
+      "assertions": 6,
+      "root_resolution_cases": 8,
+      "installer_safeguards": "stale-build rejection before writes, repeatability, unrelated integrations/source preservation and ownership enforcement passed",
+      "synthetic_index": "three-session backfill, arrival while indexing, warm update, reopen and existing-index startup passed",
+      "native_mcp": "recall/get, parent-child provenance, excluded controls and warm-reader update passed",
+      "installed_native_memory_status": {
+        "chunks": 7169,
+        "sessions": 637
+      },
+      "initial_native_probe_invocation": "Print-mode invocation attempted a synthetic OpenAI request and returned401; reran in idle RPC mode with no prompt/provider request and passed"
+    }
+  },
+  "local_activation": {
+    "backup_directory": "/home/tmoney/.local/share/actomasto/deployment-backups/update-20261001-stable1849",
+    "omp_rollback": "/home/tmoney/.local/lib/omp-custom/omp-18.4.6-before-18.4.9-20261001",
+    "config_validation": {
+      "valid": true,
+      "build_revision": "eee23d57b6a5895b23898792728c880b3fdd25f8",
+      "discovered_repositories": 260,
+      "literal_preview": "source_content_not_inspected",
+      "incomplete_metadata_previews": 0,
+      "seconds": 202.89,
+      "initial_operator_timeout_seconds": 120
+    },
+    "config_apply": {
+      "only_config_field_changed": "funes.executable",
+      "config_revision_before": 20,
+      "config_revision_after": 21,
+      "epoch_before": 40,
+      "epoch_after": 41,
+      "enrollment_unchanged": true,
+      "controls_and_budget_preserved": true,
+      "history_intervals_cursors_markers_attempts_preserved": true,
+      "queued_units_preserved": 2,
+      "queue_payload_identity_expiry_processing_state_preserved": true,
+      "queue_only_allowed_change": "policy_revision"
+    },
+    "bridge_enrollment_and_polling_preserved": true,
+    "unrelated_mcp_preserved": true,
+    "collector": {
+      "active": true,
+      "enabled": true,
+      "control_socket_ready": true,
+      "config_revision": 21
+    },
+    "source_refresh": {
+      "result": "success",
+      "exit_status": 0
+    },
+    "timers": {
+      "funes-source-refresh.timer": "active/enabled",
+      "actomasto-briefing-daily.timer": "active/enabled",
+      "actomasto-briefing-weekly.timer": "active/enabled"
+    },
+    "briefing_executables": "new Actomasto .venv",
+    "unscheduled_briefing_send_invoked": false,
+    "adapter_snapshot": {
+      "claude": {
+        "build_revision": "eee23d57b6a5895b23898792728c880b3fdd25f8",
+        "coverage": "current",
+        "dependency": "available",
+        "protocol": "compatible",
+        "error": null
+      },
+      "codex": {
+        "build_revision": "eee23d57b6a5895b23898792728c880b3fdd25f8",
+        "coverage": "current",
+        "dependency": "available",
+        "protocol": "compatible",
+        "error": null
+      },
+      "omp": {
+        "build_revision": "eee23d57b6a5895b23898792728c880b3fdd25f8",
+        "coverage": "current",
+        "dependency": "available",
+        "protocol": "compatible",
+        "error": "unknown_content_schema"
+      }
+    },
+    "existing_omp_sessions": "Not terminated; restart required to load new binary and bridge"
+  },
+  "limits": [
+    "No full OMP suite or Rust tests; all changed stable TypeScript test files, customization tests and workspace typechecks passed.",
+    "Six credential-gated Funes live-Hub cases returned early; remote behavior unverified.",
+    "ONNX runtime inference, hosted generation, email delivery and all historical transcript formats not certified.",
+    "OMP retains its pre-existing unknown_content_schema adapter diagnostic."
+  ],
+  "omp_update_used": false,
+  "funes_update_used": false,
+  "hugging_face_release_artifacts_published": false
+}
