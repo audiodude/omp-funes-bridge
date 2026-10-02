@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.4.9`, upstream commit `d3a32f6c9e2db84a54741464099422b8f2b2ad51` (stable release tag `v18.4.9`).
+- OMP `18.4.10`, upstream commit `cb0d5295e5edd48d000c1979e195186ec92aac79` (stable release tag `v18.4.10`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `eee23d57b6a5895b23898792728c880b3fdd25f8` is the required build revision.
+  `d03a2fcf3bc29bb81777907018fbc9bdef06d012` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -123,7 +123,7 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-08-12`).
-  Custom OMP embeds its source-built, version-matched `18.4.9` native addons.
+  Custom OMP embeds its source-built, version-matched `18.4.10` native addon.
 
 The September 30 refresh targets custom OMP 18.4.4, preserving VS Code file
 hyperlinks and editor settings. Bridge dependencies now match that release;
@@ -1045,3 +1045,71 @@ Private rollback files remain under
 the previous OMP executable remains under `~/.local/lib/omp-custom/`.
 
 Verification assisted by OpenAI Codex.
+
+### OMP 18.4.10 and dependency refresh (2026-10-02)
+
+The bridge pins custom OMP `18.4.10` and maintained Funes
+`d03a2fcf3bc29bb81777907018fbc9bdef06d012`, integrating upstream
+`767122709efffb98931801f8d664e318abe8d443`. The VS Code file-link/editor
+customization remains. Compatible Cargo and Python dependencies were already
+current; bridge utilities advanced to 18.4.10 and Node types to 26.6.4.
+
+The installed OMP executable passed worker smoke, completed/aborted persistence,
+and the real settings dialog's editor toggle. All 87 surviving changed/custom
+TypeScript test files passed separately (2,814 tests), all 16 workspace type
+checks passed, and the Rust workflow passed 3,089 tests plus one runnable
+doctest (six tests skipped). The initial combined TypeScript run exposed a
+settings-overlay GC isolation failure that passed file-local verification;
+the combined suite is not claimed as green. An incidental no-server wording
+assertion was removed rather than repinned to the user's configured MCP servers.
+
+Bridge verification passed three configuration tests, eight root-resolution
+cases, stale-build/ownership/install safeguards, synthetic backfill and arrivals
+during indexing, warm updates, reopen/existing-index startup, and native MCP
+recall/get with parent-child provenance, exclusions, and live-reader refresh.
+The three-session synthetic workload reached initial coverage in 8.10 seconds,
+warm coverage in 10.89 seconds, and reopen coverage in 1.96 seconds; these are not
+renewed large-load or spontaneous-recall claims.
+
+Funes verification reported 357 test passes, including six credential-gated
+early returns that do not verify live Hub behavior. Default and ONNX strict
+lint passed; only the default BLAS executable's runtime was exercised. The
+final binary passed 13 real source-protocol requests with exact revision,
+provenance, Unicode content, exclusions, pending aborted turns, stable replay
+identities, strict-field checks, and missing/changed-source guards. No
+`omp update`, `funes update`, or Hugging Face publishing was used. Verification
+assisted by OpenAI Codex.
+
+Actomasto passed all 415 tests against the final Funes pin and built its wheel
+and source distribution. An isolated daemon exercised ready/status/shutdown and
+socket removal. Native OMP completed-turn consumption preserved exact text and
+provenance with restart deduplication and interval exclusion; the aborted turn
+remained pending without emitted units. Python dependencies were already current.
+Hosted generation, delivery, actual logind sessions, and every historical source
+format are not certified by these synthetic probes.
+
+Local activation installed the source-built OMP executable in `~/.bun/bin/omp`,
+the revision-bound Funes executable under `~/.local/lib/funes-source/`, and the
+bridge's owned extension/MCP wiring without changing enrolled roots or derived
+memory. Actomasto's collector and briefing units now reference the dated
+`update-20261002-stable18410` environment; the metadata refresh launcher uses
+the new Funes revision. Collector and refresh services were restarted, with
+briefing timers preserved and no manual briefing/email run.
+
+Private rollback material is retained under
+`~/.local/share/actomasto/deployment-backups/update-20261002-stable18410/`,
+including the SQLite backup, original configuration/units/bridge extension, and
+state-preservation proofs. Before restarting the enabled collector, all history,
+budgets, consent, scope, and two queued payloads were preserved; only the Funes
+executable, policy revision, epoch, clock, and adapter reverification changed.
+Normal enabled processing resumed afterward.
+
+The fresh installed native MCP reader opened 646 sessions and 7,250 chunks in
+the existing memory. Metadata refresh succeeded for 681 sources. The running
+collector reported the new Funes revision for Claude, Codex, and OMP; Claude
+and Codex were healthy. OMP still reported `unknown_content_schema` for part
+of the existing archive, with eight completed streams; OMP was already unhealthy
+before activation. Synthetic current completed/aborted transcripts passed, but
+this update does not certify or repair every historical OMP content shape.
+Existing interactive OMP sessions need reopening to load the updated executable
+and extension; unrelated sessions were not terminated.
