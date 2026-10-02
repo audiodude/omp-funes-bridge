@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-02",
+  "assistance": "OpenAI Codex",
+  "bridge": {
+    "branch": "update-20261002-stable18412",
+    "worktree": "/home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-20261002-stable18412",
+    "preserved_source_revision": "4db6322",
+    "origin_main_pull": "Already up to date",
+    "installed_custom_extension_and_scheduler_match_preserved_source": true,
+    "pi_utils": "18.4.12",
+    "coding_agent_optional_peer": "18.4.12",
+    "bun_and_bun_types": "1.4.2",
+    "node_types": "26.6.4",
+    "further_compatible_dependency_updates": false,
+    "configuration_tests": {"passed": 3, "failed": 0, "expectations": 6},
+    "root_resolution_cases": 8,
+    "installation": {
+      "stale_build_rejected_before_writes": true,
+      "repeatable_install_and_removal": true,
+      "unrelated_mcp_and_backend_preserved": true,
+      "transcripts_and_derived_memory_preserved": true,
+      "symlink_agent_resolved": true,
+      "external_source_symlink_not_enrolled": true,
+      "custom_roots_require_explicit_enrollment": true,
+      "conflicting_ownership_rejected": true
+    },
+    "synthetic": {
+      "sessions": 3,
+      "completed_messages": 12,
+      "chunks": 12,
+      "backfill_ms": 9067.502145,
+      "arrival_during_backfill_coverage_ms": 3227.7217050000004,
+      "pending_when_arrival_covered": 3,
+      "warm_update_ms": 10940.588523,
+      "reopen_ms": 2314.5892700000004,
+      "max_child_indexer_rss_kib": 237624,
+      "event_loop_p99_ms": 0.499967,
+      "existing_index_startup_retained": true,
+      "final_startup_phase": "current",
+      "final_startup_scanner": "scanned"
+    },
+    "native_mcp": {
+      "recall_and_get": true,
+      "parent_child_provenance": true,
+      "abandoned_branch_retained": true,
+      "private_reasoning_tools_control_entries_excluded": true,
+      "existing_reader_observed_persisted_append": true,
+      "live_recall_observed_persisted_append": true
+    },
+    "native_lifecycle": {
+      "completed_durable_assistant_text": true,
+      "completed_exit": 0,
+      "aborted_durable_assistant_text": true,
+      "aborted_exit": 1,
+      "aborted_exit_is_expected_interruption": true,
+      "message_end_was_not_a_durable_barrier": true
+    },
+    "limits": "Isolated synthetic smoke only; no renewed large-load, spontaneous-recall, or every-historical-format certification. Global Funes RSS sampling includes unrelated processes and is not reported as this indexer's memory use."
+  },
+  "omp": {
+    "stable": "18.4.12",
+    "upstream_revision": "7318a70cf4ed04133366884d2723f72d9d490a15",
+    "custom_revision": "ca75d82c8f8b79e733d0efffdc0abe299a14d194",
+    "tested_binary": "/home/tmoney/code/forks/oh-my-pi/packages/coding-agent/binaries/omp-linux-x64",
+    "installed_binary": "/home/tmoney/.bun/bin/omp",
+    "both_binary_sha256": "65f48b8662fa9a7a45a4477de42185753d657847d406e6007f31c9e6249a240b"
+  },
+  "funes": {
+    "revision": "65611ba8f0fc486ce4bfd8ad92953b82b86b8037",
+    "immutable_binary": "/home/tmoney/.local/lib/funes-source/65611ba8f0fc486ce4bfd8ad92953b82b86b8037/funes",
+    "sha256": "326ff1c9305c340a5d8f7b2d792c500103fc1e8c60403a592aba478281c4d42b",
+    "installer_verified_revision_bound_source_capabilities": true
+  },
+  "staging": {
+    "root": "/home/tmoney/.local/lib/omp-funes-bridge/update-20261002-stable18412",
+    "production_candidate_config": "/home/tmoney/.local/lib/omp-funes-bridge/update-20261002-stable18412/funes-bridge.json",
+    "owned_extension": "/home/tmoney/.local/lib/omp-funes-bridge/update-20261002-stable18412/extensions/omp-funes-bridge",
+    "extension_hashes": {
+      "index.ts": "ce8307c69b605ae8b196027617be2e070f625538086dd2f43279e61818fcd75c",
+      "config.ts": "ac95904d7ce5fa74f0f25ed65bb36a766c3f2b956c3cb21f575280e9f96eb57a",
+      "scheduler.ts": "a6f09cfafe4ace0d90eb08a0e166f8a40b96fb0153b8064be7378f28d4e42005"
+    },
+    "preserved_agent_directory": "/home/tmoney/.omp/agent",
+    "preserved_roots": ["/home/tmoney/.omp/agent/sessions"],
+    "preserved_memory_home": "/home/tmoney/.omp-funes-bridge",
+    "preserved_poll_ms": 10000,
+    "preserved_max_chunks": 128,
+    "active_bridge_wiring_changed_by_this_slice": false,
+    "services_restarted_by_this_slice": false,
+    "final_cutover_owner": "Main"
+  },
+  "activation_report": {
+    "source": "Main assistant's cutover report; not independently rerun by the bridge slice",
+    "ownership_aware_install_succeeded": true,
+    "existing_memory_and_roots_preserved": true,
+    "installed_omp_connected_funes_bridge": true,
+    "installed_coverage_progress": "stale, pending sources 7 to 6",
+    "archive_fully_caught_up": false,
+    "backup_directory": "/home/tmoney/.local/state/omp-funes-updates/20261002-stable18412"
+  },
+  "omp_update_used": false,
+  "hugging_face_uploads_or_publishing": false,
+  "existing_memory_enrollment_or_remote_binding_changed_by_this_slice": false,
+  "evidence": {
+    "probe_summary": "/tmp/bridge-update-20261002-stable18412-result.json",
+    "isolated_probe_root": "/tmp/bridge-update-20261002-stable18412-e460U2",
+    "native_proof": "/tmp/bridge-update-20261002-stable18412-e460U2/native-proof.json",
+    "runtime_output": "artifact://90"
+  }
+}

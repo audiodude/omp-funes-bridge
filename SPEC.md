@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.4.10`, upstream commit `cb0d5295e5edd48d000c1979e195186ec92aac79` (stable release tag `v18.4.10`).
+- OMP `18.4.12`, upstream commit `7318a70cf4ed04133366884d2723f72d9d490a15` (stable release tag `v18.4.12`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `d03a2fcf3bc29bb81777907018fbc9bdef06d012` is the required build revision.
+  `65611ba8f0fc486ce4bfd8ad92953b82b86b8037` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -123,7 +123,7 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-08-12`).
-  Custom OMP embeds its source-built, version-matched `18.4.10` native addon.
+  Custom OMP embeds its source-built, version-matched `18.4.12` native addon.
 
 The September 30 refresh targets custom OMP 18.4.4, preserving VS Code file
 hyperlinks and editor settings. Bridge dependencies now match that release;
@@ -1113,3 +1113,65 @@ before activation. Synthetic current completed/aborted transcripts passed, but
 this update does not certify or repair every historical OMP content shape.
 Existing interactive OMP sessions need reopening to load the updated executable
 and extension; unrelated sessions were not terminated.
+
+### OMP 18.4.12 refresh (2026-10-02)
+
+This refresh starts from the newest custom bridge commit `4db6322`, not the
+stale root checkout. That source's extension and scheduler hashes match the
+installed custom integration. Pulling `origin/main` in the isolated
+`update-20261002-stable18412` worktree succeeded with no newer main changes.
+
+Bridge utilities and the optional coding-agent peer now pin `18.4.12`.
+The Funes build pin is `65611ba8f0fc486ce4bfd8ad92953b82b86b8037`.
+Bun and Bun types remain `1.4.2`; Node types remain `26.6.4`. Dependency
+resolution reported no further compatible updates.
+
+The owned extension is staged at
+`~/.local/lib/omp-funes-bridge/update-20261002-stable18412/extensions/omp-funes-bridge/`.
+The existing enrollment remains `/home/tmoney/.omp/agent/sessions`, with memory
+under `/home/tmoney/.omp-funes-bridge`, 10-second polling, and a 128-chunk bound.
+No active bridge wiring or services are changed by staging.
+
+Once the exact verified Funes executable is staged at the revision-addressed
+path below, the existing ownership-aware installer is the cutover command:
+
+```sh
+bun /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-20261002-stable18412/src/cli.ts install \
+  --agent-dir /home/tmoney/.omp/agent \
+  --source /home/tmoney/.omp/agent/sessions \
+  --memory /home/tmoney/.omp-funes-bridge \
+  --funes-bin /home/tmoney/.local/lib/funes-source/65611ba8f0fc486ce4bfd8ad92953b82b86b8037/funes \
+  --omp-bin /home/tmoney/.bun/bin/omp
+```
+
+The installer updates only owned extension/configuration/MCP wiring and the
+memory ownership revision, preserving unrelated MCP servers and memory data.
+The explicit roots and unchanged polling/chunk defaults preserve this installed
+configuration. It does not restart services; existing interactive OMP processes
+need reopening separately to load the new extension. No memory remote binding
+or Hugging Face publishing is part of this procedure.
+
+The three bridge configuration tests and eight native root-resolution cases
+passed against the final custom OMP `18.4.12` executable. Native completed and
+aborted lifecycle probes both observed durable assistant text; aborted CLI
+execution intentionally exits 1 after interruption, with its persistence proof
+recorded successfully.
+
+Final bridge runtime verification passed revision-bound Funes compatibility,
+stale-build/ownership safeguards, synthetic backfill and arrivals during
+indexing, warm updates, reopen/existing-index startup, and native MCP recall/get
+with parent-child provenance, abandoned branches, private/control exclusions,
+and live-reader refresh. The three-session synthetic workload reached initial
+coverage in 9.07 seconds, warm coverage in 10.94 seconds, and reopened coverage
+in 2.31 seconds. This is not renewed large-load, spontaneous-recall, or
+every-historical-format certification. Evidence:
+`verification/update-20261002-stable18412.json`. Update assisted by OpenAI Codex.
+
+The main assistant subsequently reported successful ownership-aware activation,
+unchanged enrolled roots/memory, and an installed OMP process connected to
+`funes_bridge` with pending sources progressing from seven to six. This report
+does not establish that the entire archive has caught up. Cutover and service
+restarts were owned by the main assistant, not this bridge slice. Its private
+rollback material is under
+`~/.local/state/omp-funes-updates/20261002-stable18412/`.
+
