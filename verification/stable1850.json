@@ -24,7 +24,7 @@
     "coding_agent_optional_peer": "18.5.0",
     "configuration_tests_passed": 3,
     "root_resolution_cases": 8,
-    "synthetic_probe_root": "/tmp/bridge-stable1850-vFU02U",
+    "synthetic_probe_root": "/tmp/bridge-stable1850-yM32C1",
     "probe_results": [
       {
         "label": "root-resolution",
@@ -59,22 +59,22 @@
         "code": 1
       }
     ],
-    "funes_test_build": "optimized development",
+    "funes_test_build": "release",
     "benchmark": {
       "fixtureSessions": 3,
       "sessions": 3,
       "sources": 3,
       "completedMessages": 12,
       "chunks": 12,
-      "backfillMs": 8076.72364,
-      "duringBackfillMs": 2944.6023370000003,
+      "backfillMs": 8124.735089999999,
+      "duringBackfillMs": 3023.7797749999995,
       "pendingAtArrivalCoverage": 3,
-      "warmUpdateMs": 10988.912259,
-      "reopenMs": 2124.4267529999997,
-      "maxIndexerRssKiB": 232308,
-      "maxBridgeRssBytes": 101593088,
-      "eventLoopP95Ms": 0.184191,
-      "eventLoopP99Ms": 0.305407
+      "warmUpdateMs": 10902.647842,
+      "reopenMs": 2089.7817570000007,
+      "maxIndexerRssKiB": 240008,
+      "maxBridgeRssBytes": 96546816,
+      "eventLoopP95Ms": 0.153471,
+      "eventLoopP99Ms": 0.497663
     },
     "startup": {
       "previousIndexPreserved": true,
@@ -88,33 +88,95 @@
         "phase": "current",
         "operation": "idle",
         "roots": [
-          "/tmp/bridge-stable1850-vFU02U/archive"
+          "/tmp/bridge-stable1850-yM32C1/archive"
         ],
         "pending": 0,
         "scanner": "scanned",
-        "lastSuccess": "2026-10-03T02:43:41.057998625+00:00"
+        "lastSuccess": "2026-10-03T03:59:59.676059482+00:00"
       }
     },
-    "limits": "Synthetic three-session smoke; not large-load or all-historical-format certification. Global Funes RSS is omitted because it includes unrelated processes."
+    "limits": "Synthetic three-session smoke; not large-load or all-historical-format certification. Global Funes RSS is omitted because it includes unrelated processes.",
+    "optimized_development_probe_root": "/tmp/bridge-stable1850-vFU02U"
   },
   "funes": {
     "revision": "d88337d51a9c58ba8952eeeecce374dc7427b97a",
     "dependency_change": "uuid 1.26.1 -> 1.27.0",
-    "release_activation": "pending"
+    "upstream_stable": "v1.6.0",
+    "upstream_revision": "33c3c589ecda7b758e18d52d447f8b37212336c2",
+    "installed_release_binary": "/home/tmoney/.local/lib/funes-source/d88337d51a9c58ba8952eeeecce374dc7427b97a/funes",
+    "release_sha256": "26369174c4c620dd1153ea31583a017c41b85ef42c4c45325cc7dda7708a4a60",
+    "checks": {
+      "cargo fmt --check": "passed",
+      "cargo clippy --locked --all-targets -- -D warnings": "passed",
+      "cargo clippy --locked --all-targets --no-default-features --features onnx -- -D warnings": "passed",
+      "cargo test --locked --all-targets -- --test-threads=1": "364 reported passes: 279 library, 1 CLI, 84 integration; zero failures; 5 example targets compiled"
+    },
+    "test_limits": [
+      "Six credential-gated live Hub tests return early with HF_FUNES_TEST_TOKEN empty; these are included in Cargo's reported pass count. No live Hub behavior verified.",
+      "ONNX linted, not runtime-tested; default BLAS used.",
+      "Doctests not run."
+    ],
+    "release_build_command": "cargo build --release --locked --bin funes passed; one Rust job; initial 3600-second tool timeout resumed from cache without compiler errors",
+    "release_synthetic_smoke": "passed capabilities/refresh/enumerate/turns/read, full Unicode text and native identity, steering/mode provenance, excluded reasoning, fail-closed invalid fields, source mutation/missing and tombstones, bounded native index/check/resume, get and recall"
   },
   "actomasto": {
     "revision": "4e1bd319dfc16bbdfcff40e4e5c192b1aa47c932",
     "compatible_dependency_changes": 0,
     "tests_passed": 430,
-    "evidence": "verification/dependencies-20261002-stable1850.json in Actomasto worktree"
+    "evidence": "verification/dependencies-20261002-stable1850.json in Actomasto worktree",
+    "release_tests": {
+      "passed": 430,
+      "failed": 0,
+      "seconds": 10.96,
+      "command": "FUNES_TEST_BIN=/home/tmoney/code/forks/funes/.worktrees/update-stable1850/target/d88337d51a9c58ba8952eeeecce374dc7427b97a/release/funes uv run --locked pytest -q"
+    }
   },
   "activation": {
-    "pending": true,
+    "pending": false,
     "backup_directory": "/home/tmoney/.local/state/omp-funes-updates/stable1850",
+    "cutover_backup": "/home/tmoney/.local/state/omp-funes-updates/stable1850/cutover",
     "existing_roots": [
       "/home/tmoney/.omp/agent/sessions"
     ],
-    "existing_memory_home": "/home/tmoney/.omp-funes-bridge"
+    "existing_memory_home": "/home/tmoney/.omp-funes-bridge",
+    "poll_ms": 10000,
+    "max_chunks": 128,
+    "installed_native_mcp_status": {
+      "chunks": 7481,
+      "sessions": 675
+    },
+    "installed_startup": {
+      "funes_connected": true,
+      "phase": "stale",
+      "pending_sources": 3,
+      "scanner": "mixed"
+    },
+    "unrelated_mcp_preserved": true,
+    "collector_and_briefing_configs_only_executable_changed": true,
+    "service_units_only_executable_changed": true,
+    "collector": {
+      "active": true,
+      "substate": "running",
+      "result": "success",
+      "restarts": 0,
+      "ready_enabled": true
+    },
+    "source_refresh": {
+      "result": "success",
+      "sources": 707
+    },
+    "active_timers": [
+      "funes-source-refresh.timer",
+      "actomasto-briefing-daily.timer",
+      "actomasto-briefing-weekly.timer"
+    ],
+    "manual_email_jobs_started": false,
+    "briefing_validate": true,
+    "limits": [
+      "Existing archive not fully caught up; three pending sources and mixed scanner coverage observed.",
+      "Unrelated preserved Stripe MCP returns HTTP 401.",
+      "Optional broad Actomasto config validate timed out; successful validation not claimed."
+    ]
   },
   "omp_update_used": false,
   "hugging_face_publishing": false,

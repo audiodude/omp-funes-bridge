@@ -1190,10 +1190,11 @@ Installer safeguards, a three-session synthetic import, arrivals during
 backfill, warm updates, reopen/startup, native MCP recall/get with provenance
 and exclusions, and live-reader updates passed. Completed and interrupted
 native OMP turns both persisted their delivered assistant text; interrupted
-execution intentionally returned 1. Integration used the exact committed,
-optimized-development Funes executable; release-build activation is checked
-separately. These isolated checks do not certify every historical transcript
-or claim that the existing personal archive is fully caught up.
+execution intentionally returned 1. Both optimized-development and release
+Funes executables at the exact committed revision passed these checks.
+Actomasto's 430 tests also passed against the release executable. These isolated
+checks do not certify every historical transcript or claim that the existing
+personal archive is fully caught up.
 
 After staging the verified release executable at its revision-addressed path,
 activate with the ownership-aware installer:
@@ -1216,3 +1217,13 @@ OMP processes must reopen to load the new binary and extension. Rollback
 files are retained under `~/.local/state/omp-funes-updates/stable1850`.
 No `omp update`, remote memory binding or Hugging Face publishing is used.
 Upgrade assisted by OpenAI Codex.
+
+Local activation completed with the release binary pinned above. Ownership-aware
+installation preserved enrollment, memory, scheduler settings and unrelated MCP
+entries; collector/briefing configuration changed only executable paths.
+The collector is running without restarts, source refresh succeeds with 707
+sources, and all three timers are active. The installed CLI connected to native
+Funes MCP and read its existing 7,481 chunks across 675 sessions. Its startup
+footer still reported three pending sources and mixed scanner coverage; full
+archive catch-up is not claimed. An unrelated Stripe MCP entry returns HTTP 401
+and was left unchanged. Evidence: `verification/stable1850.json`.
