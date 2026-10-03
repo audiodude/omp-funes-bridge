@@ -1,0 +1,122 @@
+{
+  "assistance": "OpenAI Codex",
+  "omp": {
+    "stable": "18.5.0",
+    "upstream_revision": "9348320cc4a30a7195d36a1f05a6c11bcb701a17",
+    "custom_revision": "6ac5bc88915df53c8390e08db6c853e49bf96a42",
+    "installed_binary": "/home/tmoney/.bun/bin/omp",
+    "sha256": "2d0e3204a1d0ceff9bc71eda45060ed51cafcc79b503a78e5101175c34f4ee84",
+    "typescript_test_files": 146,
+    "typescript_skipped": 21,
+    "workspace_type_checks": 16,
+    "rust_passed": 3092,
+    "rust_skipped": 6,
+    "runnable_doctests_passed": 1,
+    "compiled_worker_smoke": true,
+    "installed_worker_smoke": true,
+    "actual_settings_vscode": true,
+    "compiled_arch_chrome_borrowed_profile_smoke": true
+  },
+  "bridge": {
+    "branch": "update-stable1850",
+    "preserved_revision": "8cb9628",
+    "pi_utils": "18.5.0",
+    "coding_agent_optional_peer": "18.5.0",
+    "configuration_tests_passed": 3,
+    "root_resolution_cases": 8,
+    "synthetic_probe_root": "/tmp/bridge-stable1850-vFU02U",
+    "probe_results": [
+      {
+        "label": "root-resolution",
+        "code": 0
+      },
+      {
+        "label": "native-fixtures",
+        "code": 0
+      },
+      {
+        "label": "installer-safeguards",
+        "code": 0
+      },
+      {
+        "label": "backfill-warm-reopen",
+        "code": 0
+      },
+      {
+        "label": "native-startup",
+        "code": 0
+      },
+      {
+        "label": "native-mcp-live-reader",
+        "code": 0
+      },
+      {
+        "label": "durable-complete",
+        "code": 0
+      },
+      {
+        "label": "durable-abort",
+        "code": 1
+      }
+    ],
+    "funes_test_build": "optimized development",
+    "benchmark": {
+      "fixtureSessions": 3,
+      "sessions": 3,
+      "sources": 3,
+      "completedMessages": 12,
+      "chunks": 12,
+      "backfillMs": 8076.72364,
+      "duringBackfillMs": 2944.6023370000003,
+      "pendingAtArrivalCoverage": 3,
+      "warmUpdateMs": 10988.912259,
+      "reopenMs": 2124.4267529999997,
+      "maxIndexerRssKiB": 232308,
+      "maxBridgeRssBytes": 101593088,
+      "eventLoopP95Ms": 0.184191,
+      "eventLoopP99Ms": 0.305407
+    },
+    "startup": {
+      "previousIndexPreserved": true,
+      "phases": [
+        "checking",
+        "catching-up",
+        "catching-up",
+        "current"
+      ],
+      "final": {
+        "phase": "current",
+        "operation": "idle",
+        "roots": [
+          "/tmp/bridge-stable1850-vFU02U/archive"
+        ],
+        "pending": 0,
+        "scanner": "scanned",
+        "lastSuccess": "2026-10-03T02:43:41.057998625+00:00"
+      }
+    },
+    "limits": "Synthetic three-session smoke; not large-load or all-historical-format certification. Global Funes RSS is omitted because it includes unrelated processes."
+  },
+  "funes": {
+    "revision": "d88337d51a9c58ba8952eeeecce374dc7427b97a",
+    "dependency_change": "uuid 1.26.1 -> 1.27.0",
+    "release_activation": "pending"
+  },
+  "actomasto": {
+    "revision": "4e1bd319dfc16bbdfcff40e4e5c192b1aa47c932",
+    "compatible_dependency_changes": 0,
+    "tests_passed": 430,
+    "evidence": "verification/dependencies-20261002-stable1850.json in Actomasto worktree"
+  },
+  "activation": {
+    "pending": true,
+    "backup_directory": "/home/tmoney/.local/state/omp-funes-updates/stable1850",
+    "existing_roots": [
+      "/home/tmoney/.omp/agent/sessions"
+    ],
+    "existing_memory_home": "/home/tmoney/.omp-funes-bridge"
+  },
+  "omp_update_used": false,
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false
+}

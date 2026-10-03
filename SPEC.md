@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.4.12`, upstream commit `7318a70cf4ed04133366884d2723f72d9d490a15` (stable release tag `v18.4.12`).
+- OMP `18.5.0`, upstream commit `9348320cc4a30a7195d36a1f05a6c11bcb701a17` (stable release tag `v18.5.0`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `65611ba8f0fc486ce4bfd8ad92953b82b86b8037` is the required build revision.
+  `d88337d51a9c58ba8952eeeecce374dc7427b97a` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -123,7 +123,7 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-08-12`).
-  Custom OMP embeds its source-built, version-matched `18.4.12` native addon.
+  Custom OMP embeds its source-built, version-matched `18.5.0` native addon.
 
 The September 30 refresh targets custom OMP 18.4.4, preserving VS Code file
 hyperlinks and editor settings. Bridge dependencies now match that release;
@@ -1175,3 +1175,44 @@ restarts were owned by the main assistant, not this bridge slice. Its private
 rollback material is under
 `~/.local/state/omp-funes-updates/20261002-stable18412/`.
 
+
+### OMP 18.5.0 refresh
+
+The `update-stable1850` worktree preserves custom bridge commit `8cb9628`.
+Bridge utilities and the optional coding-agent peer pin `18.5.0`; the Funes
+source pin is `d88337d51a9c58ba8952eeeecce374dc7427b97a`. Bun and Bun types
+remain `1.4.2`; dependency resolution found no further compatible updates.
+The custom OMP build is `6ac5bc88915df53c8390e08db6c853e49bf96a42`, retaining
+VS Code file links and fixing nested Arch Chrome launcher attachment.
+
+Three configuration tests and eight native root-resolution cases passed.
+Installer safeguards, a three-session synthetic import, arrivals during
+backfill, warm updates, reopen/startup, native MCP recall/get with provenance
+and exclusions, and live-reader updates passed. Completed and interrupted
+native OMP turns both persisted their delivered assistant text; interrupted
+execution intentionally returned 1. Integration used the exact committed,
+optimized-development Funes executable; release-build activation is checked
+separately. These isolated checks do not certify every historical transcript
+or claim that the existing personal archive is fully caught up.
+
+After staging the verified release executable at its revision-addressed path,
+activate with the ownership-aware installer:
+
+```sh
+bun /home/tmoney/code/vibes/omp-funes-bridge/.worktrees/update-stable1850/src/cli.ts install \
+  --agent-dir /home/tmoney/.omp/agent \
+  --source /home/tmoney/.omp/agent/sessions \
+  --memory /home/tmoney/.omp-funes-bridge \
+  --funes-bin /home/tmoney/.local/lib/funes-source/d88337d51a9c58ba8952eeeecce374dc7427b97a/funes \
+  --omp-bin /home/tmoney/.bun/bin/omp
+```
+
+Preserve the existing roots, memory, 10-second polling and 128-chunk bound.
+Update the collector/briefing Funes pins and source-refresh wrapper to this
+executable; point their service units to the new Actomasto worktree. Reload
+units and restart the collector, source refresh and timers. Do not manually
+start email-sending daily/weekly briefing jobs during an upgrade. Existing
+OMP processes must reopen to load the new binary and extension. Rollback
+files are retained under `~/.local/state/omp-funes-updates/stable1850`.
+No `omp update`, remote memory binding or Hugging Face publishing is used.
+Upgrade assisted by OpenAI Codex.
