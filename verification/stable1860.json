@@ -1,0 +1,155 @@
+{
+  "assistance": "OpenAI Codex",
+  "omp": {
+    "stable": "18.6.0",
+    "upstream_revision": "89d2610993af69427574bde17791df63906ec4e5",
+    "custom_revision": "c0b795a478",
+    "typescript_test_files": 167,
+    "workspace_type_checks": 16,
+    "rust_passed": 3092,
+    "rust_skipped": 6,
+    "runnable_doctests_passed": 1,
+    "compiled_and_installed_worker_smoke": true,
+    "actual_settings_editor_cycle_and_restoration": true,
+    "installed_binary": "/home/tmoney/.bun/bin/omp",
+    "sha256": "cd0a50f0925743cb7381b795f879b4278bc23e4705e2a3d37c38467d1890e813",
+    "limits": "Focused TypeScript files in separate processes, not full combined suite"
+  },
+  "bridge": {
+    "pi_utils": "18.6.0",
+    "coding_agent_peer": "18.6.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 3,
+      "sessions": 3,
+      "sources": 3,
+      "completedMessages": 12,
+      "chunks": 12,
+      "backfillMs": 7707.521215,
+      "duringBackfillMs": 2682.601825,
+      "pendingAtArrivalCoverage": 3,
+      "warmUpdateMs": 10778.485841,
+      "reopenMs": 2029.453085000001,
+      "maxIndexerRssKiB": 234808,
+      "maxBridgeRssBytes": 94994432,
+      "eventLoopP95Ms": 0.181375,
+      "eventLoopP99Ms": 0.641023
+    },
+    "startup": {
+      "previousIndexPreserved": true,
+      "phases": [
+        "checking",
+        "catching-up",
+        "catching-up",
+        "current"
+      ],
+      "final": {
+        "phase": "current",
+        "operation": "idle",
+        "roots": [
+          "/tmp/bridge-stable1860/archive"
+        ],
+        "pending": 0,
+        "scanner": "scanned",
+        "lastSuccess": "2026-10-04T02:27:09.416669229+00:00"
+      }
+    },
+    "native_mcp_recall_get_live_reader": true,
+    "durable_complete": true,
+    "durable_abort": true,
+    "limits": "Three-session synthetic smoke, not all historical schemas or large-load certification"
+  },
+  "funes": {
+    "branch": "update-stable1860",
+    "revision": "3f4019407f76bea057910d2fd3651261c41e083a",
+    "worktree": "/home/tmoney/code/forks/funes/.worktrees/update-stable1860",
+    "base_revision": "d88337d51a9c58ba8952eeeecce374dc7427b97a",
+    "origin_main_pull": "Already up to date in isolated worktree",
+    "upstream_revision": "33c3c589ecda7b758e18d52d447f8b37212336c2",
+    "upstream_latest_stable": "v1.6.0",
+    "upstream_merge": "Already up to date",
+    "dependency_changes": {
+      "async-recursion": "1.1.1 -> 1.2.0",
+      "cc": "1.5.1 -> 1.6.0",
+      "mio": "1.2.3 -> 1.2.4",
+      "tokio": "1.53.1 -> 1.53.2"
+    },
+    "checks": {
+      "cargo fmt --check": "passed",
+      "cargo clippy --locked --all-targets -- -D warnings": "passed",
+      "cargo clippy --locked --all-targets --no-default-features --features onnx -- -D warnings": "passed",
+      "cargo test --locked --all-targets -- --test-threads=1": "364 reported passes, zero failures, 42 suites including five example targets",
+      "cargo build --release --locked --bin funes": "passed on cache resume after initial 3600-second tool deadline; no compiler error",
+      "installed release source CLI smoke": "passed exact committed capabilities, refresh/enumerate/turns/read, Unicode/identity/provenance, exclusions, invalid field fail-closed, source mutation/missing, tombstones"
+    },
+    "verification_output": "artifact://88",
+    "smoke_evidence": "/tmp/funes-stable1860-smoke-7327imra/evidence.json",
+    "release_executable": "/home/tmoney/code/forks/funes/.worktrees/update-stable1860/target/3f4019407f76bea057910d2fd3651261c41e083a/release/funes",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/3f4019407f76bea057910d2fd3651261c41e083a/funes",
+    "sha256": "df6399f94e004e7e718e89594ee1815d21fe1a0969f596fef178942e92b8aa4e",
+    "capabilities_revision": "3f4019407f76bea057910d2fd3651261c41e083a",
+    "limits": [
+      "HF_FUNES_TEST_TOKEN empty: credential-gated live Hub tests return early; no remote-memory coverage claimed.",
+      "ONNX linted only; runtime uses default backend.",
+      "Doctests not run."
+    ],
+    "push": "git push -u origin update-stable1860 succeeded",
+    "safety": "No service definitions/restarts, live enrollment, memory publication, funes update, HF uploads, release tags or artifacts; source branch only pushed.",
+    "assistance": "OpenAI Codex"
+  },
+  "actomasto": {
+    "commit": "9db0dc2aba6d86543025076be102d2ae11da5eb2",
+    "tests_passed": 430,
+    "dependency_lock_changed": false,
+    "uv_sync_and_build": true,
+    "evidence": "Actomasto verification/dependencies-20261003-stable1860.json"
+  },
+  "activation": {
+    "backup_directory": "/home/tmoney/.local/state/omp-funes-updates/stable1860/cutover",
+    "existing_roots": [
+      "/home/tmoney/.omp/agent/sessions"
+    ],
+    "existing_memory_home": "/home/tmoney/.omp-funes-bridge",
+    "unrelated_mcp_preserved": true,
+    "stored_actomasto_config_only_executable_changed": true,
+    "enabled_state_preserved": true,
+    "stored_config_revision": 25,
+    "collector_running": true,
+    "collector_result": "success",
+    "collector_restarts": 0,
+    "source_refresh_result": "success",
+    "timers_active": [
+      "funes-source-refresh.timer",
+      "actomasto-briefing-daily.timer",
+      "actomasto-briefing-weekly.timer"
+    ],
+    "briefing_validate": true,
+    "manual_email_jobs_started": false,
+    "native_status": {
+      "chunks": 7503,
+      "sessions": 680,
+      "phase": "stale",
+      "pending": 3,
+      "scanner": "mixed"
+    },
+    "limits": [
+      "Existing memory remains stale with mixed coverage; successful synthetic probes do not imply all archived source schemas are supported.",
+      "Collector source-health snapshots still reported prior e5783df revision at final observation; new executable is stored, running, and direct capabilities passed, but fresh collector-wide source sweep not observed."
+    ]
+  },
+  "omp_update_used": false,
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false
+}

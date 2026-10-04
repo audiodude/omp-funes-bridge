@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.5.0`, upstream commit `9348320cc4a30a7195d36a1f05a6c11bcb701a17` (stable release tag `v18.5.0`).
+- OMP `18.6.0`, upstream commit `89d2610993af69427574bde17791df63906ec4e5` (stable release tag `v18.6.0`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `d88337d51a9c58ba8952eeeecce374dc7427b97a` is the required build revision.
+  `3f4019407f76bea057910d2fd3651261c41e083a` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -123,7 +123,33 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-08-12`).
-  Custom OMP embeds its source-built, version-matched `18.5.0` native addon.
+  Custom OMP embeds its source-built, version-matched `18.6.0` native addon.
+
+The October 3 stable 18.6.0 refresh preserves the custom OMP file-link setting
+and Arch Chrome attachment fixes. Bridge dependencies match 18.6.0; Funes
+updates async-recursion, cc, mio and tokio while retaining the maintained fork's
+source protocol. Actomasto's compatible Python lock remained unchanged after
+refresh. OMP's 167 changed/custom TypeScript files, 16 workspace type checks,
+3,092 Rust tests and one runnable doctest passed. Bridge configuration,
+eight root-resolution cases, installer preservation/stale-build safeguards,
+backfill/warm/reopen, existing-index startup, native MCP recall/get/live-reader,
+and completed/aborted durable-turn probes passed. Funes reported 364 test passes
+(credential-gated Hub tests return early); Actomasto passed 430 tests against
+the updated release executable. These are local checks, not live Hub validation.
+
+The local custom OMP binary, bridge wiring, Funes executable, collector and
+briefing unit paths were switched to the updated builds. Apply the collector's
+executable change to its authoritative store with `actomasto config apply --yes`;
+editing `config.toml` alone does not change the daemon's stored configuration.
+The collector and source-refresh service were restarted, and the three existing
+timers resumed without manually sending a briefing. Existing enrollment, memory,
+unrelated MCP entries, collector enabled state and policy were preserved.
+Installed native MCP read the existing 7,503 chunks across 680 sessions; startup
+still reported three pending sources and mixed coverage. The collector's cached
+source-health snapshot still showed an earlier build at the final observation,
+so a fresh collector-wide sweep is not claimed. No Hugging Face release artifacts
+were deployed, no memory was published, and `omp update` was not used.
+Evidence and limitations: `verification/stable1860.json`. Assisted by OpenAI Codex.
 
 The September 30 refresh targets custom OMP 18.4.4, preserving VS Code file
 hyperlinks and editor settings. Bridge dependencies now match that release;
