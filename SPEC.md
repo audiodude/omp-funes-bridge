@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.6.0`, upstream commit `89d2610993af69427574bde17791df63906ec4e5` (stable release tag `v18.6.0`).
+- OMP `18.7.0`, upstream commit `e0fc1cf4ea354b445a359b37fa5eb58deaa85598` (stable release tag `v18.7.0`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `3f4019407f76bea057910d2fd3651261c41e083a` is the required build revision.
+  `f158631a303e396440476b9f16b1c23fd9407620` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -122,8 +122,30 @@ verification records below are not evidence for this new cutover.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
-  the repository-pinned Rust nightly (`nightly-2026-08-12`).
-  Custom OMP embeds its source-built, version-matched `18.6.0` native addon.
+  the repository-pinned Rust nightly (`nightly-2026-10-06`).
+  Custom OMP embeds its source-built, version-matched `18.7.0` native addon.
+
+The October 6 stable 18.7.0 refresh preserves the custom OMP file-link setting
+and Arch Chrome attachment fixes. Bridge dependencies match 18.7.0. Funes merges
+upstream main (recall `--role`, index compaction, push/reindex fixes) and
+refreshes 28 compatible locked crates while retaining the maintained fork's
+source protocol; Actomasto's lock updates only iniconfig. OMP passed 214 of 215
+changed/custom TypeScript test files (the one failure reproduces on pristine
+upstream `v18.7.0`), 16 workspace type checks, `check:rs`, and 3,250 Rust tests
+plus one doctest. Bridge configuration tests (3), eight root-resolution cases,
+installer preservation/stale-build safeguards, backfill/warm/reopen,
+existing-index startup, native MCP recall/get/live-reader, and completed/aborted
+durable-turn probes passed. Funes passed all 376 tests (credential-gated Hub
+tests return early); Actomasto passed 430 tests against the release executable.
+OMP 18.7.0 rejects `--session` for a nonexistent file, so the lifecycle probe
+now uses `--session-dir`.
+
+The local custom OMP binary, bridge wiring, Funes executable, collector and
+briefing unit paths and source-refresh wrapper were switched to the updated
+builds; the collector restarted and the source refresh succeeded. Installed
+native MCP read the existing 7,550 chunks across 684 sessions. No Hugging Face
+release artifacts were deployed, no memory was published, and `omp update` was
+not used. Evidence: `verification/stable1870.json`. Assisted by Claude.
 
 The October 3 stable 18.6.0 refresh preserves the custom OMP file-link setting
 and Arch Chrome attachment fixes. Bridge dependencies match 18.6.0; Funes
@@ -836,7 +858,7 @@ visible through the existing reader. It uses the installed memory configuration,
 asserts identical reader/writer builds, and runs outside the 30-second lifecycle
 hook deadline.
 
-For lifecycle timing, use an explicit session and keep RPC stdin open. An
+For lifecycle timing, use an explicit session directory and keep RPC stdin open. An
 extension-defined model must use the qualified selector below, not a separate
 `--provider` option:
 
@@ -844,7 +866,7 @@ extension-defined model must use the qualified selector below, not a separate
 export PROBE_ROOT=/absolute/empty/lifecycle-probe
 PI_CODING_AGENT_DIR="$PROBE_ROOT/agent" PROBE_ABORT=0 \
   "$OMP_BIN" --model funes-probe/synthetic --mode rpc \
-  --session "$PROBE_ROOT/session.jsonl" \
+  --session-dir "$PROBE_ROOT/sessions" \
   --no-extensions --no-skills --no-rules --no-title --no-lsp \
   --extension "$PWD/probes/lifecycle.ts"
 ```

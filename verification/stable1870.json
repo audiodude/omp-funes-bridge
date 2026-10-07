@@ -1,0 +1,272 @@
+{
+  "date": "2026-10-06",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.7.0",
+    "upstream_tag_commit": "e0fc1cf4ea354b445a359b37fa5eb58deaa85598",
+    "fork_branch": "upgrade/stable-18.7.0",
+    "fork_commit": "127cb77bc3",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 215,
+        "passed": 214,
+        "failed_also_on_pristine_v18.7.0": [
+          "packages/coding-agent/test/input-controller-keybindings.test.ts"
+        ]
+      },
+      "workspace_type_checks": 16,
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 3250,
+        "skipped": 6,
+        "doctests": 1
+      },
+      "binary": {
+        "version": "omp/18.7.0",
+        "smoke_test": "ok"
+      }
+    }
+  },
+  "funes": {
+    "branch": "update-stable1870",
+    "revision": "f158631a303e396440476b9f16b1c23fd9407620",
+    "upstream_main_merged": "fe60450",
+    "latest_upstream_stable": "v1.6.0",
+    "cargo_update_packages": 28,
+    "tests": {
+      "passed": 376,
+      "failed": 0,
+      "suites": 44,
+      "note": "add_fifth_integration needs expect; ran with locally built Expect 5.45.4"
+    },
+    "fmt": "passed",
+    "clippy": "passed",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/f158631a303e396440476b9f16b1c23fd9407620/funes",
+    "sha256": "4d164bd61d3146166d743e2337e34be4b11fde94fe5227096005c5781adc05fe",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.7.0",
+    "coding_agent_peer": "18.7.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 6,
+      "sessions": 6,
+      "sources": 6,
+      "completedMessages": 24,
+      "chunks": 24,
+      "backfillMs": 12945.565671,
+      "duringBackfillMs": 2541.219915,
+      "pendingAtArrivalCoverage": 6,
+      "warmUpdateMs": 10726.176608000002,
+      "reopenMs": 1923.536866999999,
+      "maxIndexerRssKiB": 250892,
+      "maxFunesRssKiB": 317992,
+      "maxBridgeRssBytes": 86032384,
+      "eventLoopP95Ms": 0.165375,
+      "eventLoopP99Ms": 0.390911,
+      "events": [
+        {
+          "at": 0.11867400000005546,
+          "phase": "checking",
+          "operation": "discover",
+          "pending": 0
+        },
+        {
+          "at": 188.84188400000005,
+          "phase": "never-indexed",
+          "operation": "idle",
+          "pending": 6
+        },
+        {
+          "at": 191.99508500000002,
+          "phase": "never-indexed",
+          "operation": "index",
+          "pending": 6
+        },
+        {
+          "at": 2122.059633,
+          "phase": "stale",
+          "operation": "idle",
+          "pending": 6
+        },
+        {
+          "at": 2122.2098859999996,
+          "phase": "stale",
+          "operation": "index",
+          "pending": 6
+        },
+        {
+          "at": 3880.4527290000005,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 5
+        },
+        {
+          "at": 3880.7099820000003,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 5
+        },
+        {
+          "at": 5642.834117,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 4
+        },
+        {
+          "at": 5642.978679,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 4
+        },
+        {
+          "at": 7390.073171,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 3
+        },
+        {
+          "at": 7390.250975000001,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 3
+        },
+        {
+          "at": 9234.252126,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 2
+        },
+        {
+          "at": 9234.426063,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 2
+        },
+        {
+          "at": 11103.622781,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 1
+        },
+        {
+          "at": 11103.767052000001,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 1
+        },
+        {
+          "at": 12938.736263,
+          "phase": "current",
+          "operation": "idle",
+          "pending": 0
+        },
+        {
+          "at": 22939.794937,
+          "phase": "catching-up",
+          "operation": "idle",
+          "pending": 2
+        },
+        {
+          "at": 22939.938166,
+          "phase": "catching-up",
+          "operation": "index",
+          "pending": 2
+        }
+      ]
+    },
+    "startup": {
+      "previousIndexPreserved": true,
+      "phases": [
+        "checking",
+        "catching-up",
+        "catching-up",
+        "current"
+      ],
+      "final": {
+        "phase": "current",
+        "operation": "idle",
+        "roots": [
+          "/tmp/bridge-bench-J79g/archive"
+        ],
+        "pending": 0,
+        "scanner": "scanned",
+        "lastSuccess": "2026-10-07T02:05:25.588520527+00:00"
+      }
+    },
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": true
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": false
+        }
+      ],
+      "abort": [
+        {
+          "event": "message_end",
+          "persisted": false
+        },
+        {
+          "event": "turn_end",
+          "persisted": true
+        },
+        {
+          "event": "filesystem",
+          "persisted": true,
+          "aborted": true
+        }
+      ]
+    },
+    "lifecycle_probe_change": "OMP 18.7.0 rejects --session for a nonexistent file; probe uses --session-dir"
+  },
+  "actomasto": {
+    "branch": "update-stable1870",
+    "tests_passed": 430,
+    "lock_changes": {
+      "iniconfig": "2.3.0 -> 2.3.1"
+    }
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.6.0 backed up under ~/.local/state/omp-funes-updates/stable1870/)",
+    "bridge_install": "bun run bridge install --funes-bin <f158631a build>; roots and memory unchanged; unrelated MCP entries preserved",
+    "live_native_mcp": {
+      "chunks": 7550,
+      "sessions": 684,
+      "pending_sources": 1
+    },
+    "collector": "actomasto.service restarted on update-stable1870 executable",
+    "source_refresh": "funes-source-refresh.service success, 716 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
