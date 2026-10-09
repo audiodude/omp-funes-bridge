@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-09",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.8.7",
+    "upstream_tag_commit": "f261ed9faf",
+    "fork_branch": "upgrade/stable-18.8.7",
+    "fork_commit": "5db116bb4c",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 139,
+        "passed": 138,
+        "tests_passed": 3201,
+        "tests_skipped": 29,
+        "note": "browser-open-options.test.ts had 2 failures while workspace type checks ran concurrently; it passed all 24 tests in two idle reruns"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 3277,
+        "skipped": 6,
+        "doctests": 1
+      },
+      "binary": {
+        "version": "omp/18.8.7",
+        "smoke_test": "ok",
+        "sha256": "c5b7142b219bb6c77519956698eebb2f78a61faa811c0c504f35713a85663e40"
+      }
+    }
+  },
+  "funes": {
+    "branch": "update-stable1887",
+    "revision": "2c02f637ebbb18cdaff789f0a377a7cbba4428d0",
+    "upstream_main_merged": "727d2f1",
+    "latest_upstream_stable": "v1.8.0",
+    "merge_conflicts_resolved": [],
+    "cargo_update_packages": {
+      "indoc": "2.0.7 -> 2.0.8",
+      "tokio-util": "0.7.19 -> 0.7.20"
+    },
+    "tests": {
+      "passed": 405,
+      "failed": 0,
+      "note": "add_fifth_integration ran with Arch Expect 5.45.4 extracted under /tmp"
+    },
+    "fmt": "passed",
+    "clippy": "passed",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/2c02f637ebbb18cdaff789f0a377a7cbba4428d0/funes",
+    "sha256": "56f20ae95120884d1e74eb7ef6a40afd6e6916f6e3e8813d355fb3ae5273b2d2",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.8.7",
+    "coding_agent_peer": "18.8.7",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 9,
+      "sessions": 9,
+      "sources": 9,
+      "completedMessages": 36,
+      "chunks": 36,
+      "backfillMs": 20718.390010000003,
+      "duringBackfillMs": 2946.495786,
+      "pendingAtArrivalCoverage": 9,
+      "warmUpdateMs": 10845.747853999997,
+      "reopenMs": 2155.6332540000003,
+      "maxIndexerRssKiB": 237168,
+      "maxFunesRssKiB": 237168,
+      "maxBridgeRssBytes": 91705344,
+      "eventLoopP95Ms": 0.205183,
+      "eventLoopP99Ms": 0.484351,
+      "events": 24
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "abort": [
+        { "event": "message_end", "persisted": false },
+        { "event": "turn_end", "persisted": true },
+        { "event": "filesystem", "persisted": true, "aborted": true }
+      ],
+      "complete": [
+        { "event": "message_end", "persisted": false },
+        { "event": "turn_end", "persisted": true },
+        { "event": "filesystem", "persisted": true, "aborted": false }
+      ]
+    }
+  },
+  "actomasto": {
+    "branch": "update-stable1887",
+    "commit": "6aa6f96",
+    "tests_passed": 430,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.8.4 backed up under ~/.local/state/omp-funes-updates/stable1887/)",
+    "bridge_install": "bun run bridge install --funes-bin <2c02f637 build> --omp-bin ~/.bun/bin/omp; roots and memory unchanged; unrelated MCP entries preserved",
+    "live_memory": {
+      "chunks": 7616,
+      "sessions": 692,
+      "recall": "ok"
+    },
+    "collector": "actomasto.service restarted on update-stable1887 executable",
+    "source_refresh": "funes-source-refresh.service success, 723 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}

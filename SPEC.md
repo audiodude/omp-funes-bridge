@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.8.4`, upstream commit `40e9368ef0458fd9073329cdff4174895f91bc6b` (stable release tag `v18.8.4`).
+- OMP `18.8.7`, upstream commit `f261ed9faf16b61880b544f599876bface4ded0d` (stable release tag `v18.8.7`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `626a8b5ffaed2f00da5f066cdd4253310e67422f` is the required build revision.
+  `2c02f637ebbb18cdaff789f0a377a7cbba4428d0` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -123,7 +123,28 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.2`, LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-10-06`).
-  Custom OMP embeds its source-built, version-matched `18.8.4` native addon.
+  Custom OMP embeds its source-built, version-matched `18.8.7` native addon.
+
+The October 9 stable 18.8.7 refresh preserves the custom OMP file-link setting
+and Arch Chrome attachment fixes. Bridge dependencies match 18.8.7. Funes merges
+upstream main `727d2f1` (the `1.8.0+dev` bump after `v1.8.0`) without conflicts;
+only `indoc` and `tokio-util` moved in the lock. OMP passed 138 of 139
+changed/custom TypeScript test files (the remaining browser-options file failed
+only under concurrent type-check load and passed on idle reruns), workspace type
+checks, `check:rs`, and 3,277 Rust tests plus one doctest. Bridge configuration
+tests (3), eight root-resolution cases, installer preservation/stale-build
+safeguards, backfill/warm/reopen, existing-index startup, native MCP
+recall/get/live-reader, and completed/aborted durable-turn probes passed. Funes
+passed all 405 tests (credential-gated Hub tests return early); Actomasto passed
+430 tests against the installed executable with no lock changes.
+
+The local custom OMP binary, bridge wiring, Funes executable, collector and
+briefing unit paths and source-refresh wrapper were switched to the updated
+builds; the collector restarted and the source refresh succeeded (723 sources).
+The new Funes build read the existing 7,616 chunks across 692 sessions. No
+Hugging Face release artifacts were deployed, no memory was published, and
+`omp update` was not used. Evidence: `verification/stable1887.json`. Assisted
+by Claude.
 
 The October 8 stable 18.8.4 refresh preserves the custom OMP file-link setting
 and Arch Chrome attachment fixes. Bridge dependencies match 18.8.4. Funes merges
