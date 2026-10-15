@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-14",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.11.0",
+    "upstream_tag_commit": "c2cb79e4c2",
+    "fork_branch": "upgrade/stable-18.11.0",
+    "fork_commit": "b8d91497dd",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 210,
+        "passed": 210,
+        "tests_passed": 4870,
+        "tests_skipped": 11,
+        "note": "Each file in its own process with stdin closed, after the native addon was built"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 3482,
+        "skipped": 6,
+        "doctests": 1
+      },
+      "binary": {
+        "version": "omp/18.11.0",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "b474f38fe44f74774b9a0063e827981575cac26ab1f9e2b3993968f5e714961c"
+      }
+    }
+  },
+  "funes": {
+    "branch": "update-stable18110",
+    "revision": "3525066248b028b25339a67f1f178a88fc5d835f",
+    "upstream_main_merged": "ea8945c (funes bind / host-bound memory reads, anonymous Hub install id and User-Agent tagging, push busy-resend, add stale-install refresh)",
+    "merge_conflicts_resolved": [
+      "src/main.rs (kept fork ExitCode, funes source dispatch before User-Agent/install-id setup, IndexBusy exit 75, redacted OMP index errors; adopted upstream explicit tokio runtime)",
+      "README.md (kept fork GitHub installer URL)",
+      "scripts/install.sh (kept REPO=audiodude/funes; added INSTALL_REV=1)"
+    ],
+    "cargo_update_packages": {
+      "aws-lc-rs": "1.18.1 -> 1.18.2",
+      "aws-lc-sys": "0.45.0 -> 0.46.0",
+      "deranged": "0.5.8 -> 0.5.9",
+      "equivalent": "1.0.2 -> 1.0.3",
+      "generator": "0.8.10 -> 0.8.11",
+      "rustls": "0.23.45 -> 0.23.46",
+      "rustls-native-certs": "0.8.4 -> 0.8.5",
+      "schemars": "1.2.2 -> 1.2.3",
+      "sha2": "0.11.0 -> 0.11.1",
+      "syn": "3.0.8 -> 3.0.9",
+      "tokio": "1.53.2 -> 1.53.3",
+      "zerocopy": "0.8.62 -> 0.8.63"
+    },
+    "tests": {
+      "passed": 427,
+      "failed": 0,
+      "suites": 48,
+      "note": "cargo test --profile ci --no-fail-fast; add_fifth_integration ran with Arch Expect 5.45.4 extracted under /tmp on PATH and LD_LIBRARY_PATH; scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/3525066248b028b25339a67f1f178a88fc5d835f/funes",
+    "sha256": "66739ee2c9ebedc3e0b15228c23620a227ca4d3b49627095f435d391929153ab",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.11.0",
+    "coding_agent_peer": "18.11.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 26043.510064000002,
+      "duringBackfillMs": 3063.5581369999995,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 11035.722671999996,
+      "reopenMs": 2052.7078360000014,
+      "maxIndexerRssKiB": 228004,
+      "maxFunesRssKiB": 228004,
+      "maxBridgeRssBytes": 83869696,
+      "eventLoopP95Ms": 0.125247,
+      "eventLoopP99Ms": 0.383999,
+      "events": 30,
+      "same_conditions_comparison": {
+        "old_18.10.1_5a4a1bb8": {"backfillMs": 25945, "warmUpdateMs": 11092, "reopenMs": 2079, "maxIndexerRssKiB": 240028},
+        "new_18.11.0_35250662": {"backfillMs": 25872, "warmUpdateMs": 11072, "reopenMs": 2031, "maxIndexerRssKiB": 238548},
+        "note": "Fresh 12-session fixtures each, sequential runs, same HF_HOME copy, DO_NOT_TRACK=1"
+      }
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1, removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18110",
+    "commit": "6e0bbd7",
+    "tests_passed": 434,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.10.1 backed up under ~/.local/state/omp-funes-updates/stable18110/omp-18.10.1/)",
+    "bridge_install": "bun run bridge install --funes-bin <35250662 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; roots and memory unchanged; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18110/bridge/",
+    "live_memory": {
+      "chunks": 8890,
+      "sessions": 761,
+      "recall": "ok"
+    },
+    "collector": "actomasto.service restarted on update-stable18110 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 793 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
