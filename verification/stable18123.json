@@ -1,0 +1,172 @@
+{
+  "date": "2026-10-20",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.12.3",
+    "upstream_tag_commit": "53a0377db6",
+    "fork_branch": "upgrade/stable-18.12.3",
+    "fork_commit": "d4932f3bbf",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 125,
+        "passed": 122,
+        "tests_passed": 3178,
+        "tests_failed": 3,
+        "tests_skipped": 1,
+        "failed": [
+          "coding-agent test/tools/approval-cached-mode.test.ts (assumes sorted readdir order)",
+          "coding-agent test/tools/computer.test.ts (Python observe kernel exceeds 5 s timeout)",
+          "coding-agent test/tools/browser-queries.test.ts (timeout under parallel load; passes alone)"
+        ],
+        "failure_attribution": "Upstream/environment; fork does not touch these modules",
+        "note": "Each file in its own process with stdin closed, after the native addon was built"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "run": 3629,
+        "passed": 3628,
+        "skipped": 6,
+        "doctests": 1,
+        "failed": [
+          "pi-shell shell::tests::cancellation_keeps_output_open_for_a_term_trap_that_writes"
+        ],
+        "failure_attribution": "Failed 3 of 3 isolated reruns (TERM cleanup NotFound); fork changes no Rust sources"
+      },
+      "binary": {
+        "version": "omp/18.12.3",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "a821956fac5f1c5b70bd0e54977dd8c6824a7efdb5a9a4f84f919db1c0dca8a0"
+      }
+    },
+    "consumer_relevant_changes": [
+      "Session entry format unchanged",
+      "Extension approval types gained grant fields; bridge imports unaffected",
+      "pi-utils resolveEquivalentPath gained an optional throughMissing option"
+    ]
+  },
+  "funes": {
+    "branch": "update-stable18123",
+    "revision": "5172184da086fcafb8b06c53521f998ac372fc45",
+    "upstream_main": "2c289f1 merged (drops parquet/Hub trace indexing; adds recall --repo / MCP repo filter)",
+    "base": "c766de9 (fork main)",
+    "conflicts_resolved": {
+      "src/traces.rs": "kept fork omp module, dropped parquet",
+      "src/traces/source.rs": "kept fork OMP hooks and OmpTree on upstream parquet-free file",
+      "src/commands/index.rs": "kept --harness omp; dropped remote Hub indexing",
+      "docs/index.md": "kept native OMP section; dropped parquet format section",
+      "Cargo.lock": "re-resolved by cargo"
+    },
+    "cargo_update_packages": {
+      "cc": "1.8.0 -> 1.9.0",
+      "find-msvc-tools": "0.1.14 -> 0.1.15",
+      "multiversion": "0.8.0 -> 0.8.1",
+      "multiversion-macros": "0.8.0 -> 0.8.1",
+      "rmcp": "3.5.1 -> 3.6.0",
+      "rmcp-macros": "3.5.1 -> 3.6.0",
+      "rustls-webpki": "0.103.15 -> 0.103.16",
+      "tokio": "1.53.3 -> 1.54.0",
+      "webpki-root-certs": "1.0.9 -> 1.0.10",
+      "webpki-roots": "1.0.9 -> 1.0.10"
+    },
+    "tests": {
+      "passed": 403,
+      "failed": 0,
+      "suites": 42,
+      "note": "cargo test --profile ci --no-fail-fast; upstream removed 10 parquet/remote tests and added 2 recall tests; add_fifth_integration ran with Arch Expect 5.45.4 under /tmp; scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "memory_format": "unchanged; no reindex",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/5172184da086fcafb8b06c53521f998ac372fc45/funes",
+    "sha256": "baedbc42cfe28d945ec4df0a99297fcd13749d1751dbb5cf824f2907571a95e4",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.12.3",
+    "coding_agent_peer": "18.12.3",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 24005.642001,
+      "duringBackfillMs": 2738.138208,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 10955.283375,
+      "reopenMs": 1961.481013,
+      "maxIndexerRssKiB": 227252,
+      "maxFunesRssKiB": 256240,
+      "maxBridgeRssBytes": 82661376,
+      "eventLoopP95Ms": 0.118783,
+      "eventLoopP99Ms": 0.422655,
+      "events": 30,
+      "same_conditions_comparison": {
+        "old_18.12.2_c766de9d": {
+          "sessions": 15,
+          "backfillMs": 29230,
+          "warmUpdateMs": 10920,
+          "reopenMs": 1866,
+          "maxIndexerRssKiB": 234948
+        },
+        "new_18.12.3_5172184d": {
+          "sessions": 15,
+          "backfillMs": 28533,
+          "warmUpdateMs": 10908,
+          "reopenMs": 1898,
+          "maxIndexerRssKiB": 233960
+        },
+        "note": "Fresh fixtures each, sequential runs, same HF_HOME copy, DO_NOT_TRACK=1"
+      }
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1, removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18123",
+    "tests_passed": 434,
+    "lock_changes": {
+      "certifi": "2026.10.18 -> 2026.10.19"
+    }
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.12.2 backed up under ~/.local/state/omp-funes-updates/stable18123/omp-18.12.2/)",
+    "bridge_install": "bun run bridge install --funes-bin <5172184d build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; roots and memory unchanged; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18123/bridge/",
+    "live_memory": {
+      "chunks": 10403,
+      "sessions": 848,
+      "recall": "ok"
+    },
+    "collector": "actomasto.service restarted on update-stable18123 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 880 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
