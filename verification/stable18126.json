@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-21",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.12.6",
+    "upstream_tag_commit": "45c35e40c4",
+    "fork_branch": "upgrade/stable-18.12.6",
+    "fork_commit": "35b1e7fe1f",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 49,
+        "passed": 49,
+        "tests_passed": 960,
+        "tests_failed": 0,
+        "tests_skipped": 1,
+        "note": "Each file in its own process with stdin closed, after the native addon was built"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": "not rerun: 18.12.5..18.12.6 Rust changes are crate version bumps only and the fork changes no Rust sources",
+      "binary": {
+        "version": "omp/18.12.6",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "0fe55296c0b4d5610efb0e857d69a6a636f5a8c6ee8482428f5606322475e6d1"
+      }
+    },
+    "consumer_relevant_changes": [
+      "Interactive mode binds startup-safe extensions (including the bridge) after the composer accepts input; live interactive session started the new Funes MCP server and indexed the pending source",
+      "Extension type gains optional registersProviders",
+      "Temporary model_change entries use role fallback; Funes skips model_change entries"
+    ]
+  },
+  "funes": {
+    "branch": "update-stable18126",
+    "revision": "2b3ebec7de7fb996bccd54ea18c08bf314859a13",
+    "docs_commit": "e353255",
+    "upstream_main": "46056c6 (unchanged; nothing to merge)",
+    "base": "5ef3a33 (update-stable18125)",
+    "conflicts_resolved": {},
+    "cargo_update_packages": {
+      "tokio": "1.54.0 -> 1.54.1",
+      "ureq": "3.4.3 -> 3.5.0",
+      "socks": "0.3.4 removed"
+    },
+    "tests": {
+      "passed": 403,
+      "failed": 0,
+      "suites": 42,
+      "note": "cargo test --profile ci --no-fail-fast; add_fifth_integration ran with Arch Expect 5.45.4 under /tmp; scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "memory_format": "unchanged; no reindex",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/2b3ebec7de7fb996bccd54ea18c08bf314859a13/funes",
+    "sha256": "572dc9942bc73606a9cc9c8bdf6552191d9560d486d8665b3005cabe3ba052e0",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.12.6",
+    "coding_agent_peer": "18.12.6",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 24979.729061,
+      "duringBackfillMs": 2784.777195,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 10877.490883,
+      "reopenMs": 1956.569527,
+      "maxIndexerRssKiB": 253552,
+      "maxFunesRssKiB": 253552,
+      "maxBridgeRssBytes": 84860928,
+      "eventLoopP95Ms": 0.185215,
+      "eventLoopP99Ms": 0.514815,
+      "events": 30,
+      "same_conditions_comparison": {
+        "old_18.12.5_5ef3a33b": {
+          "sessions": 18,
+          "backfillMs": 35347,
+          "warmUpdateMs": 10955,
+          "reopenMs": 1942,
+          "maxIndexerRssKiB": 242448
+        },
+        "new_18.12.6_2b3ebec7": {
+          "sessions": 18,
+          "backfillMs": 35810,
+          "warmUpdateMs": 10879,
+          "reopenMs": 1984,
+          "maxIndexerRssKiB": 245300
+        },
+        "note": "Fresh fixtures each (PROBE_SESSIONS=15 yields 18 sessions), sequential runs, same HF_HOME copy, DO_NOT_TRACK=1"
+      }
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1, removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18126",
+    "commit": "25b6e41",
+    "tests_passed": 434,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.12.5 backed up under ~/.local/state/omp-funes-updates/stable18126/omp-18.12.5/)",
+    "bridge_install": "bun run bridge install --funes-bin <2b3ebec7 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; roots and memory unchanged; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18126/bridge/",
+    "live_memory": {
+      "chunks": 10907,
+      "sessions": 872,
+      "recall": "ok"
+    },
+    "interactive_check": "omp 18.12.6 interactive session loaded the deferred bridge, spawned the 2b3ebec7 funes mcp server and indexed the pending source",
+    "collector": "actomasto.service restarted on update-stable18126 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 904 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
