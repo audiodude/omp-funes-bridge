@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-26",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.13.0",
+    "upstream_tag_commit": "011ab732fa",
+    "fork_branch": "upgrade/stable-18.13.0",
+    "fork_commit": "e513836207",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "bun": "1.4.4 (user-local; upstream pin)",
+    "merge_conflicts": [
+      "packages/tui/src/render/hyperlink.ts: upstream try/catch around vscode:// encoding and inlined builder; file-link override applied in fileHyperlink"
+    ],
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 347,
+        "passed": 346,
+        "tests_passed": 8596,
+        "tests_failed": 1,
+        "tests_skipped": 192,
+        "note": "Each file in its own process with stdin closed, after the native addon was built; the failure is update-cli (asdf npm shim prints nothing under a sandboxed HOME), untouched by the fork"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 3727,
+        "failed": 1,
+        "doctests_passed": 1,
+        "failure": "pi-shell cancellation_keeps_output_open_for_a_term_trap_that_writes (TERM cleanup after writing output: NotFound), same as 18.12.5"
+      },
+      "binary": {
+        "version": "omp/18.13.0",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "dd9c4a6512fefdbe80966f11f970d8a0826fcd64ca445b7ddff6212735d71bf6"
+      }
+    },
+    "consumer_relevant_changes": [
+      "before_agent_start gains reason prompt|revive; revive results discarded",
+      "rewind-report custom message type added; Funes reader unaffected"
+    ]
+  },
+  "funes": {
+    "branch": "update-stable18130",
+    "revision": "afb3168ac92104271529fcb1fc29ce4700345363",
+    "docs_commit": "5c41262",
+    "upstream_main": "37fd7b46170a6047d1cb2f80bfad37b4222b717c (merged; 20 commits; gte-reranker-modernbert-base default reranker)",
+    "base": "e353255 (main)",
+    "conflicts_resolved": {
+      "Cargo.toml": "kept hf-hub 1.0.0 with upstream comment"
+    },
+    "fork_fixes": [
+      "clippy chunks_exact_to_as_chunks: as_chunks in src/inference/blas/modernbert.rs"
+    ],
+    "cargo_update_packages": "41 compatible packages (arrow 58.4.1, rmcp 3.8.0, uuid 1.29.0, icu 2.4.0, patch releases)",
+    "tests": {
+      "passed": 406,
+      "failed": 0,
+      "suites": 42,
+      "note": "cargo test --profile ci --no-fail-fast; add_fifth_integration ran with Arch Expect 5.45.4 under /tmp (sha256 matched pacman sync db); scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "memory_format": "unchanged; no reindex",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/afb3168ac92104271529fcb1fc29ce4700345363/funes",
+    "sha256": "1d863c9a65014788679a828e235ae5d9fff8b77ed5d607afdfddb44ec426b446",
+    "capabilities_revision_verified": true,
+    "reranker_model": "Alibaba-NLP/gte-reranker-modernbert-base fetched by the isolated probe run and copied into ~/.cache/huggingface/hub"
+  },
+  "bridge": {
+    "pi_utils": "18.13.0",
+    "coding_agent_peer": "18.13.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 25829.372856,
+      "duringBackfillMs": 3407.843889,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 11416.952246,
+      "reopenMs": 2093.568841,
+      "maxIndexerRssKiB": 247316,
+      "maxFunesRssKiB": 247316,
+      "maxBridgeRssBytes": 79921152,
+      "eventLoopP95Ms": 0.137983,
+      "eventLoopP99Ms": 0.418559,
+      "events": 30,
+      "same_conditions_comparison": {
+        "old_18.12.6_2b3ebec7": {
+          "sessions": 18,
+          "backfillMs": 37968,
+          "warmUpdateMs": 11090,
+          "reopenMs": 2090,
+          "maxIndexerRssKiB": 237476
+        },
+        "new_18.13.0_afb3168a": {
+          "sessions": 18,
+          "backfillMs": 39383,
+          "warmUpdateMs": 11484,
+          "reopenMs": 2082,
+          "maxIndexerRssKiB": 249508
+        },
+        "note": "Fresh fixtures each (PROBE_SESSIONS=15 yields 18 sessions), sequential runs, same HF_HOME copy, DO_NOT_TRACK=1"
+      }
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1, removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18130",
+    "commit": "fb3af99",
+    "tests_passed": 434,
+    "lock_changes": {
+      "certifi": "2026.10.19 -> 2026.10.23"
+    }
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.12.6 backed up under ~/.local/state/omp-funes-updates/stable18130/omp-18.12.6/)",
+    "bridge_install": "bun run bridge install --funes-bin <afb3168a build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; roots and memory unchanged; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18130/bridge/",
+    "live_memory": {
+      "chunks": 12162,
+      "sessions": 935,
+      "recall": "ok"
+    },
+    "interactive_check": "omp 18.13.0 interactive session spawned the afb3168a funes mcp server",
+    "collector": "actomasto.service restarted on update-stable18130 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 967 sources",
+    "briefing_timers": "preserved; no manual briefing sent (daily briefing has failed with provider_http_401 since before this refresh)"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
