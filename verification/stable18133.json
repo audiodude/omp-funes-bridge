@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-28",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.13.3",
+    "upstream_tag_commit": "413d278a87",
+    "fork_branch": "upgrade/stable-18.13.3",
+    "fork_commit": "d4e9cb52a4",
+    "base_branch": "upgrade/stable-18.13.0",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "bun": "1.4.4 (user-local)",
+    "merge_conflicts": [],
+    "custom_diff_identical_to_18_13_0": true,
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 327,
+        "passed": 325,
+        "tests_passed": 6715,
+        "tests_failed": 4,
+        "tests_skipped": 15,
+        "note": "Each file in its own process with stdin closed; failures (kitty-keyboard-da1-ordering x3, bash-executor zsh PTY prompt #17210) reproduce identically on pristine v18.13.3"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 3832,
+        "failed": 1,
+        "doctests_passed": 1,
+        "failure": "pi-shell cancellation_keeps_output_open_for_a_term_trap_that_writes, same as 18.12.5 and 18.13.0"
+      },
+      "binary": {
+        "version": "omp/18.13.3",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "e75989f0343405ba20c9488710cb2f633ecebf9035057685951c46f0dbef0617"
+      }
+    },
+    "consumer_relevant_changes": [
+      "SessionHeader gains optional continuationOf",
+      "prewalk model_change role",
+      "extension sessionModes and mode_changed event"
+    ]
+  },
+  "funes": {
+    "branch": "update-stable18133",
+    "revision": "2d2ec9c7c7981ac16f7d234def0b2e099e7e694a",
+    "docs_commit": "bffa28b",
+    "upstream_main": "6fe09a3f347d685184f8d124d5c7ee74c22ee2f9 (merged; 9 commits; per-memory language counts)",
+    "base": "5c41262 (update-stable18130)",
+    "conflicts_resolved": {
+      "src/commands/index.rs": "language count placed in the fork append helper so embedded and unembedded writes both count"
+    },
+    "fork_fixes": [],
+    "cargo_update_packages": "9 compatible packages (aws-lc-rs 1.19.0, hf-xet/xet 1.7.1, globset 0.4.21, rustix 1.1.6)",
+    "tests": {
+      "passed": 417,
+      "failed": 0,
+      "suites": 43,
+      "note": "cargo test --profile ci --no-fail-fast; add_fifth_integration ran with Arch Expect 5.45.4 under /tmp (sha256 matched pacman sync db); scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "memory_format": "chunk rows unchanged; language counts stamped in metadata on next index; no reindex",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/2d2ec9c7c7981ac16f7d234def0b2e099e7e694a/funes",
+    "sha256": "a3b6c3e220a6f023a89874d95069deaa9012d395427158a55d945521344b1d89",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.13.3",
+    "coding_agent_peer": "18.13.3",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 22543.895944,
+      "duringBackfillMs": 2984.846734,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 11205.748329,
+      "reopenMs": 1825.425625,
+      "maxIndexerRssKiB": 242956,
+      "maxFunesRssKiB": 242956,
+      "maxBridgeRssBytes": 61513728,
+      "eventLoopP95Ms": 0.081791,
+      "eventLoopP99Ms": 0.456703,
+      "events": 30,
+      "note": "12 fixture sessions; no same-conditions comparison run this refresh"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1, removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18133",
+    "commit": "a93359b",
+    "tests_passed": 434,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.13.0 backed up under ~/.local/state/omp-funes-updates/stable18133/omp-18.13.0/)",
+    "bridge_install": "bun run bridge install --funes-bin <2d2ec9c7 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; only binarySha256 changed in funes-bridge.json; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18133/bridge/",
+    "live_memory": {
+      "chunks": 12727,
+      "sessions": 965,
+      "recall": "ok"
+    },
+    "interactive_check": "omp 18.13.3 interactive session spawned the 2d2ec9c7 funes mcp server",
+    "collector": "actomasto.service restarted on update-stable18133 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 1002 sources",
+    "briefing_timers": "preserved; no manual briefing sent (daily briefing still fails with provider_http_401, pre-existing)"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
