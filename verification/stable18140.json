@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-29",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.14.0",
+    "upstream_tag_commit": "31147f9d1a",
+    "fork_branch": "upgrade/stable-18.14.0",
+    "fork_commit": "21e3443afe",
+    "base_branch": "upgrade/stable-18.13.3",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "bun": "1.4.4 (user-local)",
+    "merge_conflicts": {
+      "packages/tui/test/hyperlink.test.ts": "import list: kept upstream applyFileLinkSetting and fork applyFileLinkEditorSetting",
+      "docs/settings.md": "upstream re-padded the display table; tui.fileLinkEditor row re-added at the new width"
+    },
+    "custom_diff_identical_to_18_13_3": "yes, except the docs/settings.md table padding",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 233,
+        "passed": 231,
+        "tests_passed": 5609,
+        "tests_failed": 2,
+        "tests_skipped": 51,
+        "note": "Each file in its own process with stdin closed; failures (sdk-model-selection unresolved configured default, approval-cached-mode compact grant listing) reproduce identically on pristine v18.14.0"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 4525,
+        "failed": 1,
+        "skipped": 4,
+        "doctests_passed": 2,
+        "failure": "pi-shell cancellation_keeps_output_open_for_a_term_trap_that_writes, same as 18.12.5 through 18.13.3"
+      },
+      "binary": {
+        "version": "omp/18.14.0",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "da6bdb261a3d232bf797a80851ef1ca07a5ae7950cf93250210458f6795e3858"
+      }
+    },
+    "consumer_relevant_changes": [
+      "Extension API gains registerLinkScheme, link_activate, assistant text renderers, rerenderMessage, getLinkClicksAvailable and optional startLive (additive)",
+      "Session loader parses a bounded window when recovering from malformed records",
+      "Sub-session collection can include advisor transcripts and gc-compressed .jsonl.gz children; session entry shapes unchanged"
+    ]
+  },
+  "funes": {
+    "branch": "update-stable18140",
+    "revision": "ac03aff0f074821781e92188d040474b281915ba",
+    "docs_commit": "73a712d",
+    "upstream_main": "065d894c8dbadb535c6f2a38820ddfb7b8cbc6c7 (merged as f1255ba; 8 commits; recall reranks any pool larger than -k)",
+    "base": "bffa28b (update-stable18133)",
+    "conflicts_resolved": {
+      "src/main.rs": "Cmd enum: kept fork Source subcommand, took upstream recall help text"
+    },
+    "fork_fixes": [],
+    "cargo_update_packages": "hf-xet/xet-* 1.7.1 -> 1.8.0, utf8_iter 1.0.4 -> 1.1.0; added crc-fast 1.10.0, spin 0.10.1, utf_types 1.0.0",
+    "tests": {
+      "passed": 417,
+      "failed": 0,
+      "suites": 43,
+      "note": "cargo test --profile ci --no-fail-fast; add_fifth_integration ran with Arch Expect 5.45.4 under /tmp (sha256 matched pacman sync db); scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "memory_format": "chunk rows unchanged; no reindex",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/ac03aff0f074821781e92188d040474b281915ba/funes",
+    "sha256": "e250d068c80353fb44b60e164fb804829c4551308bae0e7550b20a8a73a812a6",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.14.0",
+    "coding_agent_peer": "18.14.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 3190.396757,
+      "duringBackfillMs": 222.358035,
+      "pendingAtArrivalCoverage": 11,
+      "warmUpdateMs": 9738.413367,
+      "reopenMs": 290.370516,
+      "maxIndexerRssKiB": 235080,
+      "maxFunesRssKiB": 235080,
+      "maxBridgeRssBytes": 65499136,
+      "eventLoopP95Ms": 0.135167,
+      "eventLoopP99Ms": 0.472575,
+      "events": 30,
+      "note": "PROBE_SESSIONS=9 PROBE_MESSAGES=4 (12 sessions, 48 messages, as in the 18.13.3 record); no same-conditions comparison run. A default PROBE_MESSAGES=32 run (300 chunks) gave backfill 8545 ms, warm 9762 ms, reopen 295 ms, indexer RSS 261012 KiB"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1, removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18140",
+    "commit": "344b951",
+    "tests_passed": 434,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.13.3 backed up under ~/.local/state/omp-funes-updates/stable18140/omp-18.13.3/)",
+    "bridge_install": "bun run bridge install --funes-bin <ac03aff0 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; funes-bridge.json changed only funesBin and binarySha256; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18140/bridge/",
+    "catch_up": "bridge run --once indexed with the new build; 2-3 sources still pending were the transcripts of the session performing this update, still being written",
+    "live_memory": {
+      "chunks": 13362,
+      "sessions": 977,
+      "recall": "ok"
+    },
+    "interactive_check": "fresh omp 18.14.0 RPC session spawned the ac03aff0 funes mcp server",
+    "collector": "actomasto.service restarted on update-stable18140 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 1014 sources",
+    "briefing_timers": "preserved; no manual briefing sent (daily briefing's last run failed with provider_http_401 before the cutover, pre-existing)"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
