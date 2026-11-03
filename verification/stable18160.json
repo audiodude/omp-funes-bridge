@@ -1,0 +1,140 @@
+{
+  "date": "2026-11-02",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.16.0",
+    "upstream_tag_commit": "650f3a1082",
+    "fork_branch": "upgrade/stable-18.16.0",
+    "fork_commit": "dcacf759da",
+    "base_branch": "upgrade/stable-18.14.0",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "bun": "1.4.4 (user-local)",
+    "merge_conflicts": {},
+    "custom_diff_identical_to_18_14_0": "yes",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 283,
+        "passed": 279,
+        "tests_passed": 6577,
+        "tests_failed": 4,
+        "tests_skipped": 44,
+        "note": "Each file in its own process with stdin closed, 6 in parallel. snapcompact-trigger-room, tools/computer and tools/read-artifact-approval hit 5 s timeouts under load and pass when rerun alone; bash-executor (zsh shortcut PTY prompt, #17210) fails identically on pristine v18.16.0"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 4536,
+        "failed": 1,
+        "skipped": 4,
+        "doctests_passed": 2,
+        "failure": "pi-shell cancellation_keeps_output_open_for_a_term_trap_that_writes, same as 18.12.5 through 18.14.0"
+      },
+      "binary": {
+        "version": "omp/18.16.0",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "4927a684b6ccb2e104e2e3efbdc7b1e38c0b4d652b745f8ca820e66a08c54263"
+      }
+    },
+    "consumer_relevant_changes": [
+      "session_init gains optional mountedTools, perCallModel, perCallModelIdentity and perCallThinkingLevel",
+      "Session picker listing returns a two-pass PickerListing; session lease probing via isSessionLeaseHeld",
+      "Extension types, pi-utils dirs and the coding-agent index the bridge imports are unchanged"
+    ]
+  },
+  "funes": {
+    "branch": "update-stable18160",
+    "revision": "6ef39fd010fac3bf65164514d10aa8434ac85e0d",
+    "docs_commit": "5caf4db",
+    "upstream_main": "97f54e677edc6fd5208419e295b207ec30d3719f (merged as e4b4db7; 14 commits; version 1.10.0+dev)",
+    "base": "73a712d (update-stable18140)",
+    "conflicts_resolved": {},
+    "fork_fixes": [
+      "6ef39fd: OMP local-source normalizer tolerates the per-entry runtime object and the 18.16.0 session_init fields (string or string-array systemPrompt); unknown keys still fail closed. Live OMP sources rejected as unknown_content_schema fell from 313 to 17 of 1039"
+    ],
+    "cargo_update_packages": "f3f3b62: 23 packages (async-compression, async-lock, cc, compression-codecs, crc32fast, encoding_rs, jiff*, js-sys/web-sys, log, openssl/openssl-sys, ureq/ureq-proto, wasm-bindgen*, zstd/zstd-safe)",
+    "tests": {
+      "passed": 423,
+      "failed": 0,
+      "suites": 45,
+      "note": "cargo test --profile ci --no-fail-fast; includes 32 add_fifth_integration tests with Arch Expect 5.45.4 under /tmp (sha256 matched pacman sync db); scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "memory_format": "chunk rows unchanged; no reindex",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/6ef39fd010fac3bf65164514d10aa8434ac85e0d/funes",
+    "sha256": "edcce4428575f32f704250ba6cefd08bd202175d2577a241ef64ac10ccf6877a",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.16.0",
+    "coding_agent_peer": "18.16.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 33461.691376,
+      "duringBackfillMs": 161.973179,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 9705.625634,
+      "reopenMs": 298.285294,
+      "maxIndexerRssKiB": 247488,
+      "maxBridgeRssBytes": 61444096,
+      "eventLoopP95Ms": 0.105791,
+      "eventLoopP99Ms": 0.388095,
+      "events": 35,
+      "note": "PROBE_SESSIONS=9 PROBE_MESSAGES=4. Backfill is bimodal on both stacks: 18.16.0 runs 3469, 33462, 33673, 33958, 33969, 33973 ms; 18.14.0 runs on the same host 34094 and 3941 ms. The slow mode is one 30 s scheduler retry after a child is indexed with provenance-changed because its parent was appended during backfill; not a regression. maxFunesRssKiB omitted: it counted the host's own funes mcp process"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1, removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18160",
+    "commit": "7a078ab",
+    "tests_passed": 434,
+    "lock_changes": {
+      "anyio": "4.15.1 -> 4.16.0"
+    }
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.14.0 backed up under ~/.local/state/omp-funes-updates/stable18160/omp-18.14.0/)",
+    "bridge_install": "bun run bridge install --funes-bin <6ef39fd0 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; funes-bridge.json changed only funesBin and binarySha256; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18160/bridge/",
+    "catch_up": "bridge run --once indexed with the new build; the sources still pending were the transcripts of the session performing this update, still being written (provenance-changed)",
+    "live_memory": {
+      "chunks": 14524,
+      "sessions": 1013,
+      "recall": "ok"
+    },
+    "interactive_check": "fresh omp 18.16.0 RPC session spawned the 6ef39fd0 funes mcp server",
+    "collector": "actomasto.service restarted on update-stable18160 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 1071 sources",
+    "briefing_timers": "preserved; no manual briefing sent (daily briefing provider_http_401 pre-existing)"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false,
+  "omp_update_used": false
+}
