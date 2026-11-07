@@ -1,0 +1,140 @@
+{
+  "date": "2026-11-06",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.18.0",
+    "upstream_tag_commit": "b5a6b2f7e5",
+    "fork_branch": "upgrade/stable-18.18.0",
+    "fork_commit": "7817b96336",
+    "base_branch": "upgrade/stable-18.16.0",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-10-06",
+    "bun": "1.4.4 (user-local)",
+    "merge_conflicts": {
+      "docs/settings.md": "additive: upstream's cache status-line paragraph and the fork's VS Code file-link paragraph both kept"
+    },
+    "custom_diff_identical_to_18_16_0": "yes, apart from blank-line placement of the settings.md paragraph",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 394,
+        "passed": 390,
+        "tests_passed": 8698,
+        "tests_failed": 4,
+        "tests_skipped": 62,
+        "note": "Each file in its own process with stdin closed, 6 in parallel. All four failures reproduce alone and on pristine v18.18.0 in files the fork does not touch: bash-executor (zsh shortcut PTY prompt, #17210), memory-tools (one of two retain.execute tests fails per run, alternating), tools/approval-cached-mode (compact grant listing cap), update-cli (ambient min-release-age override)"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 6486,
+        "failed": 32,
+        "skipped": 16,
+        "doctests_passed": 6,
+        "failure": "32 pi-shell zsh-emulation PTY tests in suites added after 18.16.0 (zsh_computil_pty, zsh_computil_args_pty, zsh_mod_curses, zle_pty, zle_widgets_pty, zle_hist_pty, zsh_comp_pty, zsh_comp_y01, zsh_jobs_pty); deterministic, also with -j 2; the fork carries no Rust changes. The earlier cancellation_keeps_output_open_for_a_term_trap_that_writes failure now passes"
+      },
+      "binary": {
+        "version": "omp/18.18.0",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "d48e5d9778057e246b16f91966cf6ac21623cc046d1805f9a937bdf9dbe71a08"
+      }
+    },
+    "consumer_relevant_changes": [
+      "model_usage entries gain optional cacheRefresh {sentAt, hit}; off-branch model_usage entries for discarded assistant turns",
+      "Extension API gains refreshTranscript, getShortcutConflict and registerTranscriptPresenter; pi-utils dirs gains getUpdateStateDir",
+      "Extension types, pi-utils dirs and the coding-agent exports the bridge imports have no removals"
+    ]
+  },
+  "omp_update_used": false,
+  "funes": {
+    "branch": "update-stable18180",
+    "revision": "cb23e95303f32b4e522f798b44da6169b18b0feb",
+    "docs_commit": "4d2a8c2",
+    "upstream_main": "31c2a0e27f495317401955c57be3a7d5330e6d5f (merged as 780838a; 15 commits; version 1.11.0+dev)",
+    "base": "5caf4db (update-stable18160)",
+    "conflicts_resolved": {
+      "Cargo.lock": "kept the fork lock and re-resolved; lance/lance-* 11.0.0 -> 13.0.0, opendal 0.58 -> 0.59.5, object_store 0.14.2 added, asyncband 0.7.4, quick-xml 0.42.0"
+    },
+    "fork_fixes": [],
+    "cargo_update_packages": "cb23e95: 14 packages (cc, flate2, generator, mime, rmcp/rmcp-macros, smallvec, uuid, six windows-* 0.100.0 crates added)",
+    "omp_reader": "model_usage is passed through as metadata without field checks, so cacheRefresh is not rejected; no normalizer change. On one 1063-source snapshot, unknown_content_schema stayed at 18 on both 6ef39fd and cb23e95 (12 serviceTier, 5 custom-role, 1 synthetic)",
+    "tests": {
+      "passed": 422,
+      "failed": 0,
+      "suites": 44,
+      "note": "cargo test --profile ci --no-fail-fast; includes 32 add_fifth_integration tests with Arch Expect 5.45.4 under /tmp (sha256 matched pacman sync db); scripts/test-install.sh passed; one suite fewer than 18.16.0 because upstream deleted tests/shuffle_leftovers.rs"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/cb23e95303f32b4e522f798b44da6169b18b0feb/funes",
+    "sha256": "de39e942b957380b1c8275f49a9256ef16f85b6bd5f618d87f348c5e53d624dd",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.18.0",
+    "coding_agent_peer": "18.18.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 23348.218857,
+      "duringBackfillMs": 3140.357612,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 11282.817429,
+      "reopenMs": 1853.72527,
+      "maxIndexerRssKiB": 257060,
+      "maxBridgeRssBytes": 64970752,
+      "eventLoopP95Ms": 0.093695,
+      "eventLoopP99Ms": 0.452863,
+      "events": 30,
+      "note": "PROBE_SESSIONS=9 PROBE_MESSAGES=4. Repeat 18.18.0 runs: backfill 23188/23016 ms, warm update 11263/11264 ms, reopen 1848/1872 ms. The 18.16.0 stack rerun on the same host gave backfill 23101, during-backfill 3098, warm update 11241, reopen 1818 ms, so the shift from the stable18160 record is the host, not the upgrade. maxFunesRssKiB omitted: it counts the host's own funes mcp process"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1 (HF_HOME seeded with only the three Funes models), removed afterwards"
+  },
+  "actomasto": {
+    "branch": "update-stable18180",
+    "commit": "2419f8c",
+    "tests_passed": 434,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.16.0 backed up under ~/.local/state/omp-funes-updates/stable18180/omp-18.16.0/)",
+    "bridge_install": "bun run bridge install --funes-bin <cb23e953 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; funes-bridge.json changed only funesBin and binarySha256; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18180/bridge/",
+    "catch_up": "bridge run --once exited 0 with the new build; the one source left pending was a transcript of the session performing this update, still being written",
+    "live_memory": {
+      "chunks": 15208,
+      "sessions": 1037,
+      "recall": "ok"
+    },
+    "interactive_check": "fresh omp 18.18.0 RPC session spawned the cb23e953 funes mcp server",
+    "collector": "actomasto.service restarted on update-stable18180 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 1095 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false
+}

@@ -111,10 +111,10 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.16.0`, upstream commit `650f3a108229ee11bf68ba3377f4e8c3391cd424` (stable release tag `v18.16.0`).
+- OMP `18.18.0`, upstream commit `b5a6b2f7e5b6606b6562e678ead83f21738f34a0` (stable release tag `v18.18.0`).
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `6ef39fd010fac3bf65164514d10aa8434ac85e0d` is the required build revision.
+  `cb23e95303f32b4e522f798b44da6169b18b0feb` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -124,7 +124,38 @@ verification records below are not evidence for this new cutover.
 - Build toolchain: Bun `1.4.4` (OMP's pin from 18.13.0; user-local under
   `~/.local/share/omp-bun/1.4.4`), LLD, Linux x86-64; OMP native addons use
   the repository-pinned Rust nightly (`nightly-2026-10-06`).
-  Custom OMP embeds its source-built, version-matched `18.16.0` native addon.
+  Custom OMP embeds its source-built, version-matched `18.18.0` native addon.
+
+The November 6 stable 18.18.0 refresh preserves the custom OMP file-link setting
+and Arch Chrome attachment fixes; the merge conflicted only additively in
+`docs/settings.md` (upstream's `cache` status-line paragraph beside the fork's
+file-link paragraph; both kept). Bridge dependencies match 18.18.0; the
+extension types, `pi-utils` dirs and coding-agent exports the bridge imports
+only gain additive APIs (`refreshTranscript`, `getShortcutConflict`,
+`registerTranscriptPresenter`, `getUpdateStateDir`). OMP adds an optional
+`cacheRefresh` object to `model_usage` entries, which Funes passes through as
+metadata, so no normalizer change was needed: `unknown_content_schema`
+rejections stayed at 18 of 1,063 sources on both Funes builds. Funes merges
+upstream main `31c2a0e` (15 commits, 1.11.0+dev; lance 11 to 13). OMP ran 394
+changed/custom TypeScript test files (8,698 passed; the four failures reproduce
+on pristine `v18.18.0` in files the fork does not touch), workspace type
+checks, `check:rs` and `test:rs` (6,486/6,518; the 32 failures are `pi-shell`
+zsh-emulation PTY suites added after 18.16.0, and the fork has no Rust
+changes). Bridge configuration tests (3), root-resolution cases, installer
+safeguards, backfill/warm/reopen (12 sessions, 48 messages: backfill 23.3 s,
+warm update 11.3 s, reopen 1.9 s; the 18.16.0 stack measures the same on this
+host now), existing-index startup, native MCP recall/get/live-reader, and
+completed/aborted durable-turn probes passed with `DO_NOT_TRACK=1`. Funes
+passed all 422 tests; Actomasto passed 434 tests (no lock changes).
+
+The local custom OMP binary, bridge wiring, Funes executable, collector and
+briefing unit paths and source-refresh wrapper were switched to the updated
+builds; the collector restarted and the source refresh succeeded (1,095
+sources). The new Funes build read the existing 15,208 chunks across 1,037
+sessions and answered a live recall, and a fresh 18.18.0 OMP session spawned
+the new Funes MCP server. No Hugging Face release artifacts were deployed, no
+memory was published, and `omp update` was not used. Evidence:
+`verification/stable18180.json`. Assisted by Claude.
 
 The November 2 stable 18.16.0 refresh merged cleanly; the fork's diff against
 the release (custom OMP file-link setting and Arch Chrome attachment fixes) is
