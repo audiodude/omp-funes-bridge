@@ -1,0 +1,139 @@
+{
+  "date": "2026-11-09",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.18.6",
+    "upstream_tag_commit": "9058ab9d22",
+    "fork_branch": "upgrade/stable-18.18.6",
+    "fork_commit": "8aece22777",
+    "base_branch": "upgrade/stable-18.18.0",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-11-08",
+    "bun": "1.4.4 (user-local)",
+    "merge_conflicts": {},
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "run": 323,
+        "tests_passed": 7353,
+        "tests_failed": 5,
+        "tests_skipped": 12,
+        "note": "Each file in its own process with stdin closed, 6 in parallel. All five failures reproduce alone and on pristine v18.18.6 in files the fork does not touch: bash-executor (zsh shortcut PTY prompt, #17210), tools/approval-cached-mode (compact grant listing cap), ai provider-disabled (2 tests read the ambient ANTHROPIC_API_KEY; pass with it unset), ai auth-gateway-stdio (expects 401, gets 502 upstream error)"
+      },
+      "workspace_type_checks": "passed",
+      "check_rs": "passed",
+      "rust_tests": {
+        "passed": 6634,
+        "failed": 8,
+        "skipped": 16,
+        "doctests_passed": 6,
+        "failure": "8 pi-shell zsh-emulation PTY tests (zsh_mod_curses x2, zle_pty, zle_hist_pty, zsh_comp_pty, zsh_comp_y01, zsh_computil_pty, zsh_jobs_pty); with -j 2, 7 still fail and zsh_jobs_pty passes; the fork carries no Rust changes. Down from 32 at 18.18.0"
+      },
+      "binary": {
+        "version": "omp/18.18.6",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "bdf82c3a9fa06a4e943788e88ff6c48ef4840d42a7a6e6dc5da44606ae63b4e2"
+      }
+    },
+    "consumer_relevant_changes": [
+      "Agent-attributed user messages for parent IRC steers gain parentIrc {from, body}",
+      "ExtensionAPI.sendUserMessage now returns Promise<void>; UI context gains optional formDialog; compaction gains readerModel (bridge uses none of these)",
+      "pi-utils path helpers gain optional options arguments; the dirs functions the bridge imports are unchanged"
+    ],
+    "custom_diff_identical_to_18_18_0": "yes; git left a stray '## [18.18.0]' heading above upstream's '## [18.18.6]' in packages/coding-agent/CHANGELOG.md, removed"
+  },
+  "omp_update_used": false,
+  "funes": {
+    "branch": "update-stable18186",
+    "revision": "b0854901af2a8cfb272b883d6dda8183a0ff67bb",
+    "docs_commit": "efdde67",
+    "upstream_main": "3cb43edf86672b5cbb80af866c42eca7b6d68730 (merged as 9eaf95f; 4 commits): recall --neighbors retired, exchange-frame lines on recall hits",
+    "base": "4d2a8c2 (update-stable18180)",
+    "fork_fixes": [
+      "e33a24d fix(local-source): read OMP 18.18.6 parent IRC steers (parentIrc allowlisted on agent-attributed user messages, regression tests)"
+    ],
+    "cargo_update_packages": "b085490: arc-swap, crc32fast, exr, fixedbitset, io-uring, itoa, jiff/jiff-static/jiff-core, loom, syn, uuid; dropped bitflags 1.3.2, defmt, defmt-macros and other unused duplicates",
+    "omp_reader": "On one 1077-source snapshot, cb23e953 and b0854901 report identical outcomes: 980 complete, 79 incomplete_turn, 18 unknown_content_schema",
+    "tests": {
+      "passed": 429,
+      "failed": 0,
+      "suites": 44,
+      "note": "cargo test --profile ci --no-fail-fast; includes 32 add_fifth_integration tests with Arch Expect 5.45.4 under /tmp; scripts/test-install.sh passed"
+    },
+    "fmt": "passed",
+    "clippy": "passed (default and onnx feature sets)",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/b0854901af2a8cfb272b883d6dda8183a0ff67bb/funes",
+    "sha256": "443b4c13b9ede8a8bea91742f0d8dbcedb506443bb0366591cba7d301128d1df",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.18.6",
+    "coding_agent_peer": "18.18.6",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 23427.353311,
+      "duringBackfillMs": 3097.570335,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 11230.293823,
+      "reopenMs": 1861.547453,
+      "maxIndexerRssKiB": 248888,
+      "maxBridgeRssBytes": 68042752,
+      "eventLoopP95Ms": 0.113855,
+      "eventLoopP99Ms": 0.446719,
+      "events": 30,
+      "note": "PROBE_SESSIONS=9 PROBE_MESSAGES=4; in line with the 18.18.0 record on this host. maxFunesRssKiB omitted: it counts the host own funes mcp process"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS"
+    },
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories with DO_NOT_TRACK=1 (HF_HOME seeded with only the three Funes models), removed afterwards",
+    "probe_changes": [
+      "probes/searchable.ts no longer passes the retired funes recall --neighbors 0"
+    ]
+  },
+  "actomasto": {
+    "branch": "update-stable18186",
+    "commit": "0294067",
+    "tests_passed": 434,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.18.0 backed up under ~/.local/state/omp-funes-updates/stable18186/omp-18.18.0/)",
+    "bridge_install": "bun run bridge install --funes-bin <b0854901 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; funes-bridge.json changed only funesBin and binarySha256; mcp.json changed only the funes_bridge command; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18186/bridge/",
+    "catch_up": "bridge run --once exited 1 (stale: source coverage incomplete) with the new build; the 3-4 pending sources are this update session and its subagent transcripts, still being written or left with incomplete turns",
+    "live_memory": {
+      "chunks": 15658,
+      "sessions": 1051,
+      "recall": "ok"
+    },
+    "interactive_check": "fresh omp 18.18.6 RPC session spawned the b0854901 funes mcp server",
+    "collector": "actomasto.service restarted on update-stable18186 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 1109 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false
+}

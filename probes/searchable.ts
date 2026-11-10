@@ -27,7 +27,7 @@ try {
   let attempts=0;
   while (true) {
     assert(performance.now()-started<180000,'Fresh persisted text was not searchable within three minutes');
-    const query=Bun.spawn([config.funesBin,'recall',marker,'--memory',join(config.memoryHome,'memory'),'--k','1','--candidates','1','--neighbors','0'],{
+    const query=Bun.spawn([config.funesBin,'recall',marker,'--memory',join(config.memoryHome,'memory'),'--k','1','--candidates','1'],{
       env:{...process.env,FUNES_HOME:config.memoryHome,RAYON_NUM_THREADS:'1',TOKIO_WORKER_THREADS:'2'},stdout:'pipe',stderr:'pipe',
     });
     const [code,text,error]=await Promise.all([query.exited,new Response(query.stdout).text(),new Response(query.stderr).text()]);
