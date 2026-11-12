@@ -3,9 +3,9 @@ import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'nod
 import { tmpdir } from 'node:os';
 
 export const OWNER = 'omp-funes-bridge';
-export const OMP_VERSION = '18.18.9';
+export const OMP_VERSION = '18.19.0';
 export const FUNES_REPOSITORY = 'https://github.com/audiodude/funes.git';
-export const FUNES_REVISION = 'ad07a496a27ea422f8488d2949131db2b83ba85d';
+export const FUNES_REVISION = '2152045a2c317ac7281369c1a8b4c221cdf8a11a';
 export const CONFIG_NAME = 'funes-bridge.json';
 export const SERVER_NAME = 'funes_bridge';
 export interface Config {
