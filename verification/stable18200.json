@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-12",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.20.0",
+    "upstream_tag_commit": "c308970263",
+    "fork_branch": "upgrade/stable-18.20.0",
+    "fork_commit": "f08f7f7b47",
+    "base_branch": "upgrade/stable-18.19.0",
+    "preserved": [
+      "tui.fileLinkEditor VS Code file links",
+      "Arch google-chrome-stable nested-wrapper attachment"
+    ],
+    "rust_toolchain": "nightly-2026-11-08",
+    "bun": "1.4.4 (system)",
+    "merge_conflicts": "none; restored a dropped blank line before ## [18.20.0] in packages/coding-agent/CHANGELOG.md",
+    "checks": {
+      "changed_custom_ts_test_files": {
+        "files": 96,
+        "passed": 3158,
+        "failed": 1,
+        "skipped": 116,
+        "note": "tools/browser-role-ax timed out under load and passed alone"
+      },
+      "workspace_type_checks": "pass",
+      "check_rs": "pass",
+      "rust_tests": {
+        "run": 6882,
+        "passed": 6875,
+        "failed": 7,
+        "skipped": 49,
+        "after_j2_rerun_failing": 7,
+        "failing_suites": "pi-shell zsh PTY: zle_hist_pty, zle_pty, zsh_comp_pty, zsh_comp_y01, zsh_computil_pty, zsh_mod_curses x2",
+        "doctests": "6 runnable passed",
+        "fork_rust_changes": 0
+      },
+      "binary": {
+        "version": "omp/18.20.0",
+        "smoke_test": "ok",
+        "file_link_editor_listed": true,
+        "sha256": "875a77f0e55baca8f439e69d27cd4cf67fa674e8d5d0ad70bb24ae9d49a2c105"
+      }
+    },
+    "consumer_relevant_changes": "no persisted session-entry/message field changes (session rewrites gain event-loop phase instrumentation); coding-agent extension types and pi-utils dirs unchanged",
+    "custom_diff_identical_to_18_19_0": true
+  },
+  "omp_update_used": false,
+  "funes": {
+    "branch": "update-stable18200",
+    "revision": "d58f34e29971d1a09f7518d68aed685f38d30d78",
+    "docs_commit": "9331ce2",
+    "upstream_main": "nothing new to merge",
+    "base": "c3ad8bf (update-stable18190)",
+    "fork_fixes": "none",
+    "cargo_update_packages": 12,
+    "omp_reader": "unchanged; 1,100-1,101-source snapshot: old/new 999-1,000 complete, 80-81 incomplete_turn, 19 unknown_content_schema; differences are live transcripts (source_changed)",
+    "tests": {
+      "passed": 432,
+      "failed": 0,
+      "suites": 45,
+      "test_install_sh": "pass"
+    },
+    "fmt": "pass",
+    "clippy": "pass (ci profile, default and onnx, -D warnings)",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/d58f34e29971d1a09f7518d68aed685f38d30d78/funes",
+    "sha256": "81912b201ddacdf101c7bae3607a7a9a71d6dfcb15d761e8a891fbda49564e72",
+    "capabilities_revision_verified": true
+  },
+  "bridge": {
+    "pi_utils": "18.20.0",
+    "coding_agent_peer": "18.20.0",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 11440.7,
+      "duringBackfillMs": 972.4,
+      "pendingAtArrivalCoverage": 11,
+      "warmUpdateMs": 9648.0,
+      "reopenMs": 2584.0,
+      "maxIndexerRssKiB": 328652,
+      "maxFunesRssKiB": 328652,
+      "maxBridgeRssBytes": 76615680,
+      "eventLoopP95Ms": 0.2132,
+      "eventLoopP99Ms": 0.6277,
+      "events": 30,
+      "note": "PROBE_SESSIONS=9 PROBE_MESSAGES=4 rerun in a fresh root at 1-min load 6.0. The first benchmark attempt started at load 31.8 and was held by the load gate (cpus*0.85): backfillMs 427200.3, duringBackfillMs 10821.5, warmUpdateMs 9388.2, reopenMs 2911.7, events 112; the gate was not patched"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "searchable": {
+      "reopen": "searchableMs 4522.0, pendingArchiveSources 0",
+      "running": "searchableMs 8574.7, pendingArchiveSources 0",
+      "note": "first running attempt (load 11.5-17.5, index paused for system contention) hit the 3-minute assertion; first reopen passed at 6791.6 ms. Both reran in a fresh root at load ~6 and passed"
+    },
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS",
+      "note": "both runs also log the pre-existing probe extension_error on message_end (durable-barrier assertion), identical to the 18.18.6, 18.18.9 and 18.19.0 records"
+    },
+    "faults": "partial tail, idempotence, concurrent writer exit 75, live reader during writer, interrupted and final-arrival recovery all passed (separate 5-session fixture root; final chunks 276)",
+    "retries": "6 automatic attempts, persistent failure surfaced, manual retry works",
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories via env -i with DO_NOT_TRACK=1 (HF_HOME seeded with only the three Funes models), removed afterwards",
+    "probe_changes": []
+  },
+  "actomasto": {
+    "branch": "update-stable18200",
+    "tests_passed": 434,
+    "lock_changes": {}
+  },
+  "activation": {
+    "omp_binary": "~/.bun/bin/omp (previous 18.19.0 backed up under ~/.local/state/omp-funes-updates/stable18200/omp-18.19.0/)",
+    "bridge_install": "bun run bridge install --funes-bin <d58f34e2 build> --omp-bin ~/.bun/bin/omp --agent-dir ~/.omp/agent --source ~/.omp/agent/sessions --memory ~/.omp-funes-bridge; funes-bridge.json changed only funesBin and binarySha256; mcp.json changed only the funes_bridge command; unrelated MCP entries preserved; previous wiring backed up under ~/.local/state/omp-funes-updates/stable18200/bridge/",
+    "live_memory": {
+      "chunks": 16223,
+      "sessions": 1074,
+      "recall": "ok"
+    },
+    "interactive_check": "fresh omp 18.20.0 RPC session spawned the d58f34e2 funes mcp server",
+    "collector": "actomasto.service restarted on update-stable18200 executable; ready event logged",
+    "source_refresh": "funes-source-refresh.service success, 1133 sources",
+    "briefing_timers": "preserved; no manual briefing sent"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false
+}
