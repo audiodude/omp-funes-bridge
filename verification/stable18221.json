@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-17",
+  "assistance": "Claude",
+  "omp": {
+    "version": "18.22.1",
+    "build": "stock upstream v18.22.1 release binary (not a fork build)",
+    "upstream_tag_commit": "276169d516",
+    "checks": {
+      "binary": {
+        "version": "omp/18.22.1",
+        "sha256": "ba2d380bc54a6f175a314b49d2f45e82d45e469274362969afbadf2d65423fd6",
+        "probe_path": "/tmp/omp18221-stock/omp-linux-x64 (identical bytes to ~/.bun/bin/omp)"
+      },
+      "smoke_test": "ok"
+    },
+    "consumer_relevant_changes": "SessionHeader drops optional seanceSource; new session_clear extension event; pi-utils dirs adds getters only. Bridge imports unaffected.",
+    "source": "GitHub release asset omp-linux-x64 via gh release download (digest verified); not omp update",
+    "fork_status": "custom fork dropped by user; upgrade/stable-18.22.1 (de74d7e734) built and pushed but not installed; tui.fileLinkEditor removed from ~/.omp/agent/config.yml"
+  },
+  "omp_update_used": false,
+  "funes": {
+    "branch": "update-stable18221",
+    "revision": "b4816cb91cabf00697fa867eb0d211129aed3d65",
+    "docs_commit": "bbe1254",
+    "upstream_main": "1e7b2b7",
+    "base": "update-stable18200 (9331ce2)",
+    "fork_fixes": [
+      "kept index-time TruffleHog redaction and scanner receipts (upstream 566b947 not adopted)",
+      "adopted lock::Busy exit 75 with upstream message",
+      "re-read block admits only pieces missing after an OMP chunk budget"
+    ],
+    "cargo_update_packages": 65,
+    "omp_reader": "unchanged; 1,210-source snapshot same outcomes as d58f34e2 (29 unknown_content_schema)",
+    "tests": {
+      "passed": 436,
+      "suites": 45
+    },
+    "fmt": "pass",
+    "clippy": "pass (default and onnx)",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/b4816cb91cabf00697fa867eb0d211129aed3d65/funes",
+    "sha256": "ffa267b762eddd2124aafdedd3f291dd937fb6734ad7a83432df7c2d443db5be",
+    "capabilities_revision_verified": true,
+    "probe_builds": "632987939af97a4c1a50e034010e5fea692d687f (sha256 ee784b822b61d0c8609fbc278f0be81311ce3488f1ef9a420382190f5f8bf61e): bun test (first), roots, fixtures, benchmark, startup, searchable reopen+running, native. b4816cb91cabf00697fa867eb0d211129aed3d65: bun test (rerun with new pin), lifecycle complete+abort, faults, retries, install. b4816cb9 differs from 63298793 only in the busy-lock stderr message (exit 75 unchanged)"
+  },
+  "bridge": {
+    "pi_utils": "18.22.1",
+    "coding_agent_peer": "18.22.1",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 11798.6,
+      "duringBackfillMs": 910.1,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 10091.9,
+      "reopenMs": 2005.6,
+      "maxIndexerRssKiB": 331568,
+      "maxFunesRssKiB": 331568,
+      "maxBridgeRssBytes": 78348288,
+      "eventLoopP95Ms": 0.2552,
+      "eventLoopP99Ms": 0.6656,
+      "events": 30,
+      "note": "PROBE_SESSIONS=9 PROBE_MESSAGES=4 with stock OMP at 1-min load 9.7. An earlier full pass with the fork 18.22.1 binary (superseded when the fork was dropped) started at load 16.9 and was slowed by the load gate: backfillMs 34222.2, warmUpdateMs 10473.1, reopenMs 113315.3; all of its probes through native passed. The gate was not patched"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "searchable": {
+      "reopen": "searchableMs 3998.6, pendingArchiveSources 0",
+      "running": "searchableMs 9894.3, pendingArchiveSources 0",
+      "note": "both passed on the first stock-OMP attempt"
+    },
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS",
+      "note": "the complete run logs the pre-existing probe extension_error on message_end (durable-barrier assertion), as in earlier records; the abort run logged none"
+    },
+    "faults": "partial tail, idempotence, concurrent writer exit 75, live reader during writer, interrupted and final-arrival recovery all passed (separate 5-session fixture root; final chunks 276)",
+    "retries": "6 automatic attempts, persistent failure surfaced, manual retry works (PROBE_CONFIG was the main root's funes-bridge.json, written during the 63298793 benchmark)",
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories via env -i with DO_NOT_TRACK=1 (HF_HOME seeded with only the three Funes models), removed afterwards",
+    "probe_changes": []
+  },
+  "actomasto": {
+    "branch": "update-stable18221",
+    "tests_passed": 434,
+    "funes_revision": "b4816cb91cabf00697fa867eb0d211129aed3d65",
+    "lock_changed": false
+  },
+  "activation": {
+    "bridge_reinstalled": true,
+    "funes_bin": "/home/tmoney/.local/lib/funes-source/b4816cb91cabf00697fa867eb0d211129aed3d65/funes",
+    "other_mcp_entries_unchanged": true,
+    "actomasto_units": "update-stable18221 worktree",
+    "collector": "restarted, active, ready",
+    "source_refresh": {
+      "result": "success",
+      "sources": 1243
+    },
+    "memory": {
+      "chunks": 18231,
+      "sessions": 1172
+    },
+    "live_recall": true,
+    "fresh_session_spawned_new_funes_mcp": true,
+    "briefings_sent": false,
+    "backups": "~/.local/state/omp-funes-updates/stable18221/"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false
+}

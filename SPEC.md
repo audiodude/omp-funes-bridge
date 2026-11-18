@@ -111,10 +111,12 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.20.0`, upstream commit `c308970263` (stable release tag `v18.20.0`).
+- OMP `18.22.1`, upstream commit `276169d516` (stable release tag `v18.22.1`),
+  installed as the stock upstream release binary; the custom OMP fork is no
+  longer installed.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `d58f34e29971d1a09f7518d68aed685f38d30d78` is the required build revision.
+  `b4816cb91cabf00697fa867eb0d211129aed3d65` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -122,9 +124,30 @@ verification records below are not evidence for this new cutover.
   The installer records the executable SHA-256; replacement of that executable
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.4` (OMP's pin from 18.13.0; now the system Bun),
-  LLD, Linux x86-64; OMP native addons use the repository-pinned Rust nightly
-  (`nightly-2026-11-08`).
-  Custom OMP embeds its source-built, version-matched `18.20.0` native addon.
+  LLD, Linux x86-64.
+
+The November 17 stable 18.22.1 refresh switches the local install to the
+stock upstream OMP release binary (`gh release download`, digest-checked; not
+`omp update`) and drops the custom fork's `tui.fileLinkEditor` setting. Bridge
+dependencies match 18.22.1; OMP 18.22.1 removes the optional `seanceSource`
+session-header field and adds a `session_clear` extension event, neither of
+which the bridge uses. Funes merges 25 upstream commits but keeps index-time
+redaction and scanner receipts (upstream moved redaction to push only); on one
+1,210-source snapshot both Funes builds report the same outcomes (29
+`unknown_content_schema`). Bridge configuration tests (3), root-resolution
+cases, backfill/warm/reopen (12 sessions: backfill 11.8 s, warm update 10.1 s,
+reopen 2.0 s), existing-index startup, searchable reopen/running, native MCP
+live reader, completed/aborted durable-turn lifecycle, faults, retries and all
+9 installer safeguards passed against the stock binary with `DO_NOT_TRACK=1`.
+Funes passed all 436 tests; Actomasto passed 434 tests (no lock changes).
+
+The local bridge wiring, Funes executable, collector and briefing unit paths
+and source-refresh wrapper were switched to the updated builds; the collector
+restarted and the source refresh succeeded (1,243 sources). The new Funes read
+the existing 18,231 chunks across 1,172 sessions and answered a live recall,
+and a fresh 18.22.1 OMP session spawned the new Funes MCP server. No Hugging
+Face release artifacts were deployed and no memory was published. Evidence:
+`verification/stable18221.json`. Assisted by Claude.
 
 The November 12 stable 18.20.0 refresh preserves the custom OMP file-link
 setting and Arch Chrome attachment fixes; the merge was clean apart from a
