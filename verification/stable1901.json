@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-20",
+  "assistance": "Claude",
+  "omp": {
+    "version": "19.0.1",
+    "build": "stock upstream v19.0.1 release binary installed by the user with omp update",
+    "upstream_tag_commit": "f40f335845",
+    "checks": {
+      "binary": {
+        "version": "omp/19.0.1",
+        "sha256": "6ceef04430851bb1050c6fda3af467412eb44a11df0a6ff8121fe601013c5415",
+        "probe_path": "/home/tmoney/.bun/bin/omp (matches the GitHub release asset digest)"
+      },
+      "smoke_test": "ok"
+    },
+    "consumer_relevant_changes": "model_usage entries gain optional duration/ttft/judgment/completion; custom_message gains excludeFromContext; pi-utils dirs replaces tiny-worker/mnemopi/global-daemon runtime getters with getDaemonDir. Bridge imports (getAgentDir, getSessionsDir, getActiveProfile, VERSION, extension events) unaffected.",
+    "source": "installed by the user via omp update before this refresh; not modified",
+    "fork_status": "custom fork not built, installed or modified"
+  },
+  "omp_update_used": true,
+  "funes": {
+    "branch": "update-stable1901",
+    "revision": "fc3aac564e0ed94637cafe4c0183afc16a7b05ab",
+    "docs_commit": "daa17f3",
+    "upstream_main": "0d00729 (CI-only; merged on the branch as e7c7918 after the pinned revision)",
+    "base": "main (bbe1254)",
+    "fork_fixes": [],
+    "cargo_update_packages": 20,
+    "omp_reader": "unchanged; 1,284-source snapshot same outcomes as b4816cb9 (29 unknown_content_schema)",
+    "tests": {
+      "passed": 436,
+      "suites": 45,
+      "install_script": "scripts/test-install.sh passes under a real /bin/sh; inside the agent harness shell its fake uname is shadowed by an in-process uname builtin, which fails the aarch64 case"
+    },
+    "fmt": "pass",
+    "clippy": "pass (default and onnx)",
+    "installed_executable": "/home/tmoney/.local/lib/funes-source/fc3aac564e0ed94637cafe4c0183afc16a7b05ab/funes",
+    "sha256": "3fd600619df7a4969d1f8b135f1864cf7bb633f1253f16c072806b3fc1b69519",
+    "capabilities_revision_verified": true,
+    "probe_builds": "all probes ran against fc3aac564e0ed94637cafe4c0183afc16a7b05ab"
+  },
+  "bridge": {
+    "pi_utils": "19.0.1",
+    "coding_agent_peer": "19.0.1",
+    "config_tests_passed": 3,
+    "native_root_resolution_cases": 8,
+    "installer_safeguards": {
+      "staleBuildRejectedBeforeWrites": true,
+      "repeatableInstall": true,
+      "repeatableRemoval": true,
+      "unrelatedMcpAndBackendPreserved": true,
+      "transcriptsAndDerivedMemoryPreserved": true,
+      "symlinkAgentWorks": true,
+      "externalSourceSymlinkNotEnrolled": true,
+      "customRootsRequireEnrollment": true,
+      "conflictingOwnershipRejected": true
+    },
+    "benchmark": {
+      "fixtureSessions": 12,
+      "sessions": 12,
+      "sources": 12,
+      "completedMessages": 48,
+      "chunks": 48,
+      "backfillMs": 12661.037327999999,
+      "duringBackfillMs": 1095.1896840000009,
+      "pendingAtArrivalCoverage": 12,
+      "warmUpdateMs": 10044.395979999998,
+      "reopenMs": 2386.2386789999982,
+      "maxIndexerRssKiB": 330216,
+      "maxFunesRssKiB": 1107232,
+      "maxBridgeRssBytes": 79179776,
+      "eventLoopP95Ms": 0.186239,
+      "eventLoopP99Ms": 0.550399,
+      "events": 30,
+      "note": "PROBE_SESSIONS=9 PROBE_MESSAGES=4, 1-min load 7.9 (concurrent Funes test build). maxFunesRssKiB samples every funes process on the host, including a concurrent reader-health pass"
+    },
+    "startup": "EXISTING_INDEX_STARTUP_PASS",
+    "searchable": {
+      "reopen": "searchableMs 3371.6, pendingArchiveSources 0",
+      "running": "searchableMs 10442.9, pendingArchiveSources 0",
+      "note": "both passed on the first attempt"
+    },
+    "native_mcp_live_reader": "PATCHED_NATIVE_MCP_LIVE_READER_PASS",
+    "lifecycle": {
+      "complete": "LIFECYCLE_COMPLETE_PASS",
+      "abort": "LIFECYCLE_ABORT_PASS",
+      "note": "both passed on the first attempt; the complete run held about 30 s on the known message_end durable-barrier hold"
+    },
+    "faults": "partial tail, idempotence, concurrent writer exit 75, live reader during writer, interrupted and final-arrival recovery all passed (separate 5-session fixture root; final chunks 276)",
+    "retries": "6 automatic attempts, persistent failure surfaced, manual retry works (PROBE_CONFIG was the main root funes-bridge.json written by the benchmark)",
+    "isolation": "All probe roots, agent dirs, memory homes, HOME and HF_HOME under fresh /tmp directories via env -i with DO_NOT_TRACK=1 (HF_HOME seeded with only the three Funes models), removed afterwards",
+    "probe_changes": []
+  },
+  "actomasto": {
+    "branch": "update-stable1901",
+    "tests_passed": 434,
+    "funes_revision": "fc3aac564e0ed94637cafe4c0183afc16a7b05ab",
+    "lock_changed": false
+  },
+  "activation": {
+    "bridge_reinstalled": true,
+    "funes_bin": "/home/tmoney/.local/lib/funes-source/fc3aac564e0ed94637cafe4c0183afc16a7b05ab/funes",
+    "other_mcp_entries_unchanged": true,
+    "actomasto_units": "update-stable1901 worktree (unit files, config.toml, briefings.json and refresh wrapper repointed)",
+    "collector": "left stopped and disabled: the user paused and disabled Actomasto and the source-refresh timer earlier on 2026-11-20 and chose to keep them paused",
+    "source_refresh": {
+      "result": "success (one manual run of ~/.local/lib/funes-source/refresh-actomasto; timer left disabled)",
+      "sources": 1316
+    },
+    "memory": {
+      "chunks_before": 18896,
+      "sessions_before": 1196,
+      "chunks": 18932,
+      "sessions": 1201,
+      "note": "the bridge had stopped indexing at 2026-11-19 16:33 UTC on the version mismatch; the first 19.0.1 session resumed indexing"
+    },
+    "live_recall": true,
+    "fresh_session_spawned_new_funes_mcp": true,
+    "briefings_sent": false,
+    "backups": "~/.local/state/omp-funes-updates/stable1901/"
+  },
+  "hugging_face_publishing": false,
+  "memory_uploads_or_remote_binding": false
+}

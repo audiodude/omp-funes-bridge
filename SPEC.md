@@ -111,12 +111,12 @@ verification records below are not evidence for this new cutover.
 
 ### Pinned build
 
-- OMP `18.22.1`, upstream commit `276169d516` (stable release tag `v18.22.1`),
+- OMP `19.0.1`, upstream commit `f40f335845` (stable release tag `v19.0.1`),
   installed as the stock upstream release binary; the custom OMP fork is no
   longer installed.
 - Funes is pinned by the full committed SHA in `src/config.ts` (`FUNES_REVISION`).
   The maintained source is `https://github.com/audiodude/funes.git`; revision
-  `b4816cb91cabf00697fa867eb0d211129aed3d65` is the required build revision.
+  `fc3aac564e0ed94637cafe4c0183afc16a7b05ab` is the required build revision.
   Build it using the commands below or `bun run build:funes`.
   Build and installer require machine capabilities reporting that exact SHA,
   protocol 1, `actomasto-v1` identity, all three harness schemas, and all
@@ -125,6 +125,32 @@ verification records below are not evidence for this new cutover.
   stops indexing until an explicit reinstall.
 - Build toolchain: Bun `1.4.4` (OMP's pin from 18.13.0; now the system Bun),
   LLD, Linux x86-64.
+
+The November 20 stable 19.0.1 refresh follows the user's own `omp update` to
+the stock v19.0.1 release binary (sha256 matches the release asset digest).
+Bridge dependencies match 19.0.1; OMP 19 adds optional `model_usage` fields and
+`custom_message.excludeFromContext`, and replaces some daemon runtime-dir
+getters in `pi-utils` dirs, none of which the bridge uses. Funes is a
+dependency refresh (20 lock entries); on one 1,284-source snapshot both Funes
+builds report the same outcomes (29 `unknown_content_schema`). Bridge
+configuration tests (3), 8 root-resolution cases, backfill/warm/reopen
+(12 sessions: backfill 12.7 s, warm update 10.0 s, reopen 2.4 s),
+existing-index startup, searchable reopen/running, native MCP live reader,
+completed/aborted durable-turn lifecycle, faults, retries and all 9 installer
+safeguards passed against the stock binary with `DO_NOT_TRACK=1`, with no probe
+changes. Funes passed all 436 tests; Actomasto passed 434 tests (no lock
+changes).
+
+The local bridge wiring, Funes executable, collector and briefing unit paths
+and source-refresh wrapper were switched to the updated builds. The Actomasto
+units and the source-refresh timer stay stopped and disabled, as the user
+paused them before the refresh; one manual source refresh succeeded (1,316
+sources). The bridge had stopped indexing on the version mismatch; the new
+Funes read the existing 18,896 chunks across 1,196 sessions, answered a live
+recall, and a fresh 19.0.1 OMP session spawned the new Funes MCP server and
+resumed indexing. No Hugging Face release artifacts were deployed and no
+memory was published. Evidence: `verification/stable1901.json`. Assisted by
+Claude.
 
 The November 17 stable 18.22.1 refresh switches the local install to the
 stock upstream OMP release binary (`gh release download`, digest-checked; not
